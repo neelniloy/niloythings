@@ -1,36 +1,73 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Niloy Kumar Sarker | Product Technologist & CTO
 
-## Getting Started
+![Portfolio Banner](public/og-image.jpg)
 
-First, run the development server:
+> **Engineering at the intersection of product and technology.**  
+> Building resilient, offline-first mobile systems and scalable digital ventures.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Live Portfolio: **[niloythings.com](https://niloythings.com)** _(Coming Soon)_
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🚀 Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This is the official portfolio website for **Niloy Kumar Sarker**, designed to showcase specialized expertise in mobile engineering, product architecture, and enterprise-grade applications. 
 
-## Learn More
+The site is built with a **modern, minimal aesthetic** focusing on performance, accessibility, and fluid user interactions. It features a custom-built utility suite for developers and a detailed showcase of flagship products like **Futuredesh** and **Kormi**.
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Tech Stack
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+*   **Framework**: [Next.js 15 (App Router)](https://nextjs.org/)
+*   **Language**: [TypeScript](https://www.typescriptlang.org/)
+*   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+*   **Animations**: [Framer Motion](https://www.framer.com/motion/)
+*   **Icons**: [Lucide React](https://lucide.dev/)
+*   **Deployment**: [Vercel](https://vercel.com/)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✨ Key Features
 
-## Deploy on Vercel
+*   **Premium Dark UI**: A bespoke "Black & Red" aesthetic with glassmorphism effects.
+*   **Fluid Animations**: Smooth page transitions and micro-interactions powered by Framer Motion.
+*   **Developer Toolkit**: Built-in utilities including JSON Formatter, Base64 Encoder, and UUID Generator.
+*   **Responsive Design**: Fully optimized for mobile, tablet, and ultra-wide desktops.
+*   **Performance**: Static generation for lightning-fast load times.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🏃‍♂️ Getting Started
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+To run this project locally:
+
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/neelniloy/niloythings.git
+    cd niloythings
+    ```
+
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
+
+3.  **Run the development server**
+    ```bash
+    npm run dev
+    ```
+
+4.  Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📦 Deployment
+
+This project is optimized for deployment on **Vercel**:
+
+1.  Push your code to GitHub.
+2.  Import the project into Vercel.
+3.  Vercel will automatically detect the Next.js configuration and deploy.
+
+## 📫 Contact
+
+*   **Email**: [contact@niloythings.com](mailto:contact@niloythings.com)
+*   **LinkedIn**: [linkedin.com/in/niloythings](https://linkedin.com/in/niloythings)
+*   **GitHub**: [@neelniloy](https://github.com/neelniloy)
+
+---
+
+© 2026 Niloy Kumar Sarker. All Rights Reserved.
