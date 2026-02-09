@@ -1,196 +1,127 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { Rocket, Code2, Users, Award, Github, Linkedin, Youtube } from "lucide-react";
-import ExperienceTimeline from "@/components/ExperienceTimeline";
-import TechStack from "@/components/TechStack";
-import MomentsGallery from "@/components/MomentsGallery";
-import VideoShowcase from "@/components/VideoShowcase";
-import GithubStats from "@/components/GithubStats";
+import Link from "next/link";
+import { ArrowRight, MapPin, Mail, Calendar } from "lucide-react";
+import { EXPERIENCES } from "@/lib/data";
 
 export default function AboutPage() {
     return (
-        <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
-            className="min-h-screen"
-        >
-            <div className="container-constrained pt-32 pb-20 space-y-24">
-                {/* Header */}
-                <div className="max-w-4xl space-y-8">
-                    <motion.h1
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1.0, ease: "easeOut" }}
-                        className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight"
-                    >
-                        Engineering at the{" "}
-                        <span className="text-gradient-accent">intersection</span> of
-                        product and technology.
-                    </motion.h1>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 1.0, delay: 0.2, ease: "easeOut" }}
-                        className="text-muted text-lg md:text-xl leading-relaxed"
-                    >
-                        I'm Niloy Kumar Sarker, a mobile and full-stack engineer specializing in building resilient,
-                        offline-first applications. My focus is on creating products that work flawlessly even in
-                        challenging network conditions—combining native performance with modern architecture.
-                    </motion.p>
-                </div>
-
-                {/* Stats Grid */}
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-16">
-                    <StatCard number="60K+" label="Active Users" />
-                    <StatCard number="3+" label="Production Apps" />
-                    <StatCard number="5+" label="Years Experience" />
-                    <StatCard number="100%" label="Client Satisfaction" />
-                </div>
-
-                {/* Highlights */}
-                <div className="grid md:grid-cols-2 gap-8">
-                    <HighlightCard
-                        icon={<Rocket className="w-6 h-6" />}
-                        title="Active Venture"
-                        description="Building specialized software for underserved markets, creating tools that bridge infrastructure gaps and solve real human problems in challenging environments."
-                    />
-                    <HighlightCard
-                        icon={<Code2 className="w-6 h-6" />}
-                        title="Technical Focus"
-                        description="Offline-first mobile architecture, real-time data synchronization, cloud-native backends, and performance optimization for resource-constrained devices."
-                    />
-                </div>
-
-                {/* Tech Stack */}
-                <div className="border-y border-white/5 py-12 bg-white/[0.02]">
-                    <TechStack />
-                </div>
-
-                {/* Experience Timeline */}
-                <div className="space-y-12">
-                    <div className="space-y-4">
-                        <h2 className="text-3xl md:text-5xl font-bold">Professional Journey</h2>
-                        <p className="text-muted text-lg">A timeline of my career milestones and key achievements.</p>
-                    </div>
-                    <ExperienceTimeline />
-                </div>
-
-                {/* Multimedia Grid */}
-                <div className="grid lg:grid-cols-12 gap-12 lg:gap-16">
-                    <div className="lg:col-span-8 space-y-16">
-                        {/* Moments */}
-                        <div className="space-y-8">
-                            <div className="space-y-4">
-                                <h2 className="text-3xl md:text-4xl font-bold">Moments</h2>
-                                <div className="h-1 w-16 bg-primary rounded" />
-                            </div>
-                            <MomentsGallery />
-                        </div>
-
-                        {/* Videos */}
-                        <div className="space-y-8">
-                            <div className="space-y-4">
-                                <h2 className="text-3xl md:text-4xl font-bold text-gradient-accent">
-                                    Content & Talks
-                                </h2>
-                                <p className="text-muted">Technical deep-dives and project showcases.</p>
-                            </div>
-                            <VideoShowcase />
+        <div className="min-h-screen">
+            {/* Hero */}
+            <section className="container-wide pt-32 pb-20">
+                <div className="grid lg:grid-cols-2 gap-16 items-start">
+                    <div>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8">
+                            Hey, I&apos;m <span className="text-accent">Niloy</span> 👋
+                        </h1>
+                        <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+                            I&apos;m a CTO and product builder based in Bangladesh. I lead engineering teams
+                            and build products that scale — with a focus on mobile-first experiences
+                            and offline-first architecture.
+                        </p>
+                        <div className="flex flex-wrap gap-4 text-muted-foreground">
+                            <span className="flex items-center gap-2">
+                                <MapPin className="w-4 h-4" /> Bangladesh
+                            </span>
+                            <span className="flex items-center gap-2">
+                                <Mail className="w-4 h-4" /> hello@niloy.dev
+                            </span>
                         </div>
                     </div>
 
-                    {/* Sidebar */}
-                    <aside className="lg:col-span-4 space-y-8">
-                        {/* Current Focus */}
-                        <div className="glass-card p-8 rounded-2xl border border-white/10 space-y-6 sticky top-24">
-                            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
-                                <Rocket className="w-6 h-6 text-primary" />
-                            </div>
-                            <div className="space-y-3">
-                                <h3 className="text-xl font-bold">Current Focus</h3>
-                                <p className="text-muted text-sm leading-relaxed">
-                                    Building production-grade Flutter applications with advanced offline capabilities
-                                    and exploring edge computing for mobile platforms.
-                                </p>
-                            </div>
+                    {/* Stats Card */}
+                    <div className="card p-8">
+                        <h3 className="text-lg font-bold mb-6">Quick Stats</h3>
+                        <div className="grid grid-cols-2 gap-6">
+                            <StatItem number="60K+" label="Active Users" />
+                            <StatItem number="10+" label="Products" />
+                            <StatItem number="5+" label="Years" />
+                            <StatItem number="3" label="Companies" />
                         </div>
-
-                        {/* Certifications */}
-                        <div className="space-y-4">
-                            <h3 className="text-lg font-bold">Achievements</h3>
-                            <div className="grid gap-3">
-                                <BadgeItem
-                                    label="Google Cloud Certified"
-                                    icon={<Award className="w-4 h-4 text-primary" />}
-                                />
-                                <BadgeItem
-                                    label="AWS Solutions Architect"
-                                    icon={<Award className="w-4 h-4 text-primary" />}
-                                />
-                                <BadgeItem
-                                    label="Flutter Expert"
-                                    icon={<Code2 className="w-4 h-4 text-primary" />}
-                                />
-                            </div>
-                        </div>
-
-                        {/* GitHub Stats - Only if available */}
-                        <GithubStats />
-                    </aside>
+                    </div>
                 </div>
-            </div>
-        </motion.div>
+            </section>
+
+            {/* What I Believe */}
+            <section className="bg-muted py-20">
+                <div className="container-wide">
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
+                        What I Believe
+                    </h2>
+                    <div className="grid md:grid-cols-3 gap-8">
+                        <BeliefCard
+                            title="Build for Real People"
+                            description="Technology should solve real problems, not create new ones. I focus on products that make a tangible difference."
+                        />
+                        <BeliefCard
+                            title="Offline-First Always"
+                            description="Connectivity is a privilege. I build systems that work seamlessly regardless of network conditions."
+                        />
+                        <BeliefCard
+                            title="Ship, Learn, Iterate"
+                            description="Perfection is the enemy of progress. Get it out, get feedback, make it better."
+                        />
+                    </div>
+                </div>
+            </section>
+
+            {/* Experience */}
+            <section className="container-wide py-20">
+                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
+                    Experience
+                </h2>
+                <div className="space-y-8">
+                    {EXPERIENCES.map((exp) => (
+                        <div key={exp.company} className="card p-8">
+                            <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
+                                <div>
+                                    <h3 className="text-xl font-bold">{exp.company}</h3>
+                                    <p className="text-primary font-medium">{exp.role}</p>
+                                </div>
+                                <span className="flex items-center gap-2 text-sm text-muted-foreground">
+                                    <Calendar className="w-4 h-4" /> {exp.period}
+                                </span>
+                            </div>
+                            <p className="text-muted-foreground">{exp.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* CTA */}
+            <section className="container-wide py-20 border-t border-border">
+                <div className="max-w-2xl">
+                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                        Let&apos;s Connect
+                    </h2>
+                    <p className="text-xl text-muted-foreground mb-8">
+                        I&apos;m open to advisory roles, technical partnerships, and conversations
+                        about building impactful products.
+                    </p>
+                    <Link href="mailto:hello@niloy.dev" className="btn-primary">
+                        Get in Touch
+                        <ArrowRight className="w-5 h-5" />
+                    </Link>
+                </div>
+            </section>
+        </div>
     );
 }
 
-function StatCard({ number, label }: { number: string; label: string }) {
+function StatItem({ number, label }: { number: string; label: string }) {
     return (
-        <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="p-6 rounded-2xl bg-gradient-to-br from-white/5 to-transparent border border-white/10 text-center"
-        >
-            <div className="text-3xl md:text-4xl font-bold text-gradient-accent">{number}</div>
-            <div className="text-muted text-sm mt-2">{label}</div>
-        </motion.div>
+        <div>
+            <p className="text-3xl font-bold text-accent">{number}</p>
+            <p className="text-sm text-muted-foreground">{label}</p>
+        </div>
     );
 }
 
-function HighlightCard({
-    icon,
-    title,
-    description,
-}: {
-    icon: React.ReactNode;
-    title: string;
-    description: string;
-}) {
+function BeliefCard({ title, description }: { title: string; description: string }) {
     return (
-        <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="p-8 rounded-2xl glass-card border border-white/10 space-y-4"
-        >
-            <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
-                {icon}
-            </div>
-            <div className="space-y-3">
-                <h3 className="text-xl font-bold">{title}</h3>
-                <p className="text-muted leading-relaxed">{description}</p>
-            </div>
-        </motion.div>
-    );
-}
-
-function BadgeItem({ label, icon }: { label: string; icon: React.ReactNode }) {
-    return (
-        <div className="flex items-center justify-between p-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all group cursor-default">
-            <span className="text-sm font-semibold">{label}</span>
-            <div className="group-hover:scale-110 transition-transform">{icon}</div>
+        <div className="card p-8">
+            <h3 className="text-xl font-bold mb-4">{title}</h3>
+            <p className="text-muted-foreground leading-relaxed">{description}</p>
         </div>
     );
 }

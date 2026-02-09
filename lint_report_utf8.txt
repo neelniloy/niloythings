@@ -1,0 +1,63 @@
+﻿
+C:\Users\Hp\AntigravityProject\niloythings\app\about\page.tsx
+   4:25  warning  'Users' is defined but never used                                @typescript-eslint/no-unused-vars
+   4:39  warning  'Github' is defined but never used                               @typescript-eslint/no-unused-vars
+   4:47  warning  'Linkedin' is defined but never used                             @typescript-eslint/no-unused-vars
+   4:57  warning  'Youtube' is defined but never used                              @typescript-eslint/no-unused-vars
+   4:66  warning  'ExternalLink' is defined but never used                         @typescript-eslint/no-unused-vars
+   5:8   warning  'Link' is defined but never used                                 @typescript-eslint/no-unused-vars
+   9:8   warning  'GithubStats' is defined but never used                          @typescript-eslint/no-unused-vars
+  58:26  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Hp\AntigravityProject\niloythings\app\layout.tsx
+  5:8  warning  'MotionProvider' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Hp\AntigravityProject\niloythings\app\page.tsx
+    3:8   warning  'Image' is defined but never used                                @typescript-eslint/no-unused-vars
+    6:8   warning  'SocialLinks' is defined but never used                          @typescript-eslint/no-unused-vars
+   63:16  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  208:18  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  212:42  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Hp\AntigravityProject\niloythings\app\tools\page.tsx
+   10:10  warning  'Badge' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           @typescript-eslint/no-unused-vars
+  225:18  warning  'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+  277:18  warning  'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+  331:18  warning  'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               @typescript-eslint/no-unused-vars
+  439:27  error    'l' is never reassigned. Use 'const' instead                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                prefer-const
+  487:48  error    Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\Hp\AntigravityProject\niloythings\app\tools\page.tsx:487:48
+  485 |
+  486 | function TimestampTool() {
+> 487 |     const [timestamp, setTimestamp] = useState(Date.now());
+      |                                                ^^^^^^^^^^ Cannot call impure function
+  488 |     const [date, setDate] = useState(new Date().toISOString());
+  489 |
+  490 |     const convertToDate = () => {  react-hooks/purity
+
+C:\Users\Hp\AntigravityProject\niloythings\app\work\page.tsx
+    6:10   warning  'ArrowUpRight' is defined but never used                         @typescript-eslint/no-unused-vars
+    6:57   warning  'ExternalLink' is defined but never used                         @typescript-eslint/no-unused-vars
+   30:88   error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   30:112  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+   86:10   warning  'Button' is defined but never used                               @typescript-eslint/no-unused-vars
+  155:10   warning  'ExperienceView' is defined but never used                       @typescript-eslint/no-unused-vars
+
+C:\Users\Hp\AntigravityProject\niloythings\components\ExperienceTimeline.tsx
+  3:21  warning  'Building2' is defined but never used  @typescript-eslint/no-unused-vars
+  3:42  warning  'Target' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\Hp\AntigravityProject\niloythings\components\Footer.tsx
+  2:37  warning  'Mail' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Hp\AntigravityProject\niloythings\components\PhilosophySection.tsx
+   4:10  warning  'Code2' is defined but never used                                @typescript-eslint/no-unused-vars
+   4:22  warning  'Users' is defined but never used                                @typescript-eslint/no-unused-vars
+   4:29  warning  'Target' is defined but never used                               @typescript-eslint/no-unused-vars
+  42:26  error    `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+Γ£û 33 problems (9 errors, 24 warnings)
+

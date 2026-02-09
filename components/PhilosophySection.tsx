@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code2, Zap, Users, Target, Shield, Cpu, Sparkles, Orbit } from "lucide-react";
+import { Zap, Shield, Cpu, Sparkles, Orbit } from "lucide-react";
 
 const principles = [
     {
@@ -36,10 +36,10 @@ export default function PhilosophySection() {
             <div className="flex flex-col md:flex-row items-baseline justify-between gap-4">
                 <div className="space-y-4">
                     <h2 className="text-4xl font-black tracking-tighter">The Mandate.</h2>
-                    <p className="text-muted tracking-[0.4em] uppercase text-[10px] font-bold">Engineering Philosophy</p>
+                    <p className="text-muted-foreground tracking-[0.4em] uppercase text-[10px] font-bold">Engineering Philosophy</p>
                 </div>
-                <p className="text-muted text-sm max-w-sm leading-relaxed border-l border-white/10 pl-6">
-                    I don't just build apps. I build technical foundations that empower ventures to scale with zero friction.
+                <p className="text-muted-foreground text-sm max-w-sm leading-relaxed border-l border-border pl-6">
+                    I don&apos;t just build apps. I build technical foundations that empower ventures to scale with zero friction.
                 </p>
             </div>
 
@@ -51,18 +51,18 @@ export default function PhilosophySection() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6, delay: index * 0.1 }}
-                        className="group relative p-10 rounded-[2.5rem] glass border border-white/5 overflow-hidden transition-all hover:border-primary/20"
+                        className="group relative p-10 rounded-[2.5rem] glass border border-glass-border overflow-hidden transition-all hover:border-primary/20"
                     >
                         {/* Background Glow */}
                         <div className={`absolute -top-24 -right-24 w-48 h-48 ${principle.accent} opacity-0 blur-[80px] group-hover:opacity-10 transition-opacity duration-700`} />
 
                         <div className="relative z-10 space-y-6">
-                            <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-white group-hover:text-primary group-hover:bg-primary/10 transition-all duration-500">
+                            <div className="w-14 h-14 rounded-2xl bg-muted/10 border border-border flex items-center justify-center text-foreground group-hover:text-primary group-hover:bg-primary/10 transition-all duration-500">
                                 {principle.icon}
                             </div>
                             <div className="space-y-3">
                                 <h3 className="text-xl font-bold tracking-tight">{principle.title}</h3>
-                                <p className="text-muted text-sm leading-relaxed group-hover:text-white/70 transition-colors">
+                                <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-foreground/80 transition-colors">
                                     {principle.description}
                                 </p>
                             </div>

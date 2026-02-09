@@ -1,0 +1,43 @@
+﻿
+C:\Users\Hp\AntigravityProject\niloythings\app\layout.tsx
+  5:8  warning  'MotionProvider' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Hp\AntigravityProject\niloythings\app\page.tsx
+  207:18  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+  211:42  error  `'` can be escaped with `&apos;`, `&lsquo;`, `&#39;`, `&rsquo;`  react/no-unescaped-entities
+
+C:\Users\Hp\AntigravityProject\niloythings\app\tools\page.tsx
+  224:18  warning  'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      @typescript-eslint/no-unused-vars
+  276:18  warning  'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      @typescript-eslint/no-unused-vars
+  330:18  warning  'e' is defined but never used                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      @typescript-eslint/no-unused-vars
+  492:9   error    Error: Calling setState synchronously within an effect can trigger cascading renders
+
+Effects are intended to synchronize state between React and external systems such as manually updating the DOM, state management libraries, or other platform APIs. In general, the body of an effect should do one or both of the following:
+* Update external systems with the latest state from React.
+* Subscribe for updates from some external system, calling setState in a callback function when external state changes.
+
+Calling setState synchronously within an effect body causes cascading renders that can hurt performance, and is not recommended. (https://react.dev/learn/you-might-not-need-an-effect).
+
+C:\Users\Hp\AntigravityProject\niloythings\app\tools\page.tsx:492:9
+  490 |     useEffect(() => {
+  491 |         const now = Date.now();
+> 492 |         setTimestamp(now);
+      |         ^^^^^^^^^^^^ Avoid calling setState() directly within an effect
+  493 |         setDate(new Date(now).toISOString());
+  494 |     }, []);
+  495 |  react-hooks/set-state-in-effect
+
+C:\Users\Hp\AntigravityProject\niloythings\app\work\page.tsx
+    6:10  warning  'ArrowUpRight' is defined but never used    @typescript-eslint/no-unused-vars
+   86:10  warning  'Button' is defined but never used          @typescript-eslint/no-unused-vars
+  155:10  warning  'ExperienceView' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Hp\AntigravityProject\niloythings\components\ExperienceTimeline.tsx
+  3:21  warning  'Building2' is defined but never used  @typescript-eslint/no-unused-vars
+  3:42  warning  'Target' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\Hp\AntigravityProject\niloythings\components\Footer.tsx
+  2:37  warning  'Mail' is defined but never used  @typescript-eslint/no-unused-vars
+
+Γ£û 13 problems (3 errors, 10 warnings)
+

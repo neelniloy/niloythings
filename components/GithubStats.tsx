@@ -24,7 +24,7 @@ export default function GithubStats() {
         <div className="bg-card border border-border rounded-3xl p-8 space-y-8">
             <div className="flex items-center justify-between">
                 <h2 className="text-2xl font-bold flex items-center gap-3">
-                    <span className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white">
+                    <span className="w-8 h-8 rounded-full bg-muted/10 flex items-center justify-center text-foreground">
                         <svg
                             viewBox="0 0 24 24"
                             width="20"
@@ -44,7 +44,7 @@ export default function GithubStats() {
                     href="https://github.com/neelniloy"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sm text-muted hover:text-white transition-colors"
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                     @neelniloy ↗
                 </a>
@@ -54,11 +54,11 @@ export default function GithubStats() {
                 {stats.map((s) => (
                     <div
                         key={s.label}
-                        className="flex flex-col items-center justify-center p-4 bg-white/5 rounded-2xl text-center space-y-2 hover:bg-white/10 transition-colors"
+                        className="flex flex-col items-center justify-center p-4 bg-muted/10 rounded-2xl text-center space-y-2 hover:bg-muted/20 transition-colors"
                     >
                         {s.icon}
                         <span className="text-2xl font-bold">{s.value}</span>
-                        <span className="text-xs text-muted uppercase tracking-wider">
+                        <span className="text-xs text-muted-foreground uppercase tracking-wider">
                             {s.label}
                         </span>
                     </div>
@@ -66,7 +66,7 @@ export default function GithubStats() {
             </div>
 
             <div className="space-y-4">
-                <h3 className="text-sm font-medium text-muted uppercase tracking-wider">
+                <h3 className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
                     Top Projects
                 </h3>
                 <div className="grid gap-3">
@@ -92,20 +92,20 @@ function RepoCard({ name, desc, lang, stars }: RepoCardProps) {
             href={`https://github.com/neelniloy`}
             target="_blank"
             rel="noopener noreferrer"
-            className="block p-4 rounded-xl border border-white/5 hover:border-white/20 hover:bg-white/5 transition-all group"
+            className="block p-4 rounded-xl border border-border hover:border-foreground/20 hover:bg-muted/10 transition-all group"
         >
             <div className="flex items-center justify-between mb-1">
                 <span className="font-semibold group-hover:text-blue-400 transition-colors">
                     {name}
                 </span>
-                <div className="flex items-center gap-1 text-xs text-muted">
+                <div className="flex items-center gap-1 text-xs text-muted-foreground">
                     <Star className="w-3 h-3" /> {stars}
                 </div>
             </div>
-            <p className="text-sm text-muted line-clamp-1">{desc}</p>
+            <p className="text-sm text-muted-foreground line-clamp-1">{desc}</p>
             <div className="mt-3 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-blue-400" />
-                <span className="text-xs text-muted">{lang}</span>
+                <span className="text-xs text-muted-foreground">{lang}</span>
             </div>
         </a>
     );

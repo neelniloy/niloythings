@@ -34,7 +34,7 @@ export default function MomentsGallery() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7, delay: i * 0.1 }}
-                    className={`relative group rounded-[2.5rem] overflow-hidden border border-white/5 bg-neutral-900 shadow-2xl ${m.span}`}
+                    className={`relative group rounded-[2.5rem] overflow-hidden border border-border bg-neutral-900 shadow-2xl ${m.span}`}
                 >
                     <Image
                         src={m.src}

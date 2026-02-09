@@ -1,0 +1,30 @@
+﻿
+C:\Users\Hp\AntigravityProject\niloythings\app\layout.tsx
+  5:8  warning  'MotionProvider' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Hp\AntigravityProject\niloythings\app\tools\page.tsx
+  253:34  error  Error: Cannot call impure function during render
+
+`Date.now` is an impure function. Calling an impure function can produce unstable results that update unpredictably when the component happens to re-render. (https://react.dev/reference/rules/components-and-hooks-must-be-pure#components-and-hooks-must-be-idempotent).
+
+C:\Users\Hp\AntigravityProject\niloythings\app\tools\page.tsx:253:34
+  251 |
+  252 | function TimestampTool() {
+> 253 |     const [ts, setTs] = useState(Date.now().toString());
+      |                                  ^^^^^^^^^^ Cannot call impure function
+  254 |     const [date, setDate] = useState("");
+  255 |
+  256 |     const convert = () => {  react-hooks/purity
+
+C:\Users\Hp\AntigravityProject\niloythings\app\work\page.tsx
+  6:20  warning  'EXPERIENCES' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Hp\AntigravityProject\niloythings\components\ExperienceTimeline.tsx
+  3:21  warning  'Building2' is defined but never used  @typescript-eslint/no-unused-vars
+  3:42  warning  'Target' is defined but never used     @typescript-eslint/no-unused-vars
+
+C:\Users\Hp\AntigravityProject\niloythings\components\Footer.tsx
+  1:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+Γ£û 6 problems (1 error, 5 warnings)
+

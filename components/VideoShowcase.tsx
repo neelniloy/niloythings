@@ -64,7 +64,7 @@ export default function VideoShowcase() {
     }, []);
 
     if (loading) return (
-        <div className="py-20 flex flex-col items-center gap-4 text-muted animate-pulse">
+        <div className="py-20 flex flex-col items-center gap-4 text-muted-foreground animate-pulse">
             <Loader2 className="w-8 h-8 animate-spin text-primary" />
             <span className="text-xs font-bold uppercase tracking-widest">Hydrating Studio Feed...</span>
         </div>
@@ -76,8 +76,8 @@ export default function VideoShowcase() {
                 <h3 className="font-black text-primary flex items-center gap-3 uppercase tracking-tighter text-2xl">
                     <AlertCircle className="w-6 h-6" /> Feed Restricted
                 </h3>
-                <p className="text-muted leading-relaxed max-w-lg">{error}</p>
-                <a href="https://youtube.com/@niloythings" target="_blank" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white border-b border-primary/40 pb-1">Visit Channel Manually <ArrowUpRight className="w-3 h-3" /></a>
+                <p className="text-muted-foreground leading-relaxed max-w-lg">{error}</p>
+                <a href="https://youtube.com/@niloythings" target="_blank" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground border-b border-primary/40 pb-1">Visit Channel Manually <ArrowUpRight className="w-3 h-3" /></a>
             </div>
         );
     }
@@ -87,12 +87,12 @@ export default function VideoShowcase() {
             <div className="flex flex-col md:flex-row justify-between items-baseline gap-4">
                 <div className="space-y-4">
                     <h2 className="text-4xl font-black tracking-tighter">Studio Feed.</h2>
-                    <p className="text-muted tracking-[0.4em] uppercase text-[10px] font-bold">Latest via @niloythings</p>
+                    <p className="text-muted-foreground tracking-[0.4em] uppercase text-[10px] font-bold">Latest via @niloythings</p>
                 </div>
                 <a
                     href="https://youtube.com/@niloythings"
                     target="_blank"
-                    className="text-[10px] font-black uppercase tracking-widest px-8 py-4 glass border border-white/10 rounded-full hover:bg-primary hover:text-white transition-all shadow-lg hover:shadow-primary/20"
+                    className="text-[10px] font-black uppercase tracking-widest px-8 py-4 glass border border-glass-border rounded-full hover:bg-primary hover:text-white transition-all shadow-lg hover:shadow-primary/20"
                 >
                     View Full Archive
                 </a>
@@ -110,7 +110,7 @@ export default function VideoShowcase() {
                         transition={{ duration: 0.6, delay: index * 0.1 }}
                         className="group block space-y-6"
                     >
-                        <div className="relative aspect-video rounded-[2rem] overflow-hidden border border-white/5 bg-neutral-900 group-hover:border-primary/30 transition-all duration-500 shadow-2xl">
+                        <div className="relative aspect-video rounded-[2rem] overflow-hidden border border-border bg-neutral-900 group-hover:border-primary/30 transition-all duration-500 shadow-2xl">
                             <Image
                                 src={video.thumbnail}
                                 alt={video.title}
@@ -132,10 +132,10 @@ export default function VideoShowcase() {
                         </div>
 
                         <div className="space-y-2 px-2">
-                            <h3 className="font-bold text-lg leading-tight line-clamp-2 group-hover:text-primary transition-colors text-white/90">
+                            <h3 className="font-bold text-lg leading-tight line-clamp-2 group-hover:text-primary transition-colors text-foreground/90">
                                 {video.title}
                             </h3>
-                            <p className="text-[10px] font-bold text-muted uppercase tracking-widest">
+                            <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
                                 {new Date(video.publishedAt).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })}
                             </p>
                         </div>
