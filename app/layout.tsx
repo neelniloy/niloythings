@@ -66,7 +66,7 @@ export default function RootLayout({
 
           <Navbar />
           <div className="flex flex-col min-h-screen">
-            <main className="flex-1 w-full overflow-x-hidden selection:bg-primary selection:text-white">
+            <main className="flex-1 w-full overflow-x-hidden selection:bg-primary selection:text-white pt-20">
               {children}
             </main>
             <Footer />

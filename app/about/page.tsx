@@ -1,127 +1,204 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, MapPin, Mail, Calendar } from "lucide-react";
-import { EXPERIENCES } from "@/lib/data";
+import { ArrowRight, MapPin, Mail } from "lucide-react";
+import { motion, useInView } from "framer-motion";
+import { useRef, useState, useEffect } from "react";
+import {
+    fadeUp,
+    fadeRight,
+    staggerContainer,
+    staggerItem,
+    sectionViewport,
+} from "@/lib/useAnimations";
+
+import TechStack from "@/components/TechStack";
+import PhilosophySection from "@/components/PhilosophySection";
+import GithubStats from "@/components/GithubStats";
+import VideoShowcase from "@/components/VideoShowcase";
+import MomentsGallery from "@/components/MomentsGallery";
+import SocialLinks from "@/components/SocialLinks";
 
 export default function AboutPage() {
     return (
         <div className="min-h-screen">
             {/* Hero */}
-            <section className="container-wide pt-32 pb-20">
+            <section className="container-wide pt-12 pb-20">
                 <div className="grid lg:grid-cols-2 gap-16 items-start">
-                    <div>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8">
-                            Hey, I&apos;m <span className="text-accent">Niloy</span> 👋
-                        </h1>
-                        <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={staggerContainer}
+                    >
+                        <motion.h1
+                            variants={staggerItem}
+                            className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-8"
+                        >
+                            Hey, I&apos;m <span className="gradient-text">Niloy</span> 👋
+                        </motion.h1>
+                        <motion.p
+                            variants={staggerItem}
+                            className="text-xl text-muted-foreground leading-relaxed mb-8"
+                        >
                             I&apos;m a CTO and product builder based in Bangladesh. I lead engineering teams
                             and build products that scale — with a focus on mobile-first experiences
                             and offline-first architecture.
-                        </p>
-                        <div className="flex flex-wrap gap-4 text-muted-foreground">
+                        </motion.p>
+                        <motion.div variants={staggerItem} className="flex flex-wrap gap-4 text-muted-foreground">
                             <span className="flex items-center gap-2">
                                 <MapPin className="w-4 h-4" /> Bangladesh
                             </span>
                             <span className="flex items-center gap-2">
                                 <Mail className="w-4 h-4" /> hello@niloy.dev
                             </span>
-                        </div>
-                    </div>
+                        </motion.div>
+                    </motion.div>
 
                     {/* Stats Card */}
-                    <div className="card p-8">
+                    <motion.div
+                        className="card p-8"
+                        initial="hidden"
+                        animate="visible"
+                        variants={fadeRight}
+                        custom={0.3}
+                    >
                         <h3 className="text-lg font-bold mb-6">Quick Stats</h3>
                         <div className="grid grid-cols-2 gap-6">
-                            <StatItem number="60K+" label="Active Users" />
-                            <StatItem number="10+" label="Products" />
-                            <StatItem number="5+" label="Years" />
-                            <StatItem number="3" label="Companies" />
+                            <AnimatedMiniStat number={60} suffix="K+" label="Active Users" />
+                            <AnimatedMiniStat number={10} suffix="+" label="Products" />
+                            <AnimatedMiniStat number={5} suffix="+" label="Years" />
+                            <AnimatedMiniStat number={3} suffix="" label="Companies" />
                         </div>
-                    </div>
+                    </motion.div>
                 </div>
             </section>
 
-            {/* What I Believe */}
-            <section className="bg-muted py-20">
-                <div className="container-wide">
-                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
-                        What I Believe
-                    </h2>
-                    <div className="grid md:grid-cols-3 gap-8">
-                        <BeliefCard
-                            title="Build for Real People"
-                            description="Technology should solve real problems, not create new ones. I focus on products that make a tangible difference."
-                        />
-                        <BeliefCard
-                            title="Offline-First Always"
-                            description="Connectivity is a privilege. I build systems that work seamlessly regardless of network conditions."
-                        />
-                        <BeliefCard
-                            title="Ship, Learn, Iterate"
-                            description="Perfection is the enemy of progress. Get it out, get feedback, make it better."
-                        />
-                    </div>
-                </div>
-            </section>
+            {/* Tech Stack Marquee */}
+            <motion.div
+                className="py-8"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+            >
+                <TechStack />
+            </motion.div>
 
-            {/* Experience */}
-            <section className="container-wide py-20">
-                <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-12">
-                    Experience
-                </h2>
-                <div className="space-y-8">
-                    {EXPERIENCES.map((exp) => (
-                        <div key={exp.company} className="card p-8">
-                            <div className="flex flex-wrap items-start justify-between gap-4 mb-4">
-                                <div>
-                                    <h3 className="text-xl font-bold">{exp.company}</h3>
-                                    <p className="text-primary font-medium">{exp.role}</p>
-                                </div>
-                                <span className="flex items-center gap-2 text-sm text-muted-foreground">
-                                    <Calendar className="w-4 h-4" /> {exp.period}
-                                </span>
-                            </div>
-                            <p className="text-muted-foreground">{exp.description}</p>
-                        </div>
-                    ))}
+            {/* Engineering Philosophy */}
+            <motion.section
+                className="container-wide py-24"
+                initial="hidden"
+                whileInView="visible"
+                viewport={sectionViewport}
+                variants={fadeUp}
+                custom={0}
+            >
+                <PhilosophySection />
+            </motion.section>
+
+            {/* GitHub / Open Source */}
+            <motion.section
+                className="container-wide py-24 border-t border-border"
+                initial="hidden"
+                whileInView="visible"
+                viewport={sectionViewport}
+                variants={fadeUp}
+                custom={0}
+            >
+                <GithubStats />
+            </motion.section>
+
+            {/* Studio Feed (YouTube) */}
+            <motion.section
+                className="container-wide py-24 border-t border-border"
+                initial="hidden"
+                whileInView="visible"
+                viewport={sectionViewport}
+                variants={fadeUp}
+                custom={0}
+            >
+                <VideoShowcase />
+            </motion.section>
+
+            {/* Achievements Gallery */}
+            <motion.section
+                className="container-wide py-24 border-t border-border"
+                initial="hidden"
+                whileInView="visible"
+                viewport={sectionViewport}
+                variants={fadeUp}
+                custom={0}
+            >
+                <div className="space-y-4 mb-16">
+                    <h2 className="text-4xl font-black tracking-tighter">Achievements & Moments</h2>
+                    <p className="text-muted-foreground text-sm max-w-lg">
+                        Highlights from conferences, awards, and community involvement.
+                    </p>
                 </div>
-            </section>
+                <MomentsGallery />
+            </motion.section>
 
             {/* CTA */}
-            <section className="container-wide py-20 border-t border-border">
+            <motion.section
+                className="container-wide py-24 border-t border-border"
+                initial="hidden"
+                whileInView="visible"
+                viewport={sectionViewport}
+                variants={staggerContainer}
+            >
                 <div className="max-w-2xl">
-                    <h2 className="text-3xl md:text-4xl font-bold tracking-tight mb-6">
+                    <motion.h2
+                        variants={staggerItem}
+                        className="text-3xl md:text-4xl font-bold tracking-tight mb-6"
+                    >
                         Let&apos;s Connect
-                    </h2>
-                    <p className="text-xl text-muted-foreground mb-8">
+                    </motion.h2>
+                    <motion.p
+                        variants={staggerItem}
+                        className="text-xl text-muted-foreground mb-10"
+                    >
                         I&apos;m open to advisory roles, technical partnerships, and conversations
                         about building impactful products.
-                    </p>
-                    <Link href="mailto:hello@niloy.dev" className="btn-primary">
-                        Get in Touch
-                        <ArrowRight className="w-5 h-5" />
-                    </Link>
+                    </motion.p>
+                    <motion.div variants={staggerItem} className="flex flex-wrap items-center gap-6">
+                        <Link href="mailto:hello@niloy.dev" className="btn-primary">
+                            Get in Touch
+                            <ArrowRight className="w-5 h-5" />
+                        </Link>
+                        <SocialLinks />
+                    </motion.div>
                 </div>
-            </section>
+            </motion.section>
         </div>
     );
 }
 
-function StatItem({ number, label }: { number: string; label: string }) {
+function AnimatedMiniStat({ number, suffix, label }: { number: number; suffix: string; label: string }) {
+    const ref = useRef<HTMLDivElement>(null);
+    const isInView = useInView(ref, { once: true });
+    const [count, setCount] = useState(0);
+
+    useEffect(() => {
+        if (!isInView) return;
+        let start = 0;
+        const duration = 1200;
+        const step = Math.ceil(number / (duration / 16));
+        const timer = setInterval(() => {
+            start += step;
+            if (start >= number) {
+                setCount(number);
+                clearInterval(timer);
+            } else {
+                setCount(start);
+            }
+        }, 16);
+        return () => clearInterval(timer);
+    }, [isInView, number]);
+
     return (
-        <div>
-            <p className="text-3xl font-bold text-accent">{number}</p>
+        <div ref={ref}>
+            <p className="text-3xl font-bold text-accent">{isInView ? count : 0}{suffix}</p>
             <p className="text-sm text-muted-foreground">{label}</p>
-        </div>
-    );
-}
-
-function BeliefCard({ title, description }: { title: string; description: string }) {
-    return (
-        <div className="card p-8">
-            <h3 className="text-xl font-bold mb-4">{title}</h3>
-            <p className="text-muted-foreground leading-relaxed">{description}</p>
         </div>
     );
 }

@@ -2,6 +2,16 @@
 
 import { useState } from "react";
 import { X, Trash2, FileJson, Link2, Hash, Palette, Clock, Key, Type, Copy, Check } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+    fadeUp,
+    staggerContainer,
+    staggerItem,
+    scaleIn,
+    backdropVariants,
+    modalVariants,
+    sectionViewport,
+} from "@/lib/useAnimations";
 
 type ToolType = "cleaner" | "json" | "base64" | "url" | "hash" | "color" | "timestamp" | "uuid" | null;
 
@@ -21,40 +31,67 @@ export default function ToolsPage() {
 
     return (
         <div className="min-h-screen">
-            <div className="container-wide pt-32 pb-24">
-                <div className="max-w-3xl mb-16">
-                    <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">
+            <div className="container-wide pt-12 pb-24">
+                <motion.div
+                    className="max-w-3xl mb-16"
+                    initial="hidden"
+                    animate="visible"
+                    variants={staggerContainer}
+                >
+                    <motion.h1
+                        variants={staggerItem}
+                        className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
+                    >
                         Developer Tools
-                    </h1>
-                    <p className="text-xl text-muted-foreground">
+                    </motion.h1>
+                    <motion.p
+                        variants={staggerItem}
+                        className="text-xl text-muted-foreground"
+                    >
                         Utilities I use daily. Free and open.
-                    </p>
-                </div>
+                    </motion.p>
+                </motion.div>
 
-                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {tools.map((tool) => {
+                <motion.div
+                    className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={sectionViewport}
+                    variants={staggerContainer}
+                >
+                    {tools.map((tool, index) => {
                         const Icon = tool.icon;
                         return (
-                            <button
+                            <motion.button
                                 key={tool.id}
                                 onClick={() => setActiveTool(tool.id as ToolType)}
                                 className="card p-6 text-left group"
+                                variants={scaleIn}
+                                custom={index * 0.05}
+                                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+                                whileTap={{ scale: 0.98 }}
                             >
-                                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4 group-hover:scale-110 transition-transform">
+                                <motion.div
+                                    className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4"
+                                    whileHover={{ scale: 1.15, rotate: -8 }}
+                                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                                >
                                     <Icon className="w-6 h-6" />
-                                </div>
+                                </motion.div>
                                 <h3 className="font-bold mb-1">{tool.title}</h3>
                                 <p className="text-sm text-muted-foreground">{tool.description}</p>
-                            </button>
+                            </motion.button>
                         );
                     })}
-                </div>
+                </motion.div>
             </div>
 
             {/* Tool Modal */}
-            {activeTool && (
-                <ToolModal tool={activeTool} onClose={() => setActiveTool(null)} />
-            )}
+            <AnimatePresence>
+                {activeTool && (
+                    <ToolModal tool={activeTool} onClose={() => setActiveTool(null)} />
+                )}
+            </AnimatePresence>
         </div>
     );
 }
@@ -62,14 +99,29 @@ export default function ToolsPage() {
 function ToolModal({ tool, onClose }: { tool: ToolType; onClose: () => void }) {
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            <div className="absolute inset-0 bg-background/95 backdrop-blur-sm" onClick={onClose} />
-            <div className="relative w-full max-w-xl card p-8">
-                <button
+            <motion.div
+                className="absolute inset-0 bg-background/95 backdrop-blur-sm"
+                onClick={onClose}
+                variants={backdropVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+            />
+            <motion.div
+                className="relative w-full max-w-xl card p-8"
+                variants={modalVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+            >
+                <motion.button
                     onClick={onClose}
                     className="absolute top-4 right-4 w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground"
+                    whileHover={{ scale: 1.1, rotate: 90 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
                 >
                     <X className="w-5 h-5" />
-                </button>
+                </motion.button>
                 <div className="pt-4">
                     {tool === "cleaner" && <TextCleanerTool />}
                     {tool === "json" && <JsonFormatterTool />}
@@ -80,7 +132,7 @@ function ToolModal({ tool, onClose }: { tool: ToolType; onClose: () => void }) {
                     {tool === "timestamp" && <TimestampTool />}
                     {tool === "uuid" && <UuidGeneratorTool />}
                 </div>
-            </div>
+            </motion.div>
         </div>
     );
 }
@@ -96,7 +148,9 @@ function TextCleanerTool() {
         <ToolWrapper title="Text Sanitizer">
             <textarea value={input} onChange={(e) => setInput(e.target.value)} placeholder="Paste text..." className="input-area" />
             <button onClick={clean} className="btn-primary text-sm py-3 px-5">Clean</button>
-            {output && <OutputBox value={output} />}
+            <AnimatePresence>
+                {output && <OutputBox value={output} />}
+            </AnimatePresence>
         </ToolWrapper>
     );
 }
@@ -118,7 +172,9 @@ function JsonFormatterTool() {
             <textarea value={input} onChange={(e) => setInput(e.target.value)} placeholder='{"key": "value"}' className="input-area font-mono" />
             <button onClick={format} className="btn-primary text-sm py-3 px-5">Format</button>
             {error && <p className="text-sm text-red-500">{error}</p>}
-            {output && <OutputBox value={output} mono />}
+            <AnimatePresence>
+                {output && <OutputBox value={output} mono />}
+            </AnimatePresence>
         </ToolWrapper>
     );
 }
@@ -136,7 +192,9 @@ function Base64Tool() {
                 <button onClick={encode} className="btn-primary text-sm py-3 px-5">Encode</button>
                 <button onClick={decode} className="btn-outline text-sm py-3 px-5">Decode</button>
             </div>
-            {output && <OutputBox value={output} />}
+            <AnimatePresence>
+                {output && <OutputBox value={output} />}
+            </AnimatePresence>
         </ToolWrapper>
     );
 }
@@ -154,7 +212,9 @@ function UrlEncoderTool() {
                 <button onClick={encode} className="btn-primary text-sm py-3 px-5">Encode</button>
                 <button onClick={decode} className="btn-outline text-sm py-3 px-5">Decode</button>
             </div>
-            {output && <OutputBox value={output} />}
+            <AnimatePresence>
+                {output && <OutputBox value={output} />}
+            </AnimatePresence>
         </ToolWrapper>
     );
 }
@@ -173,7 +233,9 @@ function HashGeneratorTool() {
         <ToolWrapper title="Hash Generator (SHA-256)">
             <input value={input} onChange={(e) => setInput(e.target.value)} placeholder="Enter text..." className="input-field" />
             <button onClick={generate} className="btn-primary text-sm py-3 px-5">Generate</button>
-            {hash && <OutputBox value={hash} mono />}
+            <AnimatePresence>
+                {hash && <OutputBox value={hash} mono />}
+            </AnimatePresence>
         </ToolWrapper>
     );
 }
@@ -190,11 +252,18 @@ function ColorConverterTool() {
     return (
         <ToolWrapper title="Color Converter">
             <div className="flex gap-4 items-center">
-                <div className="w-12 h-12 rounded-lg border border-border" style={{ backgroundColor: hex }} />
+                <motion.div
+                    className="w-12 h-12 rounded-lg border border-border"
+                    style={{ backgroundColor: hex }}
+                    animate={{ backgroundColor: hex }}
+                    transition={{ duration: 0.3 }}
+                />
                 <input value={hex} onChange={(e) => setHex(e.target.value)} placeholder="#FF3131" className="input-field flex-1" />
             </div>
             <button onClick={convert} className="btn-primary text-sm py-3 px-5">Convert</button>
-            {rgb && <OutputBox value={rgb} />}
+            <AnimatePresence>
+                {rgb && <OutputBox value={rgb} />}
+            </AnimatePresence>
         </ToolWrapper>
     );
 }
@@ -208,7 +277,9 @@ function TimestampTool() {
         <ToolWrapper title="Timestamp Tool">
             <input value={ts} onChange={(e) => setTs(e.target.value)} placeholder="Enter Unix timestamp..." className="input-field" />
             <button onClick={convert} className="btn-primary text-sm py-3 px-5">Convert</button>
-            {date && <OutputBox value={date} />}
+            <AnimatePresence>
+                {date && <OutputBox value={date} />}
+            </AnimatePresence>
         </ToolWrapper>
     );
 }
@@ -220,7 +291,9 @@ function UuidGeneratorTool() {
     return (
         <ToolWrapper title="UUID Generator">
             <button onClick={generate} className="btn-primary text-sm py-3 px-5">Generate UUID</button>
-            {uuid && <OutputBox value={uuid} mono />}
+            <AnimatePresence>
+                {uuid && <OutputBox value={uuid} mono />}
+            </AnimatePresence>
         </ToolWrapper>
     );
 }
@@ -241,11 +314,22 @@ function OutputBox({ value, mono }: { value: string; mono?: boolean }) {
     const copy = () => { navigator.clipboard.writeText(value); setCopied(true); setTimeout(() => setCopied(false), 1500); };
 
     return (
-        <div className="relative p-4 bg-muted rounded-xl">
+        <motion.div
+            className="relative p-4 bg-muted rounded-xl"
+            initial={{ opacity: 0, y: 10, height: 0 }}
+            animate={{ opacity: 1, y: 0, height: "auto" }}
+            exit={{ opacity: 0, y: -10, height: 0 }}
+            transition={{ duration: 0.3 }}
+        >
             <pre className={`text-sm whitespace-pre-wrap break-all ${mono ? "font-mono" : ""}`}>{value}</pre>
-            <button onClick={copy} className="absolute top-2 right-2 p-2 text-muted-foreground hover:text-foreground">
+            <motion.button
+                onClick={copy}
+                className="absolute top-2 right-2 p-2 text-muted-foreground hover:text-foreground"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+            >
                 {copied ? <Check className="w-4 h-4" /> : <Copy className="w-4 h-4" />}
-            </button>
-        </div>
+            </motion.button>
+        </motion.div>
     );
 }

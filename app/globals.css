@@ -68,9 +68,15 @@
   --radius-sm: calc(var(--radius) - 8px);
 }
 
+/* ── Base Reset ───────────────────────────────── */
+
 * {
   box-sizing: border-box;
   border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -79,9 +85,11 @@ body {
   font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
-/* Container */
+/* ── Container ────────────────────────────────── */
+
 .container-wide {
   width: 100%;
   max-width: 1200px;
@@ -95,19 +103,29 @@ body {
   }
 }
 
-/* Card */
+/* ── Card ─────────────────────────────────────── */
+
 .card {
   background: var(--card);
   border-radius: var(--radius);
   border: 1px solid var(--border);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: box-shadow 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              border-color 0.3s ease;
 }
 
 .card:hover {
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary);
 }
 
-/* Stats */
+.dark .card:hover {
+  box-shadow: 0 12px 40px rgba(255, 49, 49, 0.06);
+}
+
+/* ── Stats ────────────────────────────────────── */
+
 .stat-number {
   font-size: 3rem;
   font-weight: 700;
@@ -121,18 +139,21 @@ body {
   }
 }
 
-/* Accent text */
+/* ── Accent ───────────────────────────────────── */
+
 .text-accent {
   color: var(--primary);
 }
 
-/* Selection */
+/* ── Selection ────────────────────────────────── */
+
 ::selection {
   background: var(--primary);
   color: var(--primary-foreground);
 }
 
-/* Scrollbar */
+/* ── Scrollbar ────────────────────────────────── */
+
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -146,7 +167,8 @@ body {
   border-radius: 3px;
 }
 
-/* Button base */
+/* ── Buttons ──────────────────────────────────── */
+
 .btn-primary {
   display: inline-flex;
   align-items: center;
@@ -156,12 +178,32 @@ body {
   color: var(--primary-foreground);
   font-weight: 600;
   border-radius: 9999px;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              box-shadow 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.2) 0%, transparent 50%);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
 .btn-primary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(255, 49, 49, 0.3);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 40px rgba(255, 49, 49, 0.35);
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:active {
+  transform: translateY(-1px);
 }
 
 .btn-outline {
@@ -174,14 +216,22 @@ body {
   font-weight: 600;
   border: 2px solid var(--border);
   border-radius: 9999px;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .btn-outline:hover {
-  border-color: var(--foreground);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 49, 49, 0.15);
 }
 
-/* Inputs */
+.btn-outline:active {
+  transform: translateY(0);
+}
+
+/* ── Inputs ───────────────────────────────────── */
+
 .input-field {
   width: 100%;
   padding: 0.875rem 1rem;
@@ -189,12 +239,13 @@ body {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   font-size: 0.875rem;
-  transition: border-color 0.2s;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .input-field:focus {
   outline: none;
   border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 49, 49, 0.1);
 }
 
 .input-area {
@@ -206,10 +257,76 @@ body {
   border-radius: var(--radius);
   font-size: 0.875rem;
   resize: vertical;
-  transition: border-color 0.2s;
+  transition: border-color 0.3s, box-shadow 0.3s;
 }
 
 .input-area:focus {
   outline: none;
   border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(255, 49, 49, 0.1);
+}
+
+/* ── Ambient Glow Animations ─────────────────── */
+
+@keyframes float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 15px) scale(0.95); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.15; }
+  50% { opacity: 0.3; }
+}
+
+.glow-orb {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  filter: blur(120px);
+  animation: float 20s ease-in-out infinite, pulse-glow 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* ── Magnetic hover for icons ─────────────────── */
+
+.icon-hover {
+  transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+              color 0.3s ease;
+}
+
+.icon-hover:hover {
+  transform: scale(1.15) rotate(-3deg);
+  color: var(--primary);
+}
+
+/* ── Gradient text utility ────────────────────── */
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary) 0%, #ff6b6b 50%, var(--primary) 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: gradient-shift 3s ease-in-out infinite;
+}
+
+@keyframes gradient-shift {
+  0% { background-position: 0% center; }
+  50% { background-position: 100% center; }
+  100% { background-position: 0% center; }
+}
+
+/* ── Active nav indicator ─────────────────────── */
+
+.nav-indicator {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+  border-radius: 1px;
 }
