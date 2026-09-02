@@ -1,7 +1,5 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
 :root {
   /* Warm paper */
   --background: #faf8f5;
@@ -25,24 +23,6 @@
   --font-sans: var(--font-geist-sans), "Segoe UI", system-ui, sans-serif;
   --font-display: var(--font-fraunces), Georgia, "Times New Roman", serif;
   --font-mono: var(--font-geist-mono), "SFMono-Regular", Consolas, monospace;
-}
-
-.dark {
-  --background: #100f0c;
-  --foreground: #f6f4ef;
-
-  --primary: #ff3131;
-  --primary-foreground: #ffffff;
-
-  --muted: #1a1913;
-  --muted-foreground: #9a9587;
-
-  --card: #161510;
-  --card-foreground: #f6f4ef;
-
-  --border: rgba(246, 244, 239, 0.14);
-  --input: rgba(246, 244, 239, 0.14);
-  --ring: #f6f4ef;
 }
 
 @theme {

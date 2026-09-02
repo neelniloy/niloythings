@@ -73,7 +73,7 @@ export default function Home() {
             <AnimatedStat number={60} suffix="K+" label="Active Users" first />
             <AnimatedStat number={10} suffix="+" label="Products Shipped" />
             <AnimatedStat number={5} suffix="+" label="Years Experience" />
-            <AnimatedStat number={3} suffix="" label="Companies Built" />
+            <AnimatedStat number={4} suffix="" label="Companies" />
           </div>
         </motion.div>
       </section>

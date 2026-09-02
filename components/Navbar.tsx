@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ThemeToggle } from "./ThemeToggle";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { useEffect, useState } from "react";
 import { Menu, X, ArrowUpRight } from "lucide-react";
@@ -87,8 +86,6 @@ export default function Navbar() {
                     >
                         Say Hello
                     </Link>
-
-                    <ThemeToggle />
 
                     <button
                         onClick={() => setMenuOpen((v) => !v)}

@@ -71,7 +71,7 @@ export default function AboutPage() {
                             <AnimatedMiniStat number={60} suffix="K+" label="Active Users" />
                             <AnimatedMiniStat number={10} suffix="+" label="Products" />
                             <AnimatedMiniStat number={5} suffix="+" label="Years" />
-                            <AnimatedMiniStat number={3} suffix="" label="Companies" />
+                            <AnimatedMiniStat number={4} suffix="" label="Companies" />
                         </div>
                     </motion.div>
                 </div>
@@ -135,7 +135,7 @@ export default function AboutPage() {
             >
                 <div className="mb-16">
                     <p className="eyebrow mb-4 text-primary">05 — Recognition</p>
-                    <h2 className="font-display text-3xl md:text-4xl tracking-tight">Achievements &amp; Moments</h2>
+                    <h2 className="font-display text-3xl md:text-4xl tracking-tight">Achievements</h2>
                 </div>
                 <MomentsGallery />
             </motion.section>

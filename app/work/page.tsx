@@ -244,6 +244,16 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                             <ExternalLink className="w-4 h-4" /> View App
                         </a>
                     )}
+                    {project.links.website && (
+                        <a
+                            href={project.links.website}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-primary text-xs py-3 px-5"
+                        >
+                            <ExternalLink className="w-4 h-4" /> Visit Site
+                        </a>
+                    )}
                     {project.links.github && (
                         <a
                             href={project.links.github}

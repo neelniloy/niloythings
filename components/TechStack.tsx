@@ -4,21 +4,18 @@ import { motion } from "framer-motion";
 
 const stack = [
     "Flutter",
-    "React",
-    "Next.js",
-    "TypeScript",
     "Kotlin",
+    "Dart",
     "Android",
     "Firebase",
-    "Node.js",
-    "Go",
+    "Java",
+    "Next.js",
+    "React",
+    "TypeScript",
     "Tailwind",
+    "Go",
+    "Cloudflare",
     "Framer Motion",
-    "Dart",
-    "GraphQL",
-    "PostgreSQL",
-    "Docker",
-    "AWS",
     "Git",
 ];
 

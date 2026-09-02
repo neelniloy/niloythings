@@ -50,30 +50,21 @@ export const metadata: Metadata = {
   },
 };
 
-import { ThemeProvider } from "@/components/ThemeProvider";
-
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable}`} suppressHydrationWarning>
-      <body className="antialiased selection:bg-primary selection:text-white" suppressHydrationWarning>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange
-        >
-          <Navbar />
-          <div className="flex flex-col min-h-screen">
-            <main className="flex-1 w-full overflow-x-hidden selection:bg-primary selection:text-white pt-20">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </ThemeProvider>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable}`}>
+      <body className="antialiased selection:bg-primary selection:text-white">
+        <Navbar />
+        <div className="flex flex-col min-h-screen">
+          <main className="flex-1 w-full overflow-x-hidden selection:bg-primary selection:text-white pt-20">
+            {children}
+          </main>
+          <Footer />
+        </div>
       </body>
     </html>
   );

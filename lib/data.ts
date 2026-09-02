@@ -10,6 +10,7 @@ export interface Project {
     links: {
         playStore?: string;
         github?: string;
+        website?: string;
     };
 }
 
@@ -145,6 +146,20 @@ export const PROJECTS: Project[] = [
         color: "from-cyan-900/40 to-teal-900/40",
         links: {
             playStore: "https://play.google.com/store/apps/details?id=com.niloythings.lanstreamer",
+        },
+    },
+    {
+        title: "LSTV Prime",
+        description: "Multi-platform IPTV player — native apps for Android, Android TV/Fire TV, and Windows, plus a 90+ channel web portfolio.",
+        longDescription: "A cross-platform IPTV suite: Kotlin-native Android and Android TV/Fire TV apps, a Flutter-built Windows desktop app, and a companion web app showcasing 90+ live channels and live sports events directly in the browser. Hardware-accelerated playback, D-Pad remote support, and auto-server failover throughout.",
+        image: "/projects/lstvprime.png",
+        tech: ["Kotlin", "Flutter", "Next.js", "Tailwind", "Cloudflare"],
+        category: "Multi-Platform",
+        impact: "90+ Channels",
+        color: "from-red-900/40 to-neutral-900/40",
+        links: {
+            website: "https://lstvprime.pages.dev/",
+            github: "https://github.com/neelniloy/lstv_app",
         },
     },
     {

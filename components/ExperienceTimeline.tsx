@@ -18,37 +18,61 @@ interface CompanyExperience {
 const experiences: CompanyExperience[] = [
     {
         company: "Futuredesh Ltd",
-        totalPeriod: "2024 – Present",
+        totalPeriod: "Jul 2024 – Present",
         roles: [
             {
                 title: "Chief Technology Officer (CTO)",
-                period: "Jan 2024 – Present",
+                period: "Jul 2024 – Present",
                 description:
-                    "Leading technical strategy and architecture for the AgriTech platform. Overseeing mobile (Flutter), backend, and operational dashboards. Managing the engineering team and ensuring offline-first reliability for rural usage.",
+                    "Leading technical strategy and architecture for Futuredesh's contract-farming and social-capital platform. Overseeing mobile (Flutter), backend, and operational dashboards. Managing the engineering team and ensuring offline-first reliability for rural usage.",
             },
         ],
     },
     {
         company: "Bdjobs.com Ltd",
-        totalPeriod: "2023 – 2024",
+        totalPeriod: "Feb 2023 – Jul 2024",
         roles: [
             {
-                title: "Software Engineer – Mobile",
-                period: "2023 – 2024",
+                title: "Junior Mobile App Developer – Android",
+                period: "Feb 2023 – Jul 2024",
                 description:
                     "Maintained and improved the core Bdjobs app for Bangladesh's largest job portal, alongside Delivery Tiger and Delivery Bondhu — the company's courier and rider logistics apps. Implemented new features, refactored legacy modules, and optimized performance for millions of active users.",
             },
         ],
     },
     {
-        company: "Freelance & Contract",
-        totalPeriod: "2021 – 2023",
+        company: "SamuilIT",
+        totalPeriod: "Jan 2021 – May 2022",
         roles: [
             {
-                title: "Mobile Application Developer",
-                period: "2021 – 2023",
+                title: "Mobile App Developer – Android",
+                period: "Jan 2021 – May 2022",
                 description:
-                    "Built and shipped 10+ Android applications to Google Play Store. Specialized in utility apps, e-commerce solutions, and MVVM architecture with Kotlin and Java.",
+                    "Developed Android mobile applications for client projects at a software development agency, working across the full build-and-ship cycle.",
+            },
+        ],
+    },
+    {
+        company: "SpeedBazar",
+        totalPeriod: "May 2021 – Jul 2021",
+        roles: [
+            {
+                title: "App Maintainer",
+                period: "May 2021 – Jul 2021",
+                description:
+                    "Maintained the mobile app for SpeedBazar, one of Bangladesh's fastest-growing online grocery delivery platforms.",
+            },
+        ],
+    },
+    {
+        company: "Freelance",
+        totalPeriod: "2020 – 2021",
+        roles: [
+            {
+                title: "Mobile App Developer",
+                period: "2020 – 2021",
+                description:
+                    "Built and shipped independent Android apps in Flutter and Kotlin, laying the foundation that led into a full-time mobile engineering career.",
             },
         ],
     },
