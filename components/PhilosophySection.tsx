@@ -1,80 +1,71 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Zap, Shield, Cpu, Sparkles, Orbit } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { staggerContainer, staggerItem, sectionViewport } from "@/lib/useAnimations";
 
 const principles = [
     {
-        icon: <Cpu className="w-6 h-6" />,
         title: "Systemic Integrity",
         description: "Architecting systems that don't just work, but scale and persist through complexity.",
-        accent: "bg-primary",
     },
     {
-        icon: <Zap className="w-6 h-6" />,
         title: "Venture Velocity",
         description: "Shipping high-fidelity products at the speed of thought, without technical debt.",
-        accent: "bg-primary",
     },
     {
-        icon: <Shield className="w-6 h-6" />,
         title: "Pragmatic Resiliency",
         description: "Choosing stable, reliable technologies over transient industry trends.",
-        accent: "bg-primary",
     },
     {
-        icon: <Orbit className="w-6 h-6" />,
         title: "User Centricity",
         description: "Bridging the gap between binary logic and human emotion through design.",
-        accent: "bg-primary",
     },
 ];
 
 export default function PhilosophySection() {
     return (
-        <section className="space-y-16">
-            <div className="flex flex-col md:flex-row items-baseline justify-between gap-4">
-                <div className="space-y-4">
-                    <h2 className="text-4xl font-black tracking-tighter">The Mandate.</h2>
-                    <p className="text-muted-foreground tracking-[0.4em] uppercase text-[10px] font-bold">Engineering Philosophy</p>
+        <section>
+            <div className="grid lg:grid-cols-12 gap-8 mb-16">
+                <div className="lg:col-span-4">
+                    <p className="eyebrow mb-4 text-primary">02 — Philosophy</p>
+                    <h2 className="font-display text-3xl md:text-4xl tracking-tight">The Mandate</h2>
                 </div>
-                <p className="text-muted-foreground text-sm max-w-sm leading-relaxed border-l border-border pl-6">
-                    I don&apos;t just build apps. I build technical foundations that empower ventures to scale with zero friction.
+                <p className="lg:col-span-8 text-lg text-muted-foreground max-w-xl self-end">
+                    I don&apos;t just build apps. I build technical foundations that empower ventures
+                    to scale with zero friction.
                 </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {principles.map((principle, index) => (
-                    <motion.div
-                        key={principle.title}
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6, delay: index * 0.1 }}
-                        className="group relative p-10 rounded-[2.5rem] glass border border-glass-border overflow-hidden transition-all hover:border-primary/20"
-                    >
-                        {/* Background Glow */}
-                        <div className={`absolute -top-24 -right-24 w-48 h-48 ${principle.accent} opacity-0 blur-[80px] group-hover:opacity-10 transition-opacity duration-700`} />
-
-                        <div className="relative z-10 space-y-6">
-                            <div className="w-14 h-14 rounded-2xl bg-muted/10 border border-border flex items-center justify-center text-foreground group-hover:text-primary group-hover:bg-primary/10 transition-all duration-500">
-                                {principle.icon}
+            <motion.div
+                initial="hidden"
+                whileInView="visible"
+                viewport={sectionViewport}
+                variants={staggerContainer}
+                className="border-t border-border grid md:grid-cols-2"
+            >
+                {principles.map((principle, index) => {
+                    const isRightCol = index % 2 === 1;
+                    return (
+                        <motion.div
+                            key={principle.title}
+                            variants={staggerItem}
+                            className={`group border-b border-border p-8 md:p-10 flex flex-col gap-4 transition-colors hover:bg-muted/40 ${
+                                isRightCol ? "md:border-l" : ""
+                            }`}
+                        >
+                            <div className="flex items-start justify-between gap-4">
+                                <span className="num text-sm text-muted-foreground">
+                                    {String(index + 1).padStart(2, "0")}
+                                </span>
+                                <ArrowUpRight className="w-5 h-5 text-muted-foreground opacity-0 -translate-x-1 translate-y-1 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-primary transition-all" />
                             </div>
-                            <div className="space-y-3">
-                                <h3 className="text-xl font-bold tracking-tight">{principle.title}</h3>
-                                <p className="text-muted-foreground text-sm leading-relaxed group-hover:text-foreground/80 transition-colors">
-                                    {principle.description}
-                                </p>
-                            </div>
-                        </div>
-
-                        {/* Architectural Accent */}
-                        <div className="absolute bottom-6 right-6 opacity-5 group-hover:opacity-20 transition-all">
-                            <Sparkles className="w-12 h-12 text-primary" />
-                        </div>
-                    </motion.div>
-                ))}
-            </div>
+                            <h3 className="text-xl md:text-2xl font-display tracking-tight">{principle.title}</h3>
+                            <p className="text-muted-foreground leading-relaxed">{principle.description}</p>
+                        </motion.div>
+                    );
+                })}
+            </motion.div>
         </section>
     );
 }

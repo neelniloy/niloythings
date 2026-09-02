@@ -36,7 +36,7 @@ const experiences: CompanyExperience[] = [
                 title: "Software Engineer – Mobile",
                 period: "2023 – 2024",
                 description:
-                    "Maintained and improved the core mobile application for Bangladesh's largest job portal. Implemented new features, refactored legacy modules, and optimized performance for millions of active users.",
+                    "Maintained and improved the core Bdjobs app for Bangladesh's largest job portal, alongside Delivery Tiger and Delivery Bondhu — the company's courier and rider logistics apps. Implemented new features, refactored legacy modules, and optimized performance for millions of active users.",
             },
         ],
     },
@@ -57,17 +57,15 @@ const experiences: CompanyExperience[] = [
 export default function ExperienceTimeline() {
     return (
         <div className="space-y-12">
-            <div className="flex items-center gap-4">
-                <div className="w-12 h-12 rounded-2xl bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
-                    <Briefcase className="w-6 h-6" />
-                </div>
-                <div>
-                    <h2 className="text-3xl font-black tracking-tighter uppercase">Experience</h2>
-                    <p className="text-[10px] font-bold text-muted-foreground uppercase tracking-widest">The Career Arc</p>
-                </div>
+            <div>
+                <p className="eyebrow mb-4 text-primary">Career</p>
+                <h2 className="font-display text-3xl md:text-4xl tracking-tight flex items-center gap-3">
+                    <Briefcase className="w-7 h-7 text-muted-foreground" />
+                    Experience
+                </h2>
             </div>
 
-            <div className="relative border-l-2 border-border ml-6 py-4 space-y-16">
+            <div className="relative border-l border-border ml-3 py-4 space-y-16">
                 {experiences.map((exp, index) => (
                     <motion.div
                         key={index}
@@ -75,16 +73,16 @@ export default function ExperienceTimeline() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="pl-12 relative"
+                        className="pl-10 relative"
                     >
                         {/* Company Node */}
-                        <span className="absolute -left-[11px] top-0 h-5 w-5 rounded-full bg-background border-[3px] border-primary shadow-[0_0_15px_rgba(255,49,49,0.3)]" />
+                        <span className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-background border-2 border-primary" />
 
-                        <div className="mb-10">
-                            <h3 className="text-2xl font-black tracking-tight text-foreground flex items-center gap-3">
+                        <div className="mb-8">
+                            <h3 className="font-display text-2xl tracking-tight text-foreground">
                                 {exp.company}
                             </h3>
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-lg bg-muted/10 border border-border text-[10px] font-bold text-muted-foreground uppercase tracking-widest mt-3">
+                            <div className="inline-flex items-center gap-2 eyebrow mt-3">
                                 <Calendar className="w-3 h-3 text-primary" />
                                 {exp.totalPeriod}
                             </div>
@@ -94,12 +92,12 @@ export default function ExperienceTimeline() {
                         <div className="space-y-12">
                             {exp.roles.map((role, rIndex) => (
                                 <div key={rIndex} className="relative pl-8 border-l border-border ml-1">
-                                    <span className="absolute -left-[5px] top-2 h-2.5 w-2.5 rounded-full bg-primary/40" />
+                                    <span className="absolute -left-[4px] top-2 h-2 w-2 rounded-full bg-border" />
                                     <div className="space-y-3">
-                                        <h4 className="text-xl font-bold text-foreground/90">
+                                        <h4 className="text-xl font-medium text-foreground/90">
                                             {role.title}
                                         </h4>
-                                        <p className="text-[10px] font-bold text-primary uppercase tracking-widest">
+                                        <p className="eyebrow text-primary">
                                             {role.period}
                                         </p>
                                         <p className="text-muted-foreground leading-relaxed text-base max-w-2xl">

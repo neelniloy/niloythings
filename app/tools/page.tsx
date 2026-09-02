@@ -4,10 +4,8 @@ import { useState } from "react";
 import { X, Trash2, FileJson, Link2, Hash, Palette, Clock, Key, Type, Copy, Check } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-    fadeUp,
     staggerContainer,
     staggerItem,
-    scaleIn,
     backdropVariants,
     modalVariants,
     sectionViewport,
@@ -31,29 +29,32 @@ export default function ToolsPage() {
 
     return (
         <div className="min-h-screen">
-            <div className="container-wide pt-12 pb-24">
+            <div className="container-wide pt-8 pb-16 md:pt-10">
                 <motion.div
                     className="max-w-3xl mb-16"
                     initial="hidden"
                     animate="visible"
                     variants={staggerContainer}
                 >
+                    <motion.p variants={staggerItem} className="eyebrow mb-6 text-primary">
+                        Utilities
+                    </motion.p>
                     <motion.h1
                         variants={staggerItem}
-                        className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6"
+                        className="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight mb-6"
                     >
                         Developer Tools
                     </motion.h1>
                     <motion.p
                         variants={staggerItem}
-                        className="text-xl text-muted-foreground"
+                        className="text-lg md:text-xl text-muted-foreground"
                     >
                         Utilities I use daily. Free and open.
                     </motion.p>
                 </motion.div>
 
                 <motion.div
-                    className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                    className="border-t border-l border-border grid sm:grid-cols-2 lg:grid-cols-4"
                     initial="hidden"
                     whileInView="visible"
                     viewport={sectionViewport}
@@ -65,21 +66,19 @@ export default function ToolsPage() {
                             <motion.button
                                 key={tool.id}
                                 onClick={() => setActiveTool(tool.id as ToolType)}
-                                className="card p-6 text-left group"
-                                variants={scaleIn}
-                                custom={index * 0.05}
-                                whileHover={{ y: -8, transition: { duration: 0.3 } }}
-                                whileTap={{ scale: 0.98 }}
+                                className="group text-left p-8 border-r border-b border-border transition-colors hover:bg-muted/40 flex flex-col gap-6"
+                                variants={staggerItem}
                             >
-                                <motion.div
-                                    className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-4"
-                                    whileHover={{ scale: 1.15, rotate: -8 }}
-                                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
-                                >
-                                    <Icon className="w-6 h-6" />
-                                </motion.div>
-                                <h3 className="font-bold mb-1">{tool.title}</h3>
-                                <p className="text-sm text-muted-foreground">{tool.description}</p>
+                                <div className="flex items-center justify-between">
+                                    <span className="num text-sm text-muted-foreground">
+                                        {String(index + 1).padStart(2, "0")}
+                                    </span>
+                                    <Icon className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+                                </div>
+                                <div>
+                                    <h3 className="font-display text-lg tracking-tight mb-1">{tool.title}</h3>
+                                    <p className="text-sm text-muted-foreground">{tool.description}</p>
+                                </div>
                             </motion.button>
                         );
                     })}
@@ -108,20 +107,18 @@ function ToolModal({ tool, onClose }: { tool: ToolType; onClose: () => void }) {
                 exit="exit"
             />
             <motion.div
-                className="relative w-full max-w-xl card p-8"
+                className="relative w-full max-w-xl border border-border rounded-md bg-card p-8"
                 variants={modalVariants}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
             >
-                <motion.button
+                <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground"
-                    whileHover={{ scale: 1.1, rotate: 90 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    className="absolute top-4 right-4 w-10 h-10 rounded-sm border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
                 >
                     <X className="w-5 h-5" />
-                </motion.button>
+                </button>
                 <div className="pt-4">
                     {tool === "cleaner" && <TextCleanerTool />}
                     {tool === "json" && <JsonFormatterTool />}
@@ -303,7 +300,7 @@ function UuidGeneratorTool() {
 function ToolWrapper({ title, children }: { title: string; children: React.ReactNode }) {
     return (
         <div className="space-y-4">
-            <h2 className="text-xl font-bold">{title}</h2>
+            <h2 className="font-display text-xl tracking-tight">{title}</h2>
             {children}
         </div>
     );
@@ -315,7 +312,7 @@ function OutputBox({ value, mono }: { value: string; mono?: boolean }) {
 
     return (
         <motion.div
-            className="relative p-4 bg-muted rounded-xl"
+            className="relative p-4 bg-muted rounded-sm"
             initial={{ opacity: 0, y: 10, height: 0 }}
             animate={{ opacity: 1, y: 0, height: "auto" }}
             exit={{ opacity: 0, y: -10, height: 0 }}

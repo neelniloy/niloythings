@@ -24,10 +24,10 @@ const stack = [
 
 export default function TechStack() {
     return (
-        <div className="w-full overflow-hidden py-8 border-y border-border bg-muted/5">
+        <div className="w-full overflow-hidden py-6 border-y border-border">
             <div className="flex relative">
                 <motion.div
-                    className="flex gap-8 px-4"
+                    className="flex gap-3 px-4"
                     animate={{ x: ["0%", "-50%"] }}
                     transition={{
                         repeat: Infinity,
@@ -38,9 +38,9 @@ export default function TechStack() {
                     {[...stack, ...stack].map((tech, i) => (
                         <div
                             key={i}
-                            className="flex items-center gap-2 px-6 py-3 rounded-2xl glass border border-border/50 bg-background/5 text-muted-foreground font-bold uppercase tracking-wider text-sm hover:border-primary/50 hover:bg-primary/5 hover:text-primary transition-all duration-300 cursor-default whitespace-nowrap shadow-sm hover:shadow-lg hover:-translate-y-1"
+                            className="eyebrow flex items-center gap-2 px-5 py-2.5 rounded-sm border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors duration-300 cursor-default whitespace-nowrap"
                         >
-                            <span className="w-1.5 h-1.5 rounded-full bg-primary/40" />
+                            <span className="w-1 h-1 rounded-full bg-primary" />
                             {tech}
                         </div>
                     ))}

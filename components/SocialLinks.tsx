@@ -33,7 +33,7 @@ export default function SocialLinks({ className = "" }: { className?: string }) 
                     href={s.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group relative p-3 bg-card border border-border rounded-full text-muted transition-all hover:scale-110 active:scale-95 hover:border-primary/50 hover:text-primary shadow-lg hover:shadow-primary/20"
+                    className="group relative w-11 h-11 flex items-center justify-center border border-border rounded-sm text-muted-foreground transition-colors hover:border-foreground hover:text-primary"
                     aria-label={s.name}
                 >
                     <div className="relative z-10">{s.icon}</div>

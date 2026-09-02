@@ -2,18 +2,16 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { X, ExternalLink, Github } from "lucide-react";
+import { X, ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import { PROJECTS, type Project } from "@/lib/data";
 import ExperienceTimeline from "@/components/ExperienceTimeline";
+import EarlyWork from "@/components/EarlyWork";
 import { motion, AnimatePresence } from "framer-motion";
 import {
-    fadeUp,
     staggerContainer,
     staggerItem,
-    scaleIn,
     backdropVariants,
     modalVariants,
-    sectionViewport,
 } from "@/lib/useAnimations";
 
 type ViewMode = "projects" | "experience";
@@ -24,7 +22,7 @@ export default function WorkPage() {
 
     return (
         <div className="min-h-screen">
-            <div className="container-wide pt-12 pb-24">
+            <div className="container-wide pt-8 pb-16 md:pt-10">
                 {/* Header */}
                 <motion.div
                     className="max-w-3xl mb-12"
@@ -32,15 +30,18 @@ export default function WorkPage() {
                     animate="visible"
                     variants={staggerContainer}
                 >
+                    <motion.p variants={staggerItem} className="eyebrow mb-6 text-primary">
+                        Selected Work
+                    </motion.p>
                     <motion.h1
                         variants={staggerItem}
-                        className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4"
+                        className="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight mb-4"
                     >
-                        My Work
+                        Products &amp; Companies
                     </motion.h1>
                     <motion.p
                         variants={staggerItem}
-                        className="text-xl text-muted-foreground"
+                        className="text-lg md:text-xl text-muted-foreground"
                     >
                         Products I&apos;ve built and companies I&apos;ve helped scale.
                     </motion.p>
@@ -48,43 +49,40 @@ export default function WorkPage() {
 
                 {/* Tab Switcher */}
                 <motion.div
-                    className="flex gap-4 mb-12"
+                    className="flex gap-8 mb-4 border-b border-border"
                     initial="hidden"
                     animate="visible"
-                    variants={fadeUp}
-                    custom={0.2}
+                    variants={staggerItem}
                 >
                     <button
                         onClick={() => setViewMode("projects")}
-                        className={`relative px-6 py-3 rounded-full font-medium transition-colors ${viewMode === "projects"
-                                ? "text-background"
-                                : "bg-muted text-muted-foreground hover:text-foreground"
-                            }`}
+                        className={`relative pb-4 eyebrow transition-colors ${
+                            viewMode === "projects" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                        }`}
                     >
+                        Projects
                         {viewMode === "projects" && (
                             <motion.div
-                                className="absolute inset-0 bg-foreground rounded-full"
+                                className="absolute -bottom-px left-0 right-0 h-px bg-foreground"
                                 layoutId="tab-indicator"
                                 transition={{ type: "spring", stiffness: 380, damping: 30 }}
                             />
                         )}
-                        <span className="relative z-10">Projects</span>
                     </button>
                     <button
                         onClick={() => setViewMode("experience")}
-                        className={`relative px-6 py-3 rounded-full font-medium transition-colors ${viewMode === "experience"
-                                ? "text-background"
-                                : "bg-muted text-muted-foreground hover:text-foreground"
-                            }`}
+                        className={`relative pb-4 eyebrow transition-colors ${
+                            viewMode === "experience" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                        }`}
                     >
+                        Experience
                         {viewMode === "experience" && (
                             <motion.div
-                                className="absolute inset-0 bg-foreground rounded-full"
+                                className="absolute -bottom-px left-0 right-0 h-px bg-foreground"
                                 layoutId="tab-indicator"
                                 transition={{ type: "spring", stiffness: 380, damping: 30 }}
                             />
                         )}
-                        <span className="relative z-10">Experience</span>
                     </button>
                 </motion.div>
 
@@ -93,20 +91,24 @@ export default function WorkPage() {
                     {viewMode === "projects" ? (
                         <motion.div
                             key="projects"
-                            className="grid md:grid-cols-2 gap-8"
                             initial="hidden"
                             animate="visible"
                             exit={{ opacity: 0, y: 20, transition: { duration: 0.2 } }}
                             variants={staggerContainer}
+                            className="pt-8"
                         >
                             {PROJECTS.map((project, index) => (
-                                <ProjectCard
+                                <ProjectRow
                                     key={project.title}
                                     project={project}
                                     index={index}
                                     onClick={() => setSelectedProject(project)}
                                 />
                             ))}
+
+                            <div className="pt-16 md:pt-24">
+                                <EarlyWork />
+                            </div>
                         </motion.div>
                     ) : (
                         <motion.div
@@ -115,6 +117,7 @@ export default function WorkPage() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 20, transition: { duration: 0.2 } }}
                             transition={{ duration: 0.5 }}
+                            className="pt-10"
                         >
                             <ExperienceTimeline />
                         </motion.div>
@@ -132,28 +135,43 @@ export default function WorkPage() {
     );
 }
 
-function ProjectCard({ project, onClick, index }: { project: Project; onClick: () => void; index: number }) {
+function ProjectRow({ project, onClick, index }: { project: Project; onClick: () => void; index: number }) {
     return (
         <motion.button
             onClick={onClick}
-            className="card text-left overflow-hidden group"
-            variants={scaleIn}
-            custom={index * 0.05}
-            whileHover={{ y: -8, transition: { duration: 0.3 } }}
+            className="group w-full text-left border-t border-border last:border-b py-10 grid md:grid-cols-12 gap-6 md:gap-8 items-center"
+            variants={staggerItem}
         >
-            <div className="relative aspect-[16/10] overflow-hidden">
+            <span className="num text-sm text-muted-foreground md:col-span-1">
+                {String(index + 1).padStart(2, "0")}
+            </span>
+
+            <div className="md:col-span-6 space-y-3">
+                <p className="eyebrow text-primary">{project.category}</p>
+                <h3 className="font-display text-2xl md:text-3xl tracking-tight group-hover:text-primary transition-colors">
+                    {project.title}
+                </h3>
+                <p className="text-muted-foreground max-w-lg leading-relaxed">{project.description}</p>
+                <div className="flex flex-wrap gap-x-4 gap-y-1 pt-1">
+                    {project.tech.map((t) => (
+                        <span key={t} className="text-xs text-muted-foreground font-mono">
+                            {t}
+                        </span>
+                    ))}
+                </div>
+            </div>
+
+            <div className="md:col-span-4 relative aspect-[16/10] rounded-md overflow-hidden border border-border">
                 <Image
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover group-hover:scale-110 transition-transform duration-700 ease-out"
+                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
-            <div className="p-6">
-                <p className="text-sm text-primary font-medium mb-2">{project.category}</p>
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-muted-foreground line-clamp-2">{project.description}</p>
+
+            <div className="md:col-span-1 flex md:justify-end">
+                <ArrowUpRight className="w-6 h-6 text-muted-foreground -translate-x-1 translate-y-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-primary transition-all" />
             </div>
         </motion.button>
     );
@@ -172,78 +190,69 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             />
 
             <motion.div
-                className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto card p-8 space-y-6"
+                className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto border border-border rounded-md bg-card p-8 space-y-6"
                 variants={modalVariants}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
             >
-                <motion.button
+                <button
                     onClick={onClose}
-                    className="absolute top-4 right-4 w-10 h-10 rounded-full bg-muted flex items-center justify-center text-muted-foreground hover:text-foreground"
-                    whileHover={{ scale: 1.1, rotate: 90 }}
-                    transition={{ type: "spring", stiffness: 300, damping: 15 }}
+                    className="absolute top-4 right-4 w-10 h-10 rounded-sm border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
                 >
                     <X className="w-5 h-5" />
-                </motion.button>
+                </button>
 
                 <div>
-                    <p className="text-sm text-primary font-medium mb-2">{project.category}</p>
-                    <h2 className="text-2xl md:text-3xl font-bold">{project.title}</h2>
+                    <p className="eyebrow text-primary mb-3">{project.category}</p>
+                    <h2 className="font-display text-2xl md:text-3xl tracking-tight">{project.title}</h2>
                 </div>
 
                 <p className="text-muted-foreground leading-relaxed">{project.longDescription}</p>
 
                 <div className="space-y-4 pt-4 border-t border-border">
                     <div>
-                        <p className="text-sm text-muted-foreground mb-2">Tech Stack</p>
+                        <p className="eyebrow mb-3">Tech Stack</p>
                         <div className="flex flex-wrap gap-2">
-                            {project.tech.map((t: string, i: number) => (
-                                <motion.span
+                            {project.tech.map((t: string) => (
+                                <span
                                     key={t}
-                                    className="px-3 py-1.5 text-sm bg-muted rounded-full"
-                                    initial={{ opacity: 0, scale: 0.8 }}
-                                    animate={{ opacity: 1, scale: 1 }}
-                                    transition={{ delay: 0.3 + i * 0.05 }}
+                                    className="px-3 py-1.5 text-xs font-mono border border-border rounded-sm text-muted-foreground"
                                 >
                                     {t}
-                                </motion.span>
+                                </span>
                             ))}
                         </div>
                     </div>
 
                     {project.impact && (
                         <div>
-                            <p className="text-sm text-muted-foreground mb-2">Impact</p>
-                            <p className="font-medium">{project.impact}</p>
+                            <p className="eyebrow mb-2">Impact</p>
+                            <p className="font-display text-xl tracking-tight">{project.impact}</p>
                         </div>
                     )}
                 </div>
 
                 <div className="flex gap-4 pt-4">
                     {project.links.playStore && (
-                        <motion.a
+                        <a
                             href={project.links.playStore}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-primary text-sm py-3 px-5"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                            className="btn-primary text-xs py-3 px-5"
                         >
                             <ExternalLink className="w-4 h-4" /> View App
-                        </motion.a>
+                        </a>
                     )}
                     {project.links.github && (
-                        <motion.a
+                        <a
                             href={project.links.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-outline text-sm py-3 px-5"
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
+                            className="btn-outline text-xs py-3 px-5"
                         >
                             <Github className="w-4 h-4" /> Source
-                        </motion.a>
+                        </a>
                     )}
                 </div>
             </motion.div>

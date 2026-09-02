@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Fraunces } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -12,6 +12,12 @@ const geistSans = Geist({
 const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -52,18 +58,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-primary selection:text-white`} suppressHydrationWarning>
+    <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable}`} suppressHydrationWarning>
+      <body className="antialiased selection:bg-primary selection:text-white" suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
           enableSystem
           disableTransitionOnChange
         >
-          {/* Ambient Glow Orbs */}
-          <div className="glow-orb top-[-10%] left-[-10%] bg-primary/20 pointer-events-none" />
-          <div className="glow-orb bottom-[-10%] right-[-10%] bg-primary/10 pointer-events-none" />
-
           <Navbar />
           <div className="flex flex-col min-h-screen">
             <main className="flex-1 w-full overflow-x-hidden selection:bg-primary selection:text-white pt-20">
