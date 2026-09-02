@@ -11,12 +11,15 @@ const stack = [
     "Android",
     "Firebase",
     "Node.js",
+    "Go",
     "Tailwind",
     "Framer Motion",
     "Dart",
     "GraphQL",
     "PostgreSQL",
     "Docker",
+    "AWS",
+    "Git",
 ];
 
 export default function TechStack() {

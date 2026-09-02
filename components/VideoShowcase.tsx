@@ -72,12 +72,20 @@ export default function VideoShowcase() {
 
     if (error) {
         return (
-            <div className="p-10 rounded-[2.5rem] glass border border-primary/20 space-y-4">
-                <h3 className="font-black text-primary flex items-center gap-3 uppercase tracking-tighter text-2xl">
-                    <AlertCircle className="w-6 h-6" /> Feed Restricted
-                </h3>
-                <p className="text-muted-foreground leading-relaxed max-w-lg">{error}</p>
-                <a href="https://youtube.com/@niloythings" target="_blank" className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-foreground border-b border-primary/40 pb-1">Visit Channel Manually <ArrowUpRight className="w-3 h-3" /></a>
+            <div className="p-8 rounded-2xl bg-card border border-border text-center space-y-4">
+                <Youtube className="w-8 h-8 text-muted-foreground mx-auto" />
+                <h3 className="font-bold text-lg">Studio Feed</h3>
+                <p className="text-muted-foreground text-sm max-w-md mx-auto">
+                    Videos are loading from YouTube. Check out the channel directly for the latest content.
+                </p>
+                <a
+                    href="https://youtube.com/@niloythings"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                >
+                    Visit YouTube Channel <ArrowUpRight className="w-4 h-4" />
+                </a>
             </div>
         );
     }

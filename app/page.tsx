@@ -223,6 +223,15 @@ function AnimatedStat({ number, suffix, label }: { number: number; suffix: strin
 
 // ── Service Card ─────────────────────────────────
 
+const cardAccents = [
+  { bg: "bg-red-500/10", text: "text-red-500", border: "hover:border-red-500/30" },
+  { bg: "bg-blue-500/10", text: "text-blue-500", border: "hover:border-blue-500/30" },
+  { bg: "bg-emerald-500/10", text: "text-emerald-500", border: "hover:border-emerald-500/30" },
+  { bg: "bg-amber-500/10", text: "text-amber-500", border: "hover:border-amber-500/30" },
+  { bg: "bg-violet-500/10", text: "text-violet-500", border: "hover:border-violet-500/30" },
+  { bg: "bg-cyan-500/10", text: "text-cyan-500", border: "hover:border-cyan-500/30" },
+];
+
 function ServiceCard({
   icon,
   title,
@@ -234,15 +243,16 @@ function ServiceCard({
   description: string;
   index: number;
 }) {
+  const accent = cardAccents[index % cardAccents.length];
   return (
     <motion.div
       variants={scaleIn}
       custom={index * 0.05}
       whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      className="card p-8"
+      className={`card p-8 group ${accent.border} transition-all duration-300`}
     >
       <motion.div
-        className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center text-primary mb-6"
+        className={`w-14 h-14 rounded-2xl ${accent.bg} flex items-center justify-center ${accent.text} mb-6`}
         whileHover={{ scale: 1.1, rotate: -5 }}
         transition={{ type: "spring", stiffness: 300, damping: 15 }}
       >

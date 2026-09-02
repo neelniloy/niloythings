@@ -43,7 +43,7 @@ export default function Footer() {
                         <h4 className="font-bold mb-4">Connect</h4>
                         <div className="flex gap-4">
                             <SocialLink href="https://github.com/neelniloy" icon={<Github className="w-5 h-5" />} />
-                            <SocialLink href="https://linkedin.com/in/niloythings" icon={<Linkedin className="w-5 h-5" />} />
+                            <SocialLink href="https://linkedin.com/in/niloykumarsarker" icon={<Linkedin className="w-5 h-5" />} />
                             <SocialLink href="https://twitter.com/niloythings" icon={<Twitter className="w-5 h-5" />} />
                             <SocialLink href="https://youtube.com/@niloythings" icon={<Youtube className="w-5 h-5" />} />
                         </div>
