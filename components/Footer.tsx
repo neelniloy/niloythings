@@ -7,8 +7,7 @@ import { staggerContainer, staggerItem, fadeUp, sectionViewport } from "@/lib/us
 
 const socials = [
     { name: "GitHub", href: "https://github.com/neelniloy" },
-    { name: "LinkedIn", href: "https://linkedin.com/in/niloykumarsarker" },
-    { name: "Twitter", href: "https://twitter.com/niloythings" },
+    { name: "LinkedIn", href: "https://www.linkedin.com/in/niloysarker/" },
     { name: "YouTube", href: "https://youtube.com/@niloythings" },
 ];
 
@@ -25,7 +24,7 @@ export default function Footer() {
         >
             <div className="container-wide">
                 <motion.div variants={fadeUp} custom={0} className="mb-16">
-                    <Link href="mailto:hello@niloy.dev" className="group inline-flex items-baseline gap-4">
+                    <Link href="mailto:niloy64529@gmail.com" className="group inline-flex items-baseline gap-4">
                         <span className="font-display italic text-4xl sm:text-5xl md:text-6xl tracking-tight leading-none group-hover:text-primary transition-colors">
                             Let&apos;s talk shop.
                         </span>

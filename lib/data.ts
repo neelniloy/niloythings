@@ -9,6 +9,7 @@ export interface Project {
     color: string;
     links: {
         playStore?: string;
+        appStore?: string;
         github?: string;
         website?: string;
     };
@@ -74,14 +75,6 @@ export const EARLY_APPS: MicroApp[] = [
     },
 ];
 
-export interface Experience {
-    company: string;
-    role: string;
-    period: string;
-    description: string;
-    achievements: string[];
-}
-
 export const PROJECTS: Project[] = [
     {
         title: "Futuredesh App",
@@ -94,6 +87,7 @@ export const PROJECTS: Project[] = [
         color: "from-red-900/40 to-orange-900/40",
         links: {
             playStore: "https://play.google.com/store/apps/details?id=com.futuredesh.contractFarming",
+            appStore: "https://apps.apple.com/us/app/futuredesh/id6745175628",
         },
     },
     {
@@ -174,30 +168,5 @@ export const PROJECTS: Project[] = [
         links: {
             playStore: "https://play.google.com/store/apps/details?id=com.braineer.shromikseba",
         },
-    },
-];
-
-export const EXPERIENCES: Experience[] = [
-    {
-        company: "BuildWithInnovation",
-        role: "Lead Mobile Engineer & Product Architect",
-        period: "2022 - Present",
-        description: "Leading mobile development and product strategy for multiple high-impact ventures.",
-        achievements: [
-            "Built and launched 3 production apps serving 60K+ combined users",
-            "Designed offline-first architecture handling complex data sync",
-            "Established mobile development standards and best practices",
-        ],
-    },
-    {
-        company: "Freelance & Contract Work",
-        role: "Full-Stack Mobile Developer",
-        period: "2020 - 2022",
-        description: "Delivered custom mobile and web solutions for various clients.",
-        achievements: [
-            "Completed 15+ client projects with 100% satisfaction rate",
-            "Specialized in Flutter, React Native, and Firebase implementations",
-            "Provided technical consulting for startup MVPs",
-        ],
     },
 ];

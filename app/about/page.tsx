@@ -53,7 +53,7 @@ export default function AboutPage() {
                                 <MapPin className="w-3.5 h-3.5" /> Bangladesh
                             </span>
                             <span className="flex items-center gap-2">
-                                <Mail className="w-3.5 h-3.5" /> hello@niloy.dev
+                                <Mail className="w-3.5 h-3.5" /> niloy64529@gmail.com
                             </span>
                         </motion.div>
                     </motion.div>
@@ -135,7 +135,7 @@ export default function AboutPage() {
             >
                 <div className="mb-16">
                     <p className="eyebrow mb-4 text-primary">05 — Recognition</p>
-                    <h2 className="font-display text-3xl md:text-4xl tracking-tight">Achievements</h2>
+                    <h2 className="font-display text-3xl md:text-4xl tracking-tight">Achievements &amp; Moments</h2>
                 </div>
                 <MomentsGallery />
             </motion.section>
@@ -163,7 +163,7 @@ export default function AboutPage() {
                         about building impactful products.
                     </motion.p>
                     <motion.div variants={staggerItem} className="flex flex-wrap items-center gap-6">
-                        <Link href="mailto:hello@niloy.dev" className="btn-primary">
+                        <Link href="mailto:niloy64529@gmail.com" className="btn-primary">
                             Get in Touch
                             <ArrowRight className="w-4 h-4" />
                         </Link>

@@ -241,7 +241,17 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                             rel="noopener noreferrer"
                             className="btn-primary text-xs py-3 px-5"
                         >
-                            <ExternalLink className="w-4 h-4" /> View App
+                            <ExternalLink className="w-4 h-4" /> {project.links.appStore ? "Google Play" : "View App"}
+                        </a>
+                    )}
+                    {project.links.appStore && (
+                        <a
+                            href={project.links.appStore}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-outline text-xs py-3 px-5"
+                        >
+                            <ExternalLink className="w-4 h-4" /> App Store
                         </a>
                     )}
                     {project.links.website && (

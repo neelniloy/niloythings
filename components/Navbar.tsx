@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { useEffect, useState } from "react";
@@ -49,8 +50,11 @@ export default function Navbar() {
             variants={navSlideDown}
         >
             <nav className="container-wide flex items-center justify-between h-20">
-                <Link href="/" className="font-display italic text-2xl tracking-tight hover:text-primary transition-colors">
-                    Niloy<span className="text-primary not-italic">.</span>
+                <Link href="/" className="flex items-center gap-2.5 group">
+                    <Image src="/logo-mark.png" alt="Niloy" width={28} height={28} className="rounded-md" priority />
+                    <span className="font-display italic text-2xl tracking-tight group-hover:text-primary transition-colors">
+                        Niloy<span className="text-primary not-italic">.</span>
+                    </span>
                 </Link>
 
                 <div className="flex items-center gap-6 md:gap-8">
@@ -81,7 +85,7 @@ export default function Navbar() {
                     </ul>
 
                     <Link
-                        href="mailto:hello@niloy.dev"
+                        href="mailto:niloy64529@gmail.com"
                         className="hidden md:inline-flex eyebrow items-center gap-2 px-4 py-2.5 border border-border rounded-sm hover:border-foreground hover:text-foreground transition-colors"
                     >
                         Say Hello
@@ -136,8 +140,8 @@ export default function Navbar() {
                             </ul>
 
                             <div className="mt-auto pt-10 flex items-center justify-between">
-                                <Link href="mailto:hello@niloy.dev" className="eyebrow link-underline">
-                                    hello@niloy.dev
+                                <Link href="mailto:niloy64529@gmail.com" className="eyebrow link-underline">
+                                    niloy64529@gmail.com
                                 </Link>
                                 <span className="eyebrow text-muted-foreground">Bangladesh</span>
                             </div>

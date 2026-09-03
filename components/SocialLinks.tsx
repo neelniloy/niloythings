@@ -5,7 +5,7 @@ const socials = [
     {
         name: "LinkedIn",
         icon: <Linkedin className="w-5 h-5" />,
-        href: "https://linkedin.com/in/niloykumarsarker",
+        href: "https://www.linkedin.com/in/niloysarker/",
     },
     {
         name: "GitHub",
@@ -20,7 +20,7 @@ const socials = [
     {
         name: "Email",
         icon: <Mail className="w-5 h-5" />,
-        href: "mailto:contact@niloy.dev",
+        href: "mailto:niloy64529@gmail.com",
     },
 ];
 

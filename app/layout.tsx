@@ -45,7 +45,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Niloy Kumar Sarker | Product Technologist & CTO",
     description: "Building production mobile systems and shipping useful things.",
-    creator: "@niloythings",
     images: ["/og-image.jpg"],
   },
 };
@@ -57,7 +56,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} ${fraunces.variable}`}>
-      <body className="antialiased selection:bg-primary selection:text-white">
+      <body className="antialiased selection:bg-primary selection:text-white" suppressHydrationWarning>
         <Navbar />
         <div className="flex flex-col min-h-screen">
           <main className="flex-1 w-full overflow-x-hidden selection:bg-primary selection:text-white pt-20">

@@ -136,7 +136,7 @@ export default function Home() {
                 Open to select partnerships and collaborations.
               </p>
               <Link
-                href="mailto:hello@niloy.dev"
+                href="mailto:niloy64529@gmail.com"
                 className="inline-flex items-center gap-2 eyebrow px-6 py-4 bg-background text-foreground rounded-sm hover:bg-primary hover:text-white transition-colors"
               >
                 Start a Conversation
@@ -204,7 +204,7 @@ function AnimatedStat({
 const services = [
   {
     title: "Mobile Development",
-    description: "Flutter, React Native, and native iOS/Android apps that users love.",
+    description: "Flutter and native iOS/Android apps that users love.",
   },
   {
     title: "Full-Stack Engineering",

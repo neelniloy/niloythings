@@ -2,37 +2,34 @@
 
 ![Portfolio Banner](public/og-image.jpg)
 
-> **Engineering at the intersection of product and technology.**  
+> **Engineering at the intersection of product and technology.**
 > Building resilient, offline-first mobile systems and scalable digital ventures.
 
 Live Portfolio: **[niloythings.com](https://niloythings.com)** _(Coming Soon)_
 
 ---
 
-## 🚀 Overview
+## Overview
 
-This is the official portfolio website for **Niloy Kumar Sarker**, designed to showcase specialized expertise in mobile engineering, product architecture, and enterprise-grade applications. 
+This is the official portfolio website for **Niloy Kumar Sarker**, CTO at Futuredesh Ltd, showcasing real shipped work — Play Store and App Store products, GitHub activity, and career history — alongside a small suite of developer utilities.
 
-The site is built with a **modern, minimal aesthetic** focusing on performance, accessibility, and fluid user interactions. It features a custom-built utility suite for developers and a detailed showcase of flagship products like **Futuredesh** and **Kormi**.
+## Tech Stack
 
-## 🛠️ Tech Stack
-
-*   **Framework**: [Next.js 15 (App Router)](https://nextjs.org/)
+*   **Framework**: [Next.js 16 (App Router)](https://nextjs.org/), static export (`output: "export"`)
 *   **Language**: [TypeScript](https://www.typescriptlang.org/)
-*   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+*   **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
 *   **Animations**: [Framer Motion](https://www.framer.com/motion/)
 *   **Icons**: [Lucide React](https://lucide.dev/)
-*   **Deployment**: [Vercel](https://vercel.com/)
 
-## ✨ Key Features
+## Key Features
 
-*   **Premium Dark UI**: A bespoke "Black & Red" aesthetic with glassmorphism effects.
-*   **Fluid Animations**: Smooth page transitions and micro-interactions powered by Framer Motion.
+*   **Editorial design**: A light, Swiss-editorial visual system (Fraunces serif display type, hairline-bordered layouts) rather than a dark/glassmorphism template.
+*   **Live data**: GitHub stats and YouTube videos are fetched live from public APIs, not hardcoded.
+*   **Dynamic achievements & moments gallery**: drop photos into `public/moments/` and a build-time script (`scripts/generate-moments-manifest.mjs`) regenerates the gallery automatically — no code changes needed.
 *   **Developer Toolkit**: Built-in utilities including JSON Formatter, Base64 Encoder, and UUID Generator.
-*   **Responsive Design**: Fully optimized for mobile, tablet, and ultra-wide desktops.
-*   **Performance**: Static generation for lightning-fast load times.
+*   **Static export**: Fully static output, deployable to any static host (Cloudflare Pages, Netlify, GitHub Pages, etc.).
 
-## 🏃‍♂️ Getting Started
+## Getting Started
 
 To run this project locally:
 
@@ -54,18 +51,14 @@ To run this project locally:
 
 4.  Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## 📦 Deployment
+## Deployment
 
-This project is optimized for deployment on **Vercel**:
+This project builds to a fully static `out/` directory (`next build`, via `output: "export"`), so it can be deployed to any static host — no Node.js server required.
 
-1.  Push your code to GitHub.
-2.  Import the project into Vercel.
-3.  Vercel will automatically detect the Next.js configuration and deploy.
+## Contact
 
-## 📫 Contact
-
-*   **Email**: [contact@niloythings.com](mailto:contact@niloythings.com)
-*   **LinkedIn**: [linkedin.com/in/niloythings](https://linkedin.com/in/niloythings)
+*   **Email**: [niloy64529@gmail.com](mailto:niloy64529@gmail.com)
+*   **LinkedIn**: [linkedin.com/in/niloysarker](https://www.linkedin.com/in/niloysarker/)
 *   **GitHub**: [@neelniloy](https://github.com/neelniloy)
 
 ---
