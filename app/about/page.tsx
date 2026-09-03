@@ -133,10 +133,6 @@ export default function AboutPage() {
                 variants={fadeUp}
                 custom={0}
             >
-                <div className="mb-16">
-                    <p className="eyebrow mb-4 text-primary">05 — Recognition</p>
-                    <h2 className="font-display text-3xl md:text-4xl tracking-tight">Achievements &amp; Moments</h2>
-                </div>
                 <MomentsGallery />
             </motion.section>
 
