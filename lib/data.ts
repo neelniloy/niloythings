@@ -78,12 +78,12 @@ export const EARLY_APPS: MicroApp[] = [
 export const PROJECTS: Project[] = [
     {
         title: "Futuredesh App",
-        description: "Mobile platform for diaspora communities with offline-first architecture supporting 50K+ users.",
+        description: "Mobile platform for diaspora communities with offline-first architecture supporting 30K+ users.",
         longDescription: "Built a complete Flutter-based ecosystem with Firebase backend, implementing advanced offline sync, real-time updates, and native performance optimizations.",
         image: "/projects/futuredesh.png",
         tech: ["Flutter", "Firebase", "Node.js", "Cloud Functions"],
         category: "Mobile",
-        impact: "50K+ Users",
+        impact: "30K+ Users",
         color: "from-red-900/40 to-orange-900/40",
         links: {
             playStore: "https://play.google.com/store/apps/details?id=com.futuredesh.contractFarming",

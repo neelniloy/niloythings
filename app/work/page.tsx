@@ -47,43 +47,48 @@ export default function WorkPage() {
                     </motion.p>
                 </motion.div>
 
-                {/* Tab Switcher */}
+                {/* Tab Switcher & Play Console Link */}
                 <motion.div
-                    className="flex gap-8 mb-4 border-b border-border"
+                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10"
                     initial="hidden"
                     animate="visible"
                     variants={staggerItem}
                 >
-                    <button
-                        onClick={() => setViewMode("projects")}
-                        className={`relative pb-4 eyebrow transition-colors ${
-                            viewMode === "projects" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                        }`}
+                    <div className="inline-flex p-1 rounded-lg bg-muted/50 border border-border/80">
+                        <button
+                            onClick={() => setViewMode("projects")}
+                            className={`relative px-5 py-2 text-xs font-mono tracking-wider uppercase rounded-md transition-all duration-200 ${
+                                viewMode === "projects"
+                                    ? "bg-background text-foreground shadow-sm font-semibold"
+                                    : "text-muted-foreground hover:text-foreground"
+                            }`}
+                        >
+                            Projects
+                        </button>
+                        <button
+                            onClick={() => setViewMode("experience")}
+                            className={`relative px-5 py-2 text-xs font-mono tracking-wider uppercase rounded-md transition-all duration-200 ${
+                                viewMode === "experience"
+                                    ? "bg-background text-foreground shadow-sm font-semibold"
+                                    : "text-muted-foreground hover:text-foreground"
+                            }`}
+                        >
+                            Experience
+                        </button>
+                    </div>
+
+                    <a
+                        href="https://play.google.com/store/apps/dev?id=6986460577323497498"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-2 eyebrow px-4 py-2 rounded-md border border-border bg-card hover:border-primary hover:text-primary transition-colors text-xs font-mono self-start sm:self-auto group"
                     >
-                        Projects
-                        {viewMode === "projects" && (
-                            <motion.div
-                                className="absolute -bottom-px left-0 right-0 h-px bg-foreground"
-                                layoutId="tab-indicator"
-                                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                            />
-                        )}
-                    </button>
-                    <button
-                        onClick={() => setViewMode("experience")}
-                        className={`relative pb-4 eyebrow transition-colors ${
-                            viewMode === "experience" ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                        }`}
-                    >
-                        Experience
-                        {viewMode === "experience" && (
-                            <motion.div
-                                className="absolute -bottom-px left-0 right-0 h-px bg-foreground"
-                                layoutId="tab-indicator"
-                                transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                            />
-                        )}
-                    </button>
+                        <svg className="w-3.5 h-3.5 fill-current text-primary" viewBox="0 0 24 24">
+                            <path d="M3.609 1.814L13.792 12 3.61 22.186a2.372 2.372 0 0 1-.61-1.638V3.452c0-.624.225-1.2.609-1.638zm11.237 11.24l2.583-2.583-11.58-6.68 8.997 9.263zm2.583-2.583l3.655 2.11c1.298.75 1.298 1.97 0 2.72l-3.655 2.11-2.228-2.228 2.228-2.712zm-2.583 2.583l-8.997 9.263 11.58-6.68-2.583-2.583z"/>
+                        </svg>
+                        <span>Play Console Profile</span>
+                        <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
+                    </a>
                 </motion.div>
 
                 {/* Content */}
@@ -95,18 +100,19 @@ export default function WorkPage() {
                             animate="visible"
                             exit={{ opacity: 0, y: 20, transition: { duration: 0.2 } }}
                             variants={staggerContainer}
-                            className="pt-8"
                         >
-                            {PROJECTS.map((project, index) => (
-                                <ProjectRow
-                                    key={project.title}
-                                    project={project}
-                                    index={index}
-                                    onClick={() => setSelectedProject(project)}
-                                />
-                            ))}
+                            <div className="border-t border-border">
+                                {PROJECTS.map((project, index) => (
+                                    <ProjectRow
+                                        key={project.title}
+                                        project={project}
+                                        index={index}
+                                        onClick={() => setSelectedProject(project)}
+                                    />
+                                ))}
+                            </div>
 
-                            <div className="pt-16 md:pt-24">
+                            <div className="pt-20 md:pt-28">
                                 <EarlyWork />
                             </div>
                         </motion.div>
@@ -117,7 +123,6 @@ export default function WorkPage() {
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: 20, transition: { duration: 0.2 } }}
                             transition={{ duration: 0.5 }}
-                            className="pt-10"
                         >
                             <ExperienceTimeline />
                         </motion.div>
@@ -139,7 +144,7 @@ function ProjectRow({ project, onClick, index }: { project: Project; onClick: ()
     return (
         <motion.button
             onClick={onClick}
-            className="group w-full text-left border-t border-border last:border-b py-10 grid md:grid-cols-12 gap-6 md:gap-8 items-center"
+            className="group w-full text-left border-b border-border py-10 grid md:grid-cols-12 gap-6 md:gap-8 items-center"
             variants={staggerItem}
         >
             <span className="num text-sm text-muted-foreground md:col-span-1">

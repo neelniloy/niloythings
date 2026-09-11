@@ -24,7 +24,7 @@ export default function Home() {
         >
           <div className="lg:col-span-9">
             <motion.p variants={staggerItem} className="eyebrow mb-6">
-              Product Technologist — CTO, Futuredesh Ltd
+              Product Technologist — Lead Software Engineer, Futuredesh Ltd
             </motion.p>
 
             <motion.h1
@@ -41,7 +41,7 @@ export default function Home() {
               variants={staggerItem}
               className="text-lg md:text-xl text-muted-foreground leading-relaxed max-w-xl"
             >
-              CTO &amp; product builder specializing in mobile-first experiences,
+              Lead software engineer &amp; product builder specializing in mobile-first experiences,
               offline-first architecture, and building teams that ship.
             </motion.p>
           </div>
@@ -70,7 +70,7 @@ export default function Home() {
           variants={staggerContainer}
         >
           <div className="grid grid-cols-2 md:grid-cols-4">
-            <AnimatedStat number={60} suffix="K+" label="Active Users" first />
+            <AnimatedStat number={30} suffix="K+" label="Active Users" first />
             <AnimatedStat number={10} suffix="+" label="Products Shipped" />
             <AnimatedStat number={5} suffix="+" label="Years Experience" />
             <AnimatedStat number={4} suffix="" label="Companies" />

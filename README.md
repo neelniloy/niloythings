@@ -1,4 +1,4 @@
-# Niloy Kumar Sarker | Product Technologist & CTO
+# Niloy Kumar Sarker | Lead Software Engineer & Product Builder
 
 ![Portfolio Banner](public/og-image.jpg)
 
@@ -11,7 +11,7 @@ Live Portfolio: **[niloythings.com](https://niloythings.com)** _(Coming Soon)_
 
 ## Overview
 
-This is the official portfolio website for **Niloy Kumar Sarker**, CTO at Futuredesh Ltd, showcasing real shipped work — Play Store and App Store products, GitHub activity, and career history — alongside a small suite of developer utilities.
+This is the official portfolio website for **Niloy Kumar Sarker**, Lead Software Engineer at Futuredesh Ltd, showcasing real shipped work — Play Store and App Store products, GitHub activity, and career history — alongside a small suite of developer utilities.
 
 ## Tech Stack
 

@@ -32,13 +32,13 @@ export default function Footer() {
                     </Link>
                 </motion.div>
 
-                <div className="grid md:grid-cols-4 gap-12 pt-10 border-t border-border">
+                <div className="grid md:grid-cols-4 gap-12 pt-4">
                     <motion.div variants={staggerItem} className="md:col-span-2">
                         <p className="font-display italic text-xl mb-4">
                             Niloy<span className="text-primary not-italic">.</span>
                         </p>
                         <p className="text-muted-foreground max-w-sm">
-                            CTO &amp; product builder. Helping companies ship exceptional digital products.
+                            Lead software engineer &amp; product builder. Helping companies ship exceptional digital products.
                         </p>
                     </motion.div>
 

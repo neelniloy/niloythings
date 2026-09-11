@@ -44,7 +44,7 @@ export default function AboutPage() {
                             variants={staggerItem}
                             className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-2xl"
                         >
-                            I&apos;m a CTO and product builder based in Bangladesh. I lead engineering teams
+                            I&apos;m a Lead Software Engineer and product builder based in Bangladesh. I lead engineering teams
                             and build products that scale — with a focus on mobile-first experiences
                             and offline-first architecture.
                         </motion.p>
@@ -68,7 +68,7 @@ export default function AboutPage() {
                     >
                         <h3 className="eyebrow mb-6">Quick Stats</h3>
                         <div className="grid grid-cols-2 gap-x-6 gap-y-8">
-                            <AnimatedMiniStat number={60} suffix="K+" label="Active Users" />
+                            <AnimatedMiniStat number={30} suffix="K+" label="Active Users" />
                             <AnimatedMiniStat number={10} suffix="+" label="Products" />
                             <AnimatedMiniStat number={5} suffix="+" label="Years" />
                             <AnimatedMiniStat number={4} suffix="" label="Companies" />

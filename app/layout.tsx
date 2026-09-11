@@ -21,12 +21,12 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
-  title: "Niloy Kumar Sarker | Product Technologist & CTO",
-  description: "Product Technologist & CTO at Futuredesh Ltd. Building production mobile systems, AgriTech innovations, and crafting digital ventures with Flutter, Kotlin, and React.",
-  keywords: ["Niloy Kumar Sarker", "CTO", "Product Technologist", "Software Engineer", "Flutter Developer", "AgriTech", "Futuredesh"],
+  title: "Niloy Kumar Sarker | Lead Software Engineer & Product Builder",
+  description: "Lead Software Engineer & Product Builder. Building production mobile systems, offline-first architectures, and scalable digital products with Flutter, Kotlin, and modern web.",
+  keywords: ["Niloy Kumar Sarker", "Lead Software Engineer", "Mobile Engineer", "Flutter Developer", "Android Developer", "Product Builder", "Futuredesh"],
   authors: [{ name: "Niloy Kumar Sarker" }],
   openGraph: {
-    title: "Niloy Kumar Sarker | Product Technologist & CTO",
+    title: "Niloy Kumar Sarker | Lead Software Engineer & Product Builder",
     description: "Building production mobile systems and shipping useful things.",
     url: "https://niloythings.com",
     siteName: "Niloy Things",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Niloy Kumar Sarker | Product Technologist & CTO",
+    title: "Niloy Kumar Sarker | Lead Software Engineer & Product Builder",
     description: "Building production mobile systems and shipping useful things.",
     images: ["/og-image.jpg"],
   },

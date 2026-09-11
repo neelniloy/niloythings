@@ -21,10 +21,16 @@ const experiences: CompanyExperience[] = [
         totalPeriod: "Jul 2024 – Present",
         roles: [
             {
-                title: "Chief Technology Officer (CTO)",
-                period: "Jul 2024 – Present",
+                title: "Lead Software Engineer",
+                period: "Jan 2026 – Present",
                 description:
-                    "Leading technical strategy and architecture for Futuredesh's contract-farming and social-capital platform. Overseeing mobile (Flutter), backend, and operational dashboards. Managing the engineering team and ensuring offline-first reliability for rural usage.",
+                    "Promoted to lead technical strategy, core architecture, and team execution for Futuredesh's contract-farming platform. Overseeing mobile (Flutter), backend services, and operational dashboards while mentoring engineers and ensuring high system reliability.",
+            },
+            {
+                title: "Software Engineer — Mobile",
+                period: "Jul 2024 – Dec 2025",
+                description:
+                    "Architected and developed the offline-first Flutter mobile application from the ground up, implementing local database caching, background sync mechanisms, and smooth user flows for rural communities.",
             },
         ],
     },
