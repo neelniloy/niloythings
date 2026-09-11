@@ -23,17 +23,28 @@ export interface MicroApp {
     title: string;
     tagline: string;
     image: string;
-    installs: string;
-    playStore: string;
+    installs?: string;
+    playStore?: string;
+    link?: string;
+    tech?: string[];
 }
 
 export const EARLY_APPS: MicroApp[] = [
     {
-        title: "D Smart Recovery",
-        tagline: "Quickly restore recently deleted files.",
-        image: "/apps/dsmartrecovery.webp",
-        installs: "100+",
-        playStore: "https://play.google.com/store/apps/details?id=com.braineer.dsmartrecovery",
+        title: "SpeedBazar",
+        tagline: "Online grocery & e-commerce shopping platform.",
+        image: "/apps/speedbazar.webp",
+        installs: "E-Commerce",
+        tech: ["Android", "Java", "Firebase"],
+        link: "https://apkpure.com/speedbazar/com.samulitfirstproject.speedbazar",
+    },
+    {
+        title: "FoodCYC",
+        tagline: "Social platform for restaurant and food reviews.",
+        image: "/apps/foodcyc.png",
+        installs: "Social App",
+        tech: ["Android", "Java", "Firebase"],
+        link: "https://github.com/neelniloy",
     },
     {
         title: "Scheduler",
@@ -114,15 +125,28 @@ export const PROJECTS: Project[] = [
     },
     {
         title: "Project Scan",
-        description: "Fast QR code and barcode scanner, custom code generator, and offline history manager.",
-        longDescription: "A versatile QR and barcode utility app for Android featuring high-accuracy camera scanning, custom QR generation with colors and branding, batch export, and offline history tracking.",
+        description: "Extract image to text, scan barcodes, and generate dynamic QR codes with offline-first OCR.",
+        longDescription: "An all-in-one scanning tool powered by Google ML Kit and ZXing for optical character recognition (OCR), document digitization, and barcode/QR code generation with instant export.",
         image: "/apps/projectscan.webp",
-        tech: ["Android", "Kotlin"],
-        category: "Utility",
-        impact: "1K+ Downloads",
-        color: "from-blue-900/40 to-cyan-900/40",
+        tech: ["Android", "Kotlin", "ML Kit", "ZXing"],
+        category: "Productivity",
+        impact: "500+ Downloads",
+        color: "from-emerald-900/40 to-teal-900/40",
         links: {
             playStore: "https://play.google.com/store/apps/details?id=com.braineer.projectscan",
+        },
+    },
+    {
+        title: "D Smart Recovery",
+        description: "Fast and reliable deleted file recovery tool — scans storage to recover lost photos, videos, and documents without root.",
+        longDescription: "A lightweight on-device storage recovery utility for Android that deeply scans internal and external storage to restore accidentally deleted images, video clips, and files without requiring device rooting.",
+        image: "/apps/dsmartrecovery.webp",
+        tech: ["Android", "Kotlin", "Storage API"],
+        category: "Utility",
+        impact: "100+ Downloads",
+        color: "from-teal-900/40 to-cyan-900/40",
+        links: {
+            playStore: "https://play.google.com/store/apps/details?id=com.braineer.dsmartrecovery",
         },
     },
     {

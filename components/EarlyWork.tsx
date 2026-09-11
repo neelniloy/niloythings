@@ -30,7 +30,7 @@ export default function EarlyWork() {
                 {EARLY_APPS.map((app) => (
                     <motion.a
                         key={app.title}
-                        href={app.playStore}
+                        href={app.playStore || app.link || "#"}
                         target="_blank"
                         rel="noopener noreferrer"
                         variants={staggerItem}
@@ -46,7 +46,11 @@ export default function EarlyWork() {
                             <h3 className="font-display text-base tracking-tight mb-1">{app.title}</h3>
                             <p className="text-sm text-muted-foreground">{app.tagline}</p>
                         </div>
-                        <span className="eyebrow text-primary">{app.installs} Installs</span>
+                        {app.installs && (
+                            <span className="eyebrow text-primary">
+                                {app.installs.includes("+") ? `${app.installs} Installs` : app.installs}
+                            </span>
+                        )}
                     </motion.a>
                 ))}
             </motion.div>
