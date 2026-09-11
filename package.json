@@ -3,11 +3,11 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "predev": "node scripts/generate-moments-manifest.mjs",
+    "predev": "node scripts/generate-moments-manifest.mjs && node scripts/fetch-playstore.mjs",
     "dev": "next dev",
-    "prebuild": "node scripts/generate-moments-manifest.mjs",
+    "prebuild": "node scripts/generate-moments-manifest.mjs && node scripts/fetch-playstore.mjs",
     "build": "next build",
-    "start": "next start",
+    "update-playstore": "node scripts/fetch-playstore.mjs",
     "lint": "eslint"
   },
   "dependencies": {

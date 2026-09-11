@@ -111,5 +111,5 @@ export const cardHover = {
 // Page section viewport config
 export const sectionViewport = {
   once: true,
-  amount: 0.15 as const,
+  amount: "some" as const,
 };

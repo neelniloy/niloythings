@@ -32,8 +32,8 @@ export default function Footer() {
                     </Link>
                 </motion.div>
 
-                <div className="grid md:grid-cols-4 gap-12 pt-4">
-                    <motion.div variants={staggerItem} className="md:col-span-2">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 pt-4">
+                    <motion.div variants={staggerItem} className="col-span-2 md:col-span-2">
                         <p className="font-display italic text-xl mb-4">
                             Niloy<span className="text-primary not-italic">.</span>
                         </p>

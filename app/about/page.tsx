@@ -90,16 +90,9 @@ export default function AboutPage() {
             </motion.div>
 
             {/* Engineering Philosophy */}
-            <motion.section
-                className="container-wide py-16"
-                initial="hidden"
-                whileInView="visible"
-                viewport={sectionViewport}
-                variants={fadeUp}
-                custom={0}
-            >
+            <section className="container-wide py-16">
                 <PhilosophySection />
-            </motion.section>
+            </section>
 
             {/* GitHub / Open Source */}
             <motion.section
@@ -114,28 +107,14 @@ export default function AboutPage() {
             </motion.section>
 
             {/* Studio Feed (YouTube) */}
-            <motion.section
-                className="container-wide py-16 border-t border-border"
-                initial="hidden"
-                whileInView="visible"
-                viewport={sectionViewport}
-                variants={fadeUp}
-                custom={0}
-            >
+            <section className="container-wide py-16 border-t border-border">
                 <VideoShowcase />
-            </motion.section>
+            </section>
 
             {/* Achievements Gallery */}
-            <motion.section
-                className="container-wide py-16 border-t border-border"
-                initial="hidden"
-                whileInView="visible"
-                viewport={sectionViewport}
-                variants={fadeUp}
-                custom={0}
-            >
+            <section className="container-wide py-16 border-t border-border">
                 <MomentsGallery />
-            </motion.section>
+            </section>
 
             {/* CTA */}
             <motion.section

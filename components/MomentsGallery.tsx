@@ -46,7 +46,7 @@ export default function MomentsGallery() {
     if (!images || images.length === 0) return null;
 
     return (
-        <section className="space-y-10">
+        <div className="space-y-10">
             {/* Header & Achievements */}
             <motion.div
                 initial="hidden"
@@ -127,6 +127,6 @@ export default function MomentsGallery() {
                     </motion.div>
                 ))}
             </motion.div>
-        </section>
+        </div>
     );
 }

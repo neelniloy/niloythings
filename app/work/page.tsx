@@ -14,6 +14,9 @@ import {
     modalVariants,
 } from "@/lib/useAnimations";
 
+import ProjectCardMedia from "@/components/ProjectCardMedia";
+import { getProjectAppMedia } from "@/lib/playstore";
+
 type ViewMode = "projects" | "experience";
 
 export default function WorkPage() {
@@ -49,12 +52,12 @@ export default function WorkPage() {
 
                 {/* Tab Switcher & Play Console Link */}
                 <motion.div
-                    className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-10"
+                    className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10"
                     initial="hidden"
                     animate="visible"
                     variants={staggerItem}
                 >
-                    <div className="inline-flex p-1 rounded-lg bg-muted/50 border border-border/80">
+                    <div className="inline-flex self-start p-1 rounded-lg bg-muted/50 border border-border/80">
                         <button
                             onClick={() => setViewMode("projects")}
                             className={`relative px-5 py-2 text-xs font-mono tracking-wider uppercase rounded-md transition-all duration-200 ${
@@ -81,7 +84,7 @@ export default function WorkPage() {
                         href="https://play.google.com/store/apps/dev?id=6986460577323497498"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 eyebrow px-4 py-2 rounded-md border border-border bg-card hover:border-primary hover:text-primary transition-colors text-xs font-mono self-start sm:self-auto group"
+                        className="inline-flex items-center gap-2 eyebrow px-4 py-2 rounded-md border border-border bg-card hover:border-primary hover:text-primary transition-colors text-xs font-mono group"
                     >
                         <svg className="w-3.5 h-3.5 fill-current text-primary" viewBox="0 0 24 24">
                             <path d="M3.609 1.814L13.792 12 3.61 22.186a2.372 2.372 0 0 1-.61-1.638V3.452c0-.624.225-1.2.609-1.638zm11.237 11.24l2.583-2.583-11.58-6.68 8.997 9.263zm2.583-2.583l3.655 2.11c1.298.75 1.298 1.97 0 2.72l-3.655 2.11-2.228-2.228 2.228-2.712zm-2.583 2.583l-8.997 9.263 11.58-6.68-2.583-2.583z"/>
@@ -142,9 +145,17 @@ export default function WorkPage() {
 
 function ProjectRow({ project, onClick, index }: { project: Project; onClick: () => void; index: number }) {
     return (
-        <motion.button
+        <motion.div
             onClick={onClick}
-            className="group w-full text-left border-b border-border py-10 grid md:grid-cols-12 gap-6 md:gap-8 items-center"
+            role="button"
+            tabIndex={0}
+            onKeyDown={(e) => {
+                if (e.key === "Enter" || e.key === " ") {
+                    e.preventDefault();
+                    onClick();
+                }
+            }}
+            className="group w-full text-left border-b border-border py-10 grid md:grid-cols-12 gap-6 md:gap-8 items-center cursor-pointer"
             variants={staggerItem}
         >
             <span className="num text-sm text-muted-foreground md:col-span-1">
@@ -166,39 +177,38 @@ function ProjectRow({ project, onClick, index }: { project: Project; onClick: ()
                 </div>
             </div>
 
-            <div className="md:col-span-4 relative aspect-[16/10] rounded-md overflow-hidden border border-border">
-                <Image
-                    src={project.image}
-                    alt={project.title}
-                    fill
-                    className="object-cover md:grayscale group-hover:grayscale-0 transition-all duration-700"
-                />
+            <div className="md:col-span-4">
+                <ProjectCardMedia project={project} />
             </div>
 
             <div className="md:col-span-1 flex md:justify-end">
                 <ArrowUpRight className="w-6 h-6 text-muted-foreground -translate-x-1 translate-y-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-primary transition-all" />
             </div>
-        </motion.button>
+        </motion.div>
     );
 }
 
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+    const playMedia = getProjectAppMedia(project.links);
+    const screenshots = playMedia?.screenshots || [];
+
     useEffect(() => {
         const handleKeyDown = (e: KeyboardEvent) => {
             if (e.key === "Escape") onClose();
         };
+        const prevOverflow = document.body.style.overflow;
         document.body.style.overflow = "hidden";
         window.addEventListener("keydown", handleKeyDown);
         return () => {
-            document.body.style.overflow = "unset";
+            document.body.style.overflow = prevOverflow;
             window.removeEventListener("keydown", handleKeyDown);
         };
     }, [onClose]);
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6">
             <motion.div
-                className="absolute inset-0 bg-background/95 backdrop-blur-sm"
+                className="fixed inset-0 bg-background/90 backdrop-blur-md"
                 onClick={onClose}
                 variants={backdropVariants}
                 initial="hidden"
@@ -207,56 +217,91 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             />
 
             <motion.div
-                className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto border border-border rounded-md bg-card p-5 sm:p-8 space-y-6"
+                className="relative w-full max-w-2xl max-h-[88vh] bg-card border border-border rounded-xl shadow-2xl z-10 flex flex-col overflow-hidden"
                 variants={modalVariants}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
+                onClick={(e) => e.stopPropagation()}
             >
-                <button
-                    onClick={onClose}
-                    className="absolute top-4 right-4 w-10 h-10 rounded-sm border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
-                >
-                    <X className="w-5 h-5" />
-                </button>
-
-                <div>
-                    <p className="eyebrow text-primary mb-3">{project.category}</p>
-                    <h2 className="font-display text-2xl md:text-3xl tracking-tight">{project.title}</h2>
+                {/* Fixed Header */}
+                <div className="flex items-start justify-between p-5 sm:p-6 pb-4 border-b border-border/60 shrink-0 bg-card">
+                    <div>
+                        <p className="eyebrow text-primary mb-1">{project.category}</p>
+                        <h2 className="font-display text-2xl md:text-3xl tracking-tight">{project.title}</h2>
+                    </div>
+                    <button
+                        onClick={onClose}
+                        className="w-9 h-9 rounded-md border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors shrink-0 ml-4"
+                        aria-label="Close modal"
+                    >
+                        <X className="w-4 h-4" />
+                    </button>
                 </div>
 
-                <p className="text-muted-foreground leading-relaxed">{project.longDescription}</p>
-
-                <div className="space-y-4 pt-4 border-t border-border">
-                    <div>
-                        <p className="eyebrow mb-3">Tech Stack</p>
-                        <div className="flex flex-wrap gap-2">
-                            {project.tech.map((t: string) => (
-                                <span
-                                    key={t}
-                                    className="px-3 py-1.5 text-xs font-mono border border-border rounded-sm text-muted-foreground"
-                                >
-                                    {t}
-                                </span>
-                            ))}
+                {/* Scrollable Content Body */}
+                <div className="overflow-y-auto overscroll-contain p-5 sm:p-6 space-y-6 flex-1 [touch-action:pan-y] [-webkit-overflow-scrolling:touch]">
+                    {/* Hero preview or Screenshots carousel */}
+                    {screenshots.length > 0 ? (
+                        <div className="space-y-3">
+                            <p className="eyebrow">Screenshots ({screenshots.length})</p>
+                            <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin snap-x pt-1 [touch-action:pan-x]">
+                                {screenshots.map((s, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="relative w-36 sm:w-44 aspect-[9/19.5] shrink-0 rounded-[14px] overflow-hidden snap-start bg-transparent drop-shadow-lg"
+                                    >
+                                        <Image
+                                            src={s}
+                                            alt={`${project.title} screenshot ${idx + 1}`}
+                                            fill
+                                            className="object-contain"
+                                            sizes="(max-width: 640px) 144px, 176px"
+                                        />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-
-                    {project.impact && (
-                        <div>
-                            <p className="eyebrow mb-2">Impact</p>
-                            <p className="font-display text-xl tracking-tight">{project.impact}</p>
+                    ) : (
+                        <div className="w-full">
+                            <ProjectCardMedia project={project} />
                         </div>
                     )}
+
+                    <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{project.longDescription}</p>
+
+                    <div className="space-y-4 pt-4 border-t border-border">
+                        <div>
+                            <p className="eyebrow mb-3">Tech Stack</p>
+                            <div className="flex flex-wrap gap-2">
+                                {project.tech.map((t: string) => (
+                                    <span
+                                        key={t}
+                                        className="px-3 py-1.5 text-xs font-mono border border-border rounded-sm text-muted-foreground"
+                                    >
+                                        {t}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+
+                        {project.impact && (
+                            <div>
+                                <p className="eyebrow mb-2">Impact</p>
+                                <p className="font-display text-xl tracking-tight">{project.impact}</p>
+                            </div>
+                        )}
+                    </div>
                 </div>
 
-                <div className="flex flex-wrap gap-3 sm:gap-4 pt-4">
+                {/* Fixed Footer with Links */}
+                <div className="p-4 sm:p-6 pt-3 border-t border-border/60 bg-card/95 backdrop-blur-sm shrink-0 flex flex-wrap gap-3">
                     {project.links.playStore && (
                         <a
                             href={project.links.playStore}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-primary text-xs py-3 px-5"
+                            className="btn-primary text-xs py-2.5 px-4 sm:py-3 sm:px-5"
                         >
                             <ExternalLink className="w-4 h-4" /> {project.links.appStore ? "Google Play" : "View App"}
                         </a>
@@ -266,7 +311,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                             href={project.links.appStore}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-outline text-xs py-3 px-5"
+                            className="btn-outline text-xs py-2.5 px-4 sm:py-3 sm:px-5"
                         >
                             <ExternalLink className="w-4 h-4" /> App Store
                         </a>
@@ -276,7 +321,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                             href={project.links.website}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-primary text-xs py-3 px-5"
+                            className="btn-primary text-xs py-2.5 px-4 sm:py-3 sm:px-5"
                         >
                             <ExternalLink className="w-4 h-4" /> Visit Site
                         </a>
@@ -286,7 +331,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                             href={project.links.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-outline text-xs py-3 px-5"
+                            className="btn-outline text-xs py-2.5 px-4 sm:py-3 sm:px-5"
                         >
                             <Github className="w-4 h-4" /> Source
                         </a>

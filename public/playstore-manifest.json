@@ -1,0 +1,156 @@
+{
+  "com.bdjobs.app": {
+    "icon": "/playstore/com.bdjobs.app/icon.png",
+    "screenshots": [
+      "/playstore/com.bdjobs.app/screenshot-1.png",
+      "/playstore/com.bdjobs.app/screenshot-2.png",
+      "/playstore/com.bdjobs.app/screenshot-3.png",
+      "/playstore/com.bdjobs.app/screenshot-4.png",
+      "/playstore/com.bdjobs.app/screenshot-5.png",
+      "/playstore/com.bdjobs.app/screenshot-6.png",
+      "/playstore/com.bdjobs.app/screenshot-7.png",
+      "/playstore/com.bdjobs.app/screenshot-8.png"
+    ]
+  },
+  "com.bdj.deliverytiger.app": {
+    "icon": "/playstore/com.bdj.deliverytiger.app/icon.png",
+    "screenshots": [
+      "/playstore/com.bdj.deliverytiger.app/screenshot-1.png",
+      "/playstore/com.bdj.deliverytiger.app/screenshot-2.png",
+      "/playstore/com.bdj.deliverytiger.app/screenshot-3.png",
+      "/playstore/com.bdj.deliverytiger.app/screenshot-4.png",
+      "/playstore/com.bdj.deliverytiger.app/screenshot-5.png",
+      "/playstore/com.bdj.deliverytiger.app/screenshot-6.png",
+      "/playstore/com.bdj.deliverytiger.app/screenshot-7.png",
+      "/playstore/com.bdj.deliverytiger.app/screenshot-8.png"
+    ]
+  },
+  "com.braineer.dlskits": {
+    "icon": "/playstore/com.braineer.dlskits/icon.png",
+    "screenshots": [
+      "/playstore/com.braineer.dlskits/screenshot-1.png",
+      "/playstore/com.braineer.dlskits/screenshot-2.png",
+      "/playstore/com.braineer.dlskits/screenshot-3.png",
+      "/playstore/com.braineer.dlskits/screenshot-4.png",
+      "/playstore/com.braineer.dlskits/screenshot-5.png",
+      "/playstore/com.braineer.dlskits/screenshot-6.png",
+      "/playstore/com.braineer.dlskits/screenshot-7.png"
+    ]
+  },
+  "com.niloythings.lanstreamer": {
+    "icon": "/playstore/com.niloythings.lanstreamer/icon.png",
+    "screenshots": [
+      "/playstore/com.niloythings.lanstreamer/screenshot-1.png",
+      "/playstore/com.niloythings.lanstreamer/screenshot-2.png",
+      "/playstore/com.niloythings.lanstreamer/screenshot-3.png",
+      "/playstore/com.niloythings.lanstreamer/screenshot-4.png",
+      "/playstore/com.niloythings.lanstreamer/screenshot-5.png",
+      "/playstore/com.niloythings.lanstreamer/screenshot-6.png",
+      "/playstore/com.niloythings.lanstreamer/screenshot-7.png",
+      "/playstore/com.niloythings.lanstreamer/screenshot-8.png"
+    ]
+  },
+  "com.braineer.shromikseba": {
+    "icon": "/playstore/com.braineer.shromikseba/icon.png",
+    "screenshots": [
+      "/playstore/com.braineer.shromikseba/screenshot-1.png",
+      "/playstore/com.braineer.shromikseba/screenshot-2.png",
+      "/playstore/com.braineer.shromikseba/screenshot-3.png",
+      "/playstore/com.braineer.shromikseba/screenshot-4.png",
+      "/playstore/com.braineer.shromikseba/screenshot-5.png",
+      "/playstore/com.braineer.shromikseba/screenshot-6.png",
+      "/playstore/com.braineer.shromikseba/screenshot-7.png",
+      "/playstore/com.braineer.shromikseba/screenshot-8.png"
+    ]
+  },
+  "com.braineer.projectscan": {
+    "icon": "/playstore/com.braineer.projectscan/icon.png",
+    "screenshots": [
+      "/playstore/com.braineer.projectscan/screenshot-1.png",
+      "/playstore/com.braineer.projectscan/screenshot-2.png",
+      "/playstore/com.braineer.projectscan/screenshot-3.png",
+      "/playstore/com.braineer.projectscan/screenshot-4.png",
+      "/playstore/com.braineer.projectscan/screenshot-5.png",
+      "/playstore/com.braineer.projectscan/screenshot-6.png",
+      "/playstore/com.braineer.projectscan/screenshot-7.png",
+      "/playstore/com.braineer.projectscan/screenshot-8.png"
+    ]
+  },
+  "com.niloythings.ledgify": {
+    "icon": "/playstore/com.niloythings.ledgify/icon.png",
+    "screenshots": [
+      "/playstore/com.niloythings.ledgify/screenshot-1.png",
+      "/playstore/com.niloythings.ledgify/screenshot-2.png",
+      "/playstore/com.niloythings.ledgify/screenshot-3.png",
+      "/playstore/com.niloythings.ledgify/screenshot-4.png",
+      "/playstore/com.niloythings.ledgify/screenshot-5.png",
+      "/playstore/com.niloythings.ledgify/screenshot-6.png"
+    ]
+  },
+  "com.braineer.dsmartrecovery": {
+    "icon": "/playstore/com.braineer.dsmartrecovery/icon.png",
+    "screenshots": [
+      "/playstore/com.braineer.dsmartrecovery/screenshot-1.png",
+      "/playstore/com.braineer.dsmartrecovery/screenshot-2.png",
+      "/playstore/com.braineer.dsmartrecovery/screenshot-3.png",
+      "/playstore/com.braineer.dsmartrecovery/screenshot-4.png",
+      "/playstore/com.braineer.dsmartrecovery/screenshot-5.png"
+    ]
+  },
+  "com.braineer.weatherbilli": {
+    "icon": "/playstore/com.braineer.weatherbilli/icon.png",
+    "screenshots": [
+      "/playstore/com.braineer.weatherbilli/screenshot-1.png",
+      "/playstore/com.braineer.weatherbilli/screenshot-2.png",
+      "/playstore/com.braineer.weatherbilli/screenshot-3.png",
+      "/playstore/com.braineer.weatherbilli/screenshot-4.png",
+      "/playstore/com.braineer.weatherbilli/screenshot-5.png"
+    ]
+  },
+  "com.braineer.scheduler": {
+    "icon": "/playstore/com.braineer.scheduler/icon.png",
+    "screenshots": [
+      "/playstore/com.braineer.scheduler/screenshot-1.png",
+      "/playstore/com.braineer.scheduler/screenshot-2.png",
+      "/playstore/com.braineer.scheduler/screenshot-3.png",
+      "/playstore/com.braineer.scheduler/screenshot-4.png",
+      "/playstore/com.braineer.scheduler/screenshot-5.png",
+      "/playstore/com.braineer.scheduler/screenshot-6.png",
+      "/playstore/com.braineer.scheduler/screenshot-7.png"
+    ]
+  },
+  "com.braineer.funwithelements": {
+    "icon": "/playstore/com.braineer.funwithelements/icon.png",
+    "screenshots": [
+      "/playstore/com.braineer.funwithelements/screenshot-1.png",
+      "/playstore/com.braineer.funwithelements/screenshot-2.png",
+      "/playstore/com.braineer.funwithelements/screenshot-3.png",
+      "/playstore/com.braineer.funwithelements/screenshot-4.png",
+      "/playstore/com.braineer.funwithelements/screenshot-5.png",
+      "/playstore/com.braineer.funwithelements/screenshot-6.png"
+    ]
+  },
+  "com.braineer.tictactoeshape": {
+    "icon": "/playstore/com.braineer.tictactoeshape/icon.png",
+    "screenshots": [
+      "/playstore/com.braineer.tictactoeshape/screenshot-1.png",
+      "/playstore/com.braineer.tictactoeshape/screenshot-2.png",
+      "/playstore/com.braineer.tictactoeshape/screenshot-3.png",
+      "/playstore/com.braineer.tictactoeshape/screenshot-4.png",
+      "/playstore/com.braineer.tictactoeshape/screenshot-5.png",
+      "/playstore/com.braineer.tictactoeshape/screenshot-6.png",
+      "/playstore/com.braineer.tictactoeshape/screenshot-7.png",
+      "/playstore/com.braineer.tictactoeshape/screenshot-8.png"
+    ]
+  },
+  "apple_6745175628": {
+    "icon": "/playstore/apple_6745175628/icon.png",
+    "screenshots": [
+      "/playstore/apple_6745175628/screenshot-1.png",
+      "/playstore/apple_6745175628/screenshot-2.png",
+      "/playstore/apple_6745175628/screenshot-3.png",
+      "/playstore/apple_6745175628/screenshot-4.png",
+      "/playstore/apple_6745175628/screenshot-5.png"
+    ]
+  }
+}

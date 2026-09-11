@@ -169,9 +169,9 @@ function ToolModal({ tool, onClose }: { tool: ToolType; onClose: () => void }) {
     }, [onClose]);
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6">
             <motion.div
-                className="absolute inset-0 bg-background/95 backdrop-blur-sm"
+                className="fixed inset-0 bg-background/90 backdrop-blur-md"
                 onClick={onClose}
                 variants={backdropVariants}
                 initial="hidden"
@@ -179,20 +179,23 @@ function ToolModal({ tool, onClose }: { tool: ToolType; onClose: () => void }) {
                 exit="exit"
             />
             <motion.div
-                className="relative w-full max-w-2xl max-h-[90vh] overflow-y-auto border border-border rounded-md bg-card p-6 sm:p-8"
+                className="relative w-full max-w-2xl max-h-[88vh] border border-border rounded-xl bg-card shadow-2xl z-10 flex flex-col overflow-hidden"
                 variants={modalVariants}
                 initial="hidden"
                 animate="visible"
                 exit="exit"
+                onClick={(e) => e.stopPropagation()}
             >
-                <button
-                    onClick={onClose}
-                    className="absolute top-4 right-4 w-9 h-9 rounded-sm border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors z-10"
-                    aria-label="Close modal"
-                >
-                    <X className="w-4 h-4" />
-                </button>
-                <div>
+                <div className="flex justify-end p-4 pb-2 border-b border-border/60 shrink-0 bg-card">
+                    <button
+                        onClick={onClose}
+                        className="w-9 h-9 rounded-md border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors"
+                        aria-label="Close modal"
+                    >
+                        <X className="w-4 h-4" />
+                    </button>
+                </div>
+                <div className="overflow-y-auto overscroll-contain p-6 sm:p-8 flex-1 [touch-action:pan-y] [-webkit-overflow-scrolling:touch]">
                     {tool === "json" && <JsonFormatterTool />}
                     {tool === "jwt" && <JwtDecoderTool />}
                     {tool === "regex" && <RegexTesterTool />}

@@ -6,6 +6,7 @@ export interface Project {
     description: string;
     longDescription: string;
     image: string;
+    customImage?: string;
     tech: string[];
     category: string;
     impact: string;
@@ -28,32 +29,11 @@ export interface MicroApp {
 
 export const EARLY_APPS: MicroApp[] = [
     {
-        title: "Project Scan",
-        tagline: "Generate, scan, and share QR codes.",
-        image: "/apps/projectscan.webp",
-        installs: "1K+",
-        playStore: "https://play.google.com/store/apps/details?id=com.braineer.projectscan",
-    },
-    {
-        title: "Ledgify",
-        tagline: "Expense tracking, debt management & PDF reports.",
-        image: "/apps/ledgify.webp",
-        installs: "10+",
-        playStore: "https://play.google.com/store/apps/details?id=com.niloythings.ledgify",
-    },
-    {
         title: "D Smart Recovery",
         tagline: "Quickly restore recently deleted files.",
         image: "/apps/dsmartrecovery.webp",
         installs: "100+",
         playStore: "https://play.google.com/store/apps/details?id=com.braineer.dsmartrecovery",
-    },
-    {
-        title: "Billi Weather",
-        tagline: "A personal weather assistant.",
-        image: "/apps/billiweather.webp",
-        installs: "100+",
-        playStore: "https://play.google.com/store/apps/details?id=com.braineer.weatherbilli",
     },
     {
         title: "Scheduler",
@@ -86,7 +66,7 @@ export const PROJECTS: Project[] = [
         image: "/projects/futuredesh.png",
         tech: ["Flutter", "Firebase", "Node.js", "Cloud Functions"],
         category: "Mobile",
-        impact: "30K+ Users",
+        impact: "5K+ Users",
         color: "from-red-900/40 to-orange-900/40",
         links: {
             playStore: "https://play.google.com/store/apps/details?id=com.futuredesh.contractFarming",
@@ -98,7 +78,7 @@ export const PROJECTS: Project[] = [
         description: "Official app for Bangladesh's largest job portal — job search, resume tracking, and employer messaging for 5M+ installs.",
         longDescription: "Maintained and shipped features for the core Android app of Bdjobs.com Ltd, Bangladesh's first and largest career management platform, connecting millions of job seekers with over 10,000 employers.",
         image: "/projects/bdjobs.png",
-        tech: ["Android"],
+        tech: ["Android", "Kotlin"],
         category: "Enterprise",
         impact: "5M+ Downloads",
         color: "from-blue-900/40 to-indigo-900/40",
@@ -111,7 +91,7 @@ export const PROJECTS: Project[] = [
         description: "Nationwide courier and parcel delivery marketplace covering 64 districts, with real-time tracking and COD.",
         longDescription: "Courier and parcel booking app for Delivery Tiger, Bdjobs.com Ltd's logistics venture — order pickup, real-time tracking, and digital payments across 64 districts and 492 sub-districts in Bangladesh.",
         image: "/projects/deliverytiger.png",
-        tech: ["Android"],
+        tech: ["Android", "Kotlin"],
         category: "Logistics",
         impact: "1K+ Downloads",
         color: "from-amber-900/40 to-orange-900/40",
@@ -124,12 +104,51 @@ export const PROJECTS: Project[] = [
         description: "Kit, skin, and logo browser for Dream League Soccer with one-tap in-game import — 100K+ downloads.",
         longDescription: "A searchable library of kits, logos, and skins for Dream League Soccer covering major clubs and national teams across every league, refreshed each season. Includes instant copy-paste import into the game and a kit-trivia quiz.",
         image: "/projects/kithub.png",
-        tech: ["Android"],
+        tech: ["Android", "Kotlin", "Firebase", "Cloudflare"],
         category: "Gaming",
         impact: "100K+ Downloads",
         color: "from-pink-900/40 to-rose-900/40",
         links: {
             playStore: "https://play.google.com/store/apps/details?id=com.braineer.dlskits",
+        },
+    },
+    {
+        title: "Project Scan",
+        description: "Fast QR code and barcode scanner, custom code generator, and offline history manager.",
+        longDescription: "A versatile QR and barcode utility app for Android featuring high-accuracy camera scanning, custom QR generation with colors and branding, batch export, and offline history tracking.",
+        image: "/apps/projectscan.webp",
+        tech: ["Android", "Kotlin"],
+        category: "Utility",
+        impact: "1K+ Downloads",
+        color: "from-blue-900/40 to-cyan-900/40",
+        links: {
+            playStore: "https://play.google.com/store/apps/details?id=com.braineer.projectscan",
+        },
+    },
+    {
+        title: "Ledgify",
+        description: "Personal and small-business bookkeeping, debt ledger, and instant PDF statement generator.",
+        longDescription: "An offline-first bookkeeping and expense tracking application enabling users to record debits/credits, track customer dues, generate PDF transaction reports, and manage financial records on-device.",
+        image: "/apps/ledgify.webp",
+        tech: ["Flutter", "Dart", "Hive"],
+        category: "Finance",
+        impact: "10+ Downloads",
+        color: "from-emerald-900/40 to-teal-900/40",
+        links: {
+            playStore: "https://play.google.com/store/apps/details?id=com.niloythings.ledgify",
+        },
+    },
+    {
+        title: "Billi Weather",
+        description: "A personal weather assistant featuring delightful cat animations and hyper-local atmospheric forecasts.",
+        longDescription: "A whimsical yet accurate personal weather app providing real-time forecasts, air quality indices, interactive weather metrics, and hourly predictions paired with adaptive feline mood animations.",
+        image: "/apps/billiweather.webp",
+        tech: ["Flutter", "OpenWeather API"],
+        category: "Weather",
+        impact: "100+ Downloads",
+        color: "from-sky-900/40 to-indigo-900/40",
+        links: {
+            playStore: "https://play.google.com/store/apps/details?id=com.braineer.weatherbilli",
         },
     },
     {

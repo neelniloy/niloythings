@@ -120,33 +120,37 @@ export default function GithubStats() {
         <div>
             <SectionHeading />
 
-            <div className="border border-border rounded-md p-8 space-y-8">
+            <div className="border border-border rounded-md p-5 sm:p-8 space-y-6 sm:space-y-8">
                 {/* Header */}
                 <div className="flex items-center justify-between">
-                    <span className="flex items-center gap-3 eyebrow">
-                        <Github className="w-4 h-4" />
+                    <span className="flex items-center gap-2 sm:gap-3 text-xs sm:text-sm font-mono uppercase tracking-wider font-semibold">
+                        <Github className="w-4 h-4 shrink-0" />
                         @{USERNAME}
                     </span>
                     <a
                         href={`https://github.com/${USERNAME}`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                        className="text-xs sm:text-sm text-muted-foreground hover:text-foreground transition-colors"
                     >
                         View profile ↗
                     </a>
                 </div>
 
-                {/* Stats Grid — no animation, renders immediately */}
+                {/* Stats Grid */}
                 <div className="grid grid-cols-3 border-t border-border">
                     {stats.map((s, i) => (
                         <div
                             key={s.label}
-                            className={`flex flex-col items-center justify-center py-6 text-center gap-2 ${i > 0 ? "border-l border-border" : ""}`}
+                            className={`flex flex-col items-center justify-center py-4 sm:py-6 px-1.5 sm:px-4 text-center gap-1.5 sm:gap-2 min-w-0 ${
+                                i > 0 ? "border-l border-border" : ""
+                            }`}
                         >
                             <span className="text-muted-foreground">{s.icon}</span>
-                            <span className="font-display text-2xl tracking-tight">{s.value}</span>
-                            <span className="eyebrow">{s.label}</span>
+                            <span className="font-display text-xl sm:text-2xl tracking-tight">{s.value}</span>
+                            <span className="text-[10px] sm:text-xs font-mono uppercase tracking-normal sm:tracking-[0.15em] font-semibold text-muted-foreground leading-tight text-center break-words max-w-full">
+                                {s.label}
+                            </span>
                         </div>
                     ))}
                 </div>
