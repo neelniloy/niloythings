@@ -5,7 +5,7 @@
 > **Engineering at the intersection of product and technology.**
 > Building resilient, offline-first mobile systems and scalable digital ventures.
 
-Live Portfolio: **[niloythings.com](https://niloythings.com)** _(Coming Soon)_
+Live Portfolio: **[niloythings.pages.dev](https://niloythings.pages.dev)**
 
 ---
 

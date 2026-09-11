@@ -21,6 +21,7 @@ const fraunces = Fraunces({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://niloythings.pages.dev"),
   title: "Niloy Kumar Sarker | Lead Software Engineer & Product Builder",
   description: "Lead Software Engineer & Product Builder. Building production mobile systems, offline-first architectures, and scalable digital products with Flutter, Kotlin, and modern web.",
   keywords: ["Niloy Kumar Sarker", "Lead Software Engineer", "Mobile Engineer", "Flutter Developer", "Android Developer", "Product Builder", "Futuredesh"],
@@ -28,7 +29,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Niloy Kumar Sarker | Lead Software Engineer & Product Builder",
     description: "Building production mobile systems and shipping useful things.",
-    url: "https://niloythings.com",
+    url: "https://niloythings.pages.dev",
     siteName: "Niloy Things",
     images: [
       {

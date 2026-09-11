@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Trophy, Award, BookOpen } from "lucide-react";
@@ -10,10 +10,13 @@ import {
     sectionViewport,
 } from "@/lib/useAnimations";
 
+import initialImages from "@/public/moments-manifest.json";
+
 interface MomentImage {
     src: string;
     width: number;
     height: number;
+    caption?: string;
 }
 
 const ACHIEVEMENTS = [
@@ -38,16 +41,9 @@ const ACHIEVEMENTS = [
 ];
 
 export default function MomentsGallery() {
-    const [images, setImages] = useState<MomentImage[]>([]);
+    const [images] = useState<MomentImage[]>(initialImages as MomentImage[]);
 
-    useEffect(() => {
-        fetch("/moments-manifest.json")
-            .then((res) => (res.ok ? res.json() : []))
-            .then((data: MomentImage[]) => setImages(data))
-            .catch(() => setImages([]));
-    }, []);
-
-    if (images.length === 0) return null;
+    if (!images || images.length === 0) return null;
 
     return (
         <section className="space-y-10">
@@ -71,10 +67,10 @@ export default function MomentsGallery() {
                     </motion.h2>
                 </div>
 
-                {/* Minimal Authentic Achievements (3-column grid) */}
+                {/* Minimal Authentic Achievements (Adaptive 1-col mobile, 2-col tablet with centered 3rd item, 3-col desktop) */}
                 <motion.div
                     variants={staggerContainer}
-                    className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4"
+                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 sm:[&>*:last-child]:col-span-2 lg:[&>*:last-child]:col-span-1"
                 >
                     {ACHIEVEMENTS.map((item) => {
                         const Icon = item.icon;
@@ -82,21 +78,23 @@ export default function MomentsGallery() {
                             <motion.div
                                 key={item.event}
                                 variants={staggerItem}
-                                className="flex items-center gap-4 p-4 sm:p-5 rounded-md border border-border bg-card/60"
+                                className="flex items-start gap-3.5 sm:gap-4 p-4 sm:p-5 rounded-md border border-border bg-card/60 transition-colors hover:border-primary/30 min-w-0"
                             >
-                                <div className="w-10 h-10 rounded-sm bg-muted border border-border flex items-center justify-center shrink-0 text-primary">
-                                    <Icon className="w-5 h-5" />
+                                <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-sm bg-muted border border-border flex items-center justify-center shrink-0 text-primary mt-0.5">
+                                    <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                                 </div>
-                                <div className="min-w-0">
-                                    <div className="flex items-center gap-2">
-                                        <span className="font-medium text-foreground text-base tracking-tight">
+                                <div className="min-w-0 flex-1">
+                                    <div className="flex items-baseline justify-between gap-2 flex-wrap sm:flex-nowrap">
+                                        <span className="font-medium text-foreground text-sm sm:text-base tracking-tight">
                                             {item.title}
                                         </span>
-                                        <span className="text-xs font-mono text-muted-foreground">
+                                        <span className="text-xs font-mono text-muted-foreground whitespace-nowrap">
                                             · {item.year}
                                         </span>
                                     </div>
-                                    <p className="text-sm text-muted-foreground truncate">{item.event}</p>
+                                    <p className="text-xs sm:text-sm text-muted-foreground leading-snug mt-1 whitespace-normal break-words">
+                                        {item.event}
+                                    </p>
                                 </div>
                             </motion.div>
                         );
@@ -110,13 +108,13 @@ export default function MomentsGallery() {
                 whileInView="visible"
                 viewport={sectionViewport}
                 variants={staggerContainer}
-                className="columns-1 sm:columns-2 lg:columns-3 gap-4 space-y-4"
+                className="columns-1 sm:columns-2 lg:columns-3 gap-3 sm:gap-4 [column-fill:_balance]"
             >
                 {images.map((img) => (
                     <motion.div
                         key={img.src}
                         variants={staggerItem}
-                        className="break-inside-avoid overflow-hidden rounded-md border border-border bg-muted/30"
+                        className="break-inside-avoid mb-3 sm:mb-4 overflow-hidden rounded-md border border-border bg-muted/30"
                     >
                         <Image
                             src={img.src}
@@ -124,7 +122,7 @@ export default function MomentsGallery() {
                             width={img.width || 1200}
                             height={img.height || 800}
                             className="w-full h-auto object-contain block transition-transform duration-500 hover:scale-[1.02]"
-                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         />
                     </motion.div>
                 ))}

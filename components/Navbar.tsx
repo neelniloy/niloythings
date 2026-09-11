@@ -86,7 +86,7 @@ export default function Navbar() {
 
                     <Link
                         href="mailto:niloy64529@gmail.com"
-                        className="hidden md:inline-flex eyebrow items-center gap-2 px-4 py-2.5 border border-border rounded-sm hover:border-foreground hover:text-foreground transition-colors"
+                        className="hidden md:inline-flex eyebrow items-center gap-2 px-4 py-2.5 border border-border rounded-sm bg-transparent text-foreground hover:bg-primary hover:border-primary hover:!text-white hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300"
                     >
                         Say Hello
                     </Link>

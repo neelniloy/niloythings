@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { X, ExternalLink, Github, ArrowUpRight } from "lucide-react";
 import { PROJECTS, type Project } from "@/lib/data";
@@ -171,7 +171,7 @@ function ProjectRow({ project, onClick, index }: { project: Project; onClick: ()
                     src={project.image}
                     alt={project.title}
                     fill
-                    className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                    className="object-cover md:grayscale group-hover:grayscale-0 transition-all duration-700"
                 />
             </div>
 
@@ -183,6 +183,18 @@ function ProjectRow({ project, onClick, index }: { project: Project; onClick: ()
 }
 
 function ProjectModal({ project, onClose }: { project: Project; onClose: () => void }) {
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === "Escape") onClose();
+        };
+        document.body.style.overflow = "hidden";
+        window.addEventListener("keydown", handleKeyDown);
+        return () => {
+            document.body.style.overflow = "unset";
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, [onClose]);
+
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
             <motion.div
@@ -195,7 +207,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             />
 
             <motion.div
-                className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto border border-border rounded-md bg-card p-8 space-y-6"
+                className="relative w-full max-w-2xl max-h-[85vh] overflow-y-auto border border-border rounded-md bg-card p-5 sm:p-8 space-y-6"
                 variants={modalVariants}
                 initial="hidden"
                 animate="visible"
@@ -238,7 +250,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                     )}
                 </div>
 
-                <div className="flex gap-4 pt-4">
+                <div className="flex flex-wrap gap-3 sm:gap-4 pt-4">
                     {project.links.playStore && (
                         <a
                             href={project.links.playStore}

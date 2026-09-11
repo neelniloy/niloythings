@@ -34,7 +34,7 @@ export default function VideoShowcase() {
             const API_KEY = process.env.NEXT_PUBLIC_YOUTUBE_API_KEY;
 
             if (!API_KEY) {
-                setError('Environment Sync Error: NEXT_PUBLIC_YOUTUBE_API_KEY not found.');
+                setError('fallback');
                 setLoading(false);
                 return;
             }

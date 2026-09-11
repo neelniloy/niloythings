@@ -137,7 +137,7 @@ export default function Home() {
               </p>
               <Link
                 href="mailto:niloy64529@gmail.com"
-                className="inline-flex items-center gap-2 eyebrow px-6 py-4 bg-background text-foreground rounded-sm hover:bg-primary hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 eyebrow px-6 py-4 bg-background text-foreground rounded-sm hover:bg-primary hover:!text-white transition-colors"
               >
                 Start a Conversation
                 <ArrowUpRight className="w-4 h-4" />

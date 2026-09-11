@@ -95,7 +95,7 @@ export default function ExperienceTimeline() {
                 </h2>
             </div>
 
-            <div className="relative border-l border-border ml-3 py-4 space-y-16">
+            <div className="relative border-l border-border ml-1.5 sm:ml-3 py-4 space-y-12 sm:space-y-16">
                 {experiences.map((exp, index) => (
                     <motion.div
                         key={index}
@@ -103,34 +103,34 @@ export default function ExperienceTimeline() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: index * 0.1 }}
-                        className="pl-10 relative"
+                        className="pl-6 sm:pl-10 relative"
                     >
                         {/* Company Node */}
                         <span className="absolute -left-[7px] top-1 h-3 w-3 rounded-full bg-background border-2 border-primary" />
 
-                        <div className="mb-8">
-                            <h3 className="font-display text-2xl tracking-tight text-foreground">
+                        <div className="mb-6 sm:mb-8">
+                            <h3 className="font-display text-xl sm:text-2xl tracking-tight text-foreground">
                                 {exp.company}
                             </h3>
-                            <div className="inline-flex items-center gap-2 eyebrow mt-3">
+                            <div className="inline-flex items-center gap-2 eyebrow mt-2 sm:mt-3">
                                 <Calendar className="w-3 h-3 text-primary" />
                                 {exp.totalPeriod}
                             </div>
                         </div>
 
                         {/* Roles */}
-                        <div className="space-y-12">
+                        <div className="space-y-8 sm:space-y-12">
                             {exp.roles.map((role, rIndex) => (
-                                <div key={rIndex} className="relative pl-8 border-l border-border ml-1">
+                                <div key={rIndex} className="relative pl-5 sm:pl-8 border-l border-border ml-0.5 sm:ml-1">
                                     <span className="absolute -left-[4px] top-2 h-2 w-2 rounded-full bg-border" />
-                                    <div className="space-y-3">
-                                        <h4 className="text-xl font-medium text-foreground/90">
+                                    <div className="space-y-2 sm:space-y-3">
+                                        <h4 className="text-lg sm:text-xl font-medium text-foreground/90">
                                             {role.title}
                                         </h4>
                                         <p className="eyebrow text-primary">
                                             {role.period}
                                         </p>
-                                        <p className="text-muted-foreground leading-relaxed text-base max-w-2xl">
+                                        <p className="text-muted-foreground leading-relaxed text-sm sm:text-base max-w-2xl">
                                             {role.description}
                                         </p>
                                     </div>
