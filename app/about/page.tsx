@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, MapPin, Mail } from "lucide-react";
+import { ArrowRight, ArrowUpRight, MapPin, Mail } from "lucide-react";
 import { motion, useInView } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import {
@@ -18,6 +18,7 @@ import GithubStats from "@/components/GithubStats";
 import VideoShowcase from "@/components/VideoShowcase";
 import MomentsGallery from "@/components/MomentsGallery";
 import SocialLinks from "@/components/SocialLinks";
+import { RESUME_URL } from "@/lib/data";
 
 export default function AboutPage() {
     return (
@@ -158,11 +159,20 @@ export default function AboutPage() {
                         I&apos;m open to advisory roles, technical partnerships, and conversations
                         about building impactful products.
                     </motion.p>
-                    <motion.div variants={staggerItem} className="flex flex-wrap items-center gap-6">
+                    <motion.div variants={staggerItem} className="flex flex-wrap items-center gap-4">
                         <Link href="mailto:niloy64529@gmail.com" className="btn-primary">
                             Get in Touch
                             <ArrowRight className="w-4 h-4" />
                         </Link>
+                        <a
+                            href={RESUME_URL}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="btn-outline inline-flex items-center gap-2 group"
+                        >
+                            <span>View Resume</span>
+                            <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+                        </a>
                         <SocialLinks />
                     </motion.div>
                 </div>

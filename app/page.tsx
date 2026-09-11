@@ -11,6 +11,8 @@ import {
   sectionViewport,
 } from "@/lib/useAnimations";
 
+import { RESUME_URL } from "@/lib/data";
+
 export default function Home() {
   return (
     <div className="min-h-screen">
@@ -52,9 +54,15 @@ export default function Home() {
                 View My Work
                 <ArrowRight className="w-4 h-4" />
               </Link>
-              <Link href="/about" className="btn-outline">
-                About Me
-              </Link>
+              <a
+                href={RESUME_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline inline-flex items-center gap-2 group"
+              >
+                <span>Resume</span>
+                <ArrowUpRight className="w-4 h-4 text-muted-foreground group-hover:text-foreground transition-colors" />
+              </a>
             </div>
           </motion.div>
         </motion.div>

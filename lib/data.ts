@@ -1,3 +1,6 @@
+export const RESUME_URL =
+    "https://docs.google.com/document/d/1swG3GHAJ_kmNKgDexxtsPiEjrEmoUIX4IpnJJvtzqN8/edit?usp=sharing";
+
 export interface Project {
     title: string;
     description: string;
