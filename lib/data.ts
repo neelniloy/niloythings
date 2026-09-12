@@ -44,7 +44,7 @@ export const EARLY_APPS: MicroApp[] = [
         image: "/apps/foodcyc.png",
         installs: "Social App",
         tech: ["Android", "Java", "Firebase"],
-        link: "https://github.com/neelniloy",
+        link: "https://drive.google.com/drive/folders/1JeYm7SM7eQrXxlWYI2ddCkgWCtdF9QIE?usp=sharing",
     },
     {
         title: "Scheduler",
