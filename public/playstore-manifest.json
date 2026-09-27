@@ -152,5 +152,20 @@
       "/playstore/apple_6745175628/screenshot-4.png",
       "/playstore/apple_6745175628/screenshot-5.png"
     ]
+  },
+  "com.futuredesh.contract_farming": {
+    "icon": "/playstore/com.futuredesh.contract_farming/icon.png",
+    "screenshots": [
+      "/playstore/com.futuredesh.contract_farming/screenshot-1.png",
+      "/playstore/com.futuredesh.contract_farming/screenshot-2.png",
+      "/playstore/com.futuredesh.contract_farming/screenshot-3.png",
+      "/playstore/com.futuredesh.contract_farming/screenshot-4.png",
+      "/playstore/com.futuredesh.contract_farming/screenshot-5.png",
+      "/playstore/com.futuredesh.contract_farming/screenshot-6.png",
+      "/playstore/com.futuredesh.contract_farming/screenshot-7.png",
+      "/playstore/com.futuredesh.contract_farming/screenshot-8.png",
+      "/playstore/com.futuredesh.contract_farming/screenshot-9.png",
+      "/playstore/com.futuredesh.contract_farming/screenshot-10.png"
+    ]
   }
 }

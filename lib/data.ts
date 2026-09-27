@@ -80,7 +80,7 @@ export const PROJECTS: Project[] = [
         impact: "5K+ Users",
         color: "from-red-900/40 to-orange-900/40",
         links: {
-            playStore: "https://play.google.com/store/apps/details?id=com.futuredesh.contractFarming",
+            playStore: "https://play.google.com/store/apps/details?id=com.futuredesh.contract_farming",
             appStore: "https://apps.apple.com/us/app/futuredesh/id6745175628",
         },
     },

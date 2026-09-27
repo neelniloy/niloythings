@@ -32,26 +32,32 @@ export default function Footer() {
                     </Link>
                 </motion.div>
 
-                <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 pt-4">
-                    <motion.div variants={staggerItem} className="col-span-2 md:col-span-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 pt-4">
+                    <motion.div variants={staggerItem} className="sm:col-span-2 md:col-span-6">
                         <p className="font-display italic text-xl mb-4">
                             Niloy<span className="text-primary not-italic">.</span>
                         </p>
-                        <p className="text-muted-foreground max-w-sm">
+                        <p className="text-muted-foreground max-w-sm mb-4 leading-relaxed">
                             Lead software engineer &amp; product builder. Helping companies ship exceptional digital products.
                         </p>
+                        <a
+                            href="mailto:niloy64529@gmail.com"
+                            className="text-xs eyebrow text-muted-foreground hover:text-primary transition-colors tracking-widest inline-flex items-center gap-2"
+                        >
+                            niloy64529@gmail.com
+                        </a>
                     </motion.div>
 
-                    <motion.div variants={staggerItem}>
+                    <motion.div variants={staggerItem} className="md:col-span-3">
                         <h4 className="eyebrow mb-5">Navigate</h4>
                         <ul className="space-y-3">
+                            <li><Link href="/" className="text-muted-foreground hover:text-foreground transition-colors">Home</Link></li>
                             <li><Link href="/work" className="text-muted-foreground hover:text-foreground transition-colors">Work</Link></li>
                             <li><Link href="/about" className="text-muted-foreground hover:text-foreground transition-colors">About</Link></li>
-                            <li><Link href="/tools" className="text-muted-foreground hover:text-foreground transition-colors">Tools</Link></li>
                         </ul>
                     </motion.div>
 
-                    <motion.div variants={staggerItem}>
+                    <motion.div variants={staggerItem} className="md:col-span-3">
                         <h4 className="eyebrow mb-5">Connect</h4>
                         <ul className="space-y-3">
                             {socials.map((s) => (
@@ -73,10 +79,16 @@ export default function Footer() {
                 <motion.div
                     variants={fadeUp}
                     custom={0.2}
-                    className="pt-10 mt-10 border-t border-border flex flex-col sm:flex-row justify-between gap-2 eyebrow"
+                    className="pt-10 mt-10 border-t border-border flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 eyebrow"
                 >
                     <span>© {currentYear} Niloy Kumar Sarker</span>
-                    <span>Bangladesh — Available for select work</span>
+                    <span className="inline-flex items-center gap-2.5">
+                        <span className="relative flex h-2 w-2">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        </span>
+                        Based in Bangladesh — Available for select work worldwide
+                    </span>
                 </motion.div>
             </div>
         </motion.footer>

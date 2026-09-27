@@ -11,7 +11,6 @@ import { navSlideDown } from "@/lib/useAnimations";
 const navItems = [
     { name: "Work", path: "/work" },
     { name: "About", path: "/about" },
-    { name: "Tools", path: "/tools" },
 ];
 
 export default function Navbar() {
