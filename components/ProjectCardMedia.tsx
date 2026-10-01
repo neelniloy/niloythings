@@ -20,7 +20,7 @@ export default function ProjectCardMedia({ project, className = "" }: ProjectCar
     // Priority 1: Explicit customImage (e.g. Futuredesh 3D mockup)
     if (project.customImage) {
         return (
-            <div className={`relative aspect-[16/10] rounded-md overflow-hidden border border-border bg-neutral-950 flex items-center justify-center ${className}`}>
+            <div className={`relative aspect-[16/10] rounded-xl overflow-hidden border border-border/60 bg-muted/30 flex items-center justify-center ${className}`}>
                 <Image
                     src={project.customImage}
                     alt={project.title}
@@ -48,10 +48,10 @@ export default function ProjectCardMedia({ project, className = "" }: ProjectCar
         const nextIndex = (currentIndex === screenshots.length - 1 ? 0 : currentIndex + 1);
 
         return (
-            <div className={`relative aspect-[16/10] rounded-md overflow-hidden border border-border bg-gradient-to-br from-neutral-950 via-neutral-900 to-neutral-950 flex items-center justify-center p-2.5 sm:p-3 select-none group/carousel ${className}`}>
+            <div className={`relative aspect-[16/10] rounded-xl overflow-hidden border border-border/50 bg-gradient-to-br from-muted/60 via-card to-muted/40 flex items-center justify-center p-2.5 sm:p-3 select-none group/carousel ${className}`}>
                 {/* Ambient background glow from current screenshot */}
                 <div
-                    className="absolute inset-0 bg-cover bg-center opacity-30 blur-2xl scale-125 transition-all duration-700 pointer-events-none"
+                    className="absolute inset-0 bg-cover bg-center opacity-25 blur-2xl scale-125 transition-all duration-700 pointer-events-none"
                     style={{ backgroundImage: `url(${screenshots[currentIndex]})` }}
                 />
 
@@ -169,10 +169,10 @@ export default function ProjectCardMedia({ project, className = "" }: ProjectCar
     const isIcon = fallbackSrc.includes("icon") || fallbackSrc.includes("logo");
 
     return (
-        <div className={`relative aspect-[16/10] rounded-md overflow-hidden border border-border bg-gradient-to-br from-neutral-900 to-neutral-950 flex items-center justify-center p-6 ${className}`}>
+        <div className={`relative aspect-[16/10] rounded-xl overflow-hidden border border-border/50 bg-gradient-to-br from-muted/60 via-card to-muted/40 flex items-center justify-center p-6 ${className}`}>
             {isIcon ? (
                 <div className="flex flex-col items-center gap-3 text-center">
-                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-white/15 bg-neutral-800 shadow-2xl relative">
+                    <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden border border-border bg-card shadow-lg relative">
                         <Image
                             src={fallbackSrc}
                             alt={project.title}

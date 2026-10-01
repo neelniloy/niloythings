@@ -1,10 +1,15 @@
 export const RESUME_URL =
     "https://docs.google.com/document/d/1swG3GHAJ_kmNKgDexxtsPiEjrEmoUIX4IpnJJvtzqN8/edit?usp=sharing";
 
+export type ProjectScope = "Enterprise" | "Independent";
+
 export interface Project {
     title: string;
+    role: string;
+    scope: ProjectScope;
     description: string;
     longDescription: string;
+    architectureHighlights?: string[];
     image: string;
     customImage?: string;
     tech: string[];
@@ -31,6 +36,14 @@ export interface MicroApp {
 
 export const EARLY_APPS: MicroApp[] = [
     {
+        title: "Shromik Seba",
+        tagline: "Labor rights advocacy and legal aid community platform.",
+        image: "/projects/shromikseba.png",
+        installs: "1K+",
+        tech: ["Android", "Kotlin"],
+        playStore: "https://play.google.com/store/apps/details?id=com.braineer.shromikseba",
+    },
+    {
         title: "SpeedBazar",
         tagline: "Online grocery & e-commerce shopping platform.",
         image: "/apps/speedbazar.webp",
@@ -47,37 +60,47 @@ export const EARLY_APPS: MicroApp[] = [
         link: "https://drive.google.com/drive/folders/1JeYm7SM7eQrXxlWYI2ddCkgWCtdF9QIE?usp=sharing",
     },
     {
-        title: "Scheduler",
-        tagline: "A class routine manager.",
-        image: "/apps/scheduler.webp",
-        installs: "10+",
-        playStore: "https://play.google.com/store/apps/details?id=com.braineer.scheduler",
+        title: "D Smart Recovery",
+        tagline: "On-device file and media storage recovery utility.",
+        image: "/apps/dsmartrecovery.webp",
+        installs: "Utility",
+        tech: ["Android", "Kotlin"],
+        playStore: "https://play.google.com/store/apps/details?id=com.braineer.dsmartrecovery",
     },
     {
-        title: "Fun With Elements",
-        tagline: "Learn chemical elements the fun way.",
-        image: "/apps/funwithelements.webp",
-        installs: "10+",
-        playStore: "https://play.google.com/store/apps/details?id=com.braineer.funwithelements",
+        title: "Billi Weather",
+        tagline: "Delightful weather assistant with interactive animations.",
+        image: "/apps/billiweather.webp",
+        installs: "Weather",
+        tech: ["Flutter", "OpenWeather"],
+        playStore: "https://play.google.com/store/apps/details?id=com.braineer.weatherbilli",
     },
     {
-        title: "Tic Tac Toe Shape",
-        tagline: "Free to play, priceless to learn.",
-        image: "/apps/tictactoe.webp",
-        installs: "10+",
-        playStore: "https://play.google.com/store/apps/details?id=com.braineer.tictactoeshape",
+        title: "Ledgify",
+        tagline: "On-device bookkeeping ledger and PDF generator.",
+        image: "/apps/ledgify.webp",
+        installs: "Finance",
+        tech: ["Flutter", "Hive"],
+        playStore: "https://play.google.com/store/apps/details?id=com.niloythings.ledgify",
     },
 ];
 
 export const PROJECTS: Project[] = [
     {
         title: "Futuredesh App",
-        description: "Mobile platform for diaspora communities with offline-first architecture supporting 30K+ users.",
-        longDescription: "Built a complete Flutter-based ecosystem with Firebase backend, implementing advanced offline sync, real-time updates, and native performance optimizations.",
+        role: "Lead Software Engineer",
+        scope: "Enterprise",
+        description: "Architected 0-to-1 offline-first contract-farming ecosystem with resilient local database sync for rural agricultural communities.",
+        longDescription: "Designed, architected, and shipped the core Flutter mobile platform from scratch for Futuredesh Ltd. Engineered a resilient offline-first architecture with local SQLite/Hive caching, bi-directional sync, and optimistic UI updates for rural users with intermittent 2G/3G connectivity. Promoted to Lead Software Engineer to head technical strategy across mobile, backend, and team execution.",
+        architectureHighlights: [
+            "Designed resilient offline-first sync engine handling intermittent connectivity with conflict-free caching.",
+            "Engineered contract-farming workflows, crop telemetry tracking, and digital disbursement monitoring.",
+            "Leading technical architecture, code reviews, release management, and mentoring mobile & backend engineers.",
+        ],
         image: "/projects/futuredesh.png",
-        tech: ["Flutter", "Firebase", "Node.js", "Cloud Functions"],
-        category: "Mobile",
-        impact: "5K+ Users",
+        tech: ["Flutter", "Dart", "Firebase", "Node.js", "SQLite/Hive"],
+        category: "AgriTech & Fintech",
+        impact: "30K+ Users",
         color: "from-red-900/40 to-orange-900/40",
         links: {
             playStore: "https://play.google.com/store/apps/details?id=com.futuredesh.contract_farming",
@@ -86,11 +109,18 @@ export const PROJECTS: Project[] = [
     },
     {
         title: "Bdjobs",
-        description: "Official app for Bangladesh's largest job portal — job search, resume tracking, and employer messaging for 5M+ installs.",
-        longDescription: "Maintained and shipped features for the core Android app of Bdjobs.com Ltd, Bangladesh's first and largest career management platform, connecting millions of job seekers with over 10,000 employers.",
+        role: "Core Android Developer",
+        scope: "Enterprise",
+        description: "Contributed to Bangladesh's #1 career portal app serving millions of job seekers and 10,000+ employers across the country.",
+        longDescription: "Contributed to the flagship Android application for Bdjobs.com Ltd, Bangladesh's largest career management platform. Collaborated within an enterprise engineering team to ship new features across job discovery, application tracking, and employer messaging while modernizing legacy codebase modules with Kotlin and clean architecture.",
+        architectureHighlights: [
+            "Shipped core user-facing features across resume tracking, job discovery filters, and push notification flows for 5M+ installs.",
+            "Refactored legacy Java modules into modern Kotlin with Android Architecture Components (MVVM, Coroutines, Flow).",
+            "Collaborated with cross-functional product managers, QA teams, and backend engineers in scheduled enterprise release trains.",
+        ],
         image: "/projects/bdjobs.png",
-        tech: ["Android", "Kotlin"],
-        category: "Enterprise",
+        tech: ["Android", "Kotlin", "Java", "MVVM", "Coroutines", "REST APIs"],
+        category: "Career Platform",
         impact: "5M+ Downloads",
         color: "from-blue-900/40 to-indigo-900/40",
         links: {
@@ -99,12 +129,19 @@ export const PROJECTS: Project[] = [
     },
     {
         title: "Delivery Tiger",
-        description: "Nationwide courier and parcel delivery marketplace covering 64 districts, with real-time tracking and COD.",
-        longDescription: "Courier and parcel booking app for Delivery Tiger, Bdjobs.com Ltd's logistics venture — order pickup, real-time tracking, and digital payments across 64 districts and 492 sub-districts in Bangladesh.",
+        role: "Android Developer",
+        scope: "Enterprise",
+        description: "Nationwide parcel booking and courier logistics application with real-time tracking and Cash on Delivery (COD) across 64 districts.",
+        longDescription: "Developed and maintained features for Delivery Tiger, Bdjobs.com Ltd's nationwide logistics platform. Built parcel tracking interfaces, automated cash-on-delivery calculations, and rider dispatch communication across all 64 districts and 492 sub-districts in Bangladesh.",
+        architectureHighlights: [
+            "Engineered automated COD accounting and parcel status synchronization across 64 districts.",
+            "Optimized background location tracking and map rendering for logistics riders, reducing battery usage.",
+            "Ensured sub-second barcode dispatch scanning and real-time status updates at distribution hubs.",
+        ],
         image: "/projects/deliverytiger.png",
-        tech: ["Android", "Kotlin"],
+        tech: ["Android", "Kotlin", "Google Maps SDK", "REST APIs"],
         category: "Logistics",
-        impact: "1K+ Downloads",
+        impact: "Nationwide Scope",
         color: "from-amber-900/40 to-orange-900/40",
         links: {
             playStore: "https://play.google.com/store/apps/details?id=com.bdj.deliverytiger.app",
@@ -112,11 +149,18 @@ export const PROJECTS: Project[] = [
     },
     {
         title: "KitHub: Skins for DLS",
-        description: "Kit, skin, and logo browser for Dream League Soccer with one-tap in-game import — 100K+ downloads.",
-        longDescription: "A searchable library of kits, logos, and skins for Dream League Soccer covering major clubs and national teams across every league, refreshed each season. Includes instant copy-paste import into the game and a kit-trivia quiz.",
+        role: "Independent Developer",
+        scope: "Independent",
+        description: "Searchable kit, skin, and graphic browser for Dream League Soccer with one-tap game import and Cloudflare-backed asset CDN.",
+        longDescription: "Conceived, engineered, and independently launched KitHub, reaching over 100K+ organic global downloads on Google Play with a 4.4+ rating. Designed an efficient Cloudflare caching architecture to deliver game assets to hundreds of thousands of active players with minimal latency.",
+        architectureHighlights: [
+            "Scaled independently from 0 to 100K+ organic downloads with high user retention and 4.4★ rating.",
+            "Built Cloudflare Edge CDN caching to stream thousands of high-resolution kits with sub-second asset delivery.",
+            "Implemented instant in-game clipboard deep-linking and interactive trivia module.",
+        ],
         image: "/projects/kithub.png",
-        tech: ["Android", "Kotlin", "Firebase", "Cloudflare"],
-        category: "Gaming",
+        tech: ["Android", "Kotlin", "Cloudflare CDN", "Firebase", "Room DB"],
+        category: "Gaming Utility",
         impact: "100K+ Downloads",
         color: "from-pink-900/40 to-rose-900/40",
         links: {
@@ -124,78 +168,20 @@ export const PROJECTS: Project[] = [
         },
     },
     {
-        title: "Project Scan",
-        description: "Extract image to text, scan barcodes, and generate dynamic QR codes with offline-first OCR.",
-        longDescription: "An all-in-one scanning tool powered by Google ML Kit and ZXing for optical character recognition (OCR), document digitization, and barcode/QR code generation with instant export.",
-        image: "/apps/projectscan.webp",
-        tech: ["Android", "Kotlin", "ML Kit", "ZXing"],
-        category: "Productivity",
-        impact: "500+ Downloads",
-        color: "from-emerald-900/40 to-teal-900/40",
-        links: {
-            playStore: "https://play.google.com/store/apps/details?id=com.braineer.projectscan",
-        },
-    },
-    {
-        title: "D Smart Recovery",
-        description: "Fast and reliable deleted file recovery tool — scans storage to recover lost photos, videos, and documents without root.",
-        longDescription: "A lightweight on-device storage recovery utility for Android that deeply scans internal and external storage to restore accidentally deleted images, video clips, and files without requiring device rooting.",
-        image: "/apps/dsmartrecovery.webp",
-        tech: ["Android", "Kotlin", "Storage API"],
-        category: "Utility",
-        impact: "100+ Downloads",
-        color: "from-teal-900/40 to-cyan-900/40",
-        links: {
-            playStore: "https://play.google.com/store/apps/details?id=com.braineer.dsmartrecovery",
-        },
-    },
-    {
-        title: "Ledgify",
-        description: "Personal and small-business bookkeeping, debt ledger, and instant PDF statement generator.",
-        longDescription: "An offline-first bookkeeping and expense tracking application enabling users to record debits/credits, track customer dues, generate PDF transaction reports, and manage financial records on-device.",
-        image: "/apps/ledgify.webp",
-        tech: ["Flutter", "Dart", "Hive"],
-        category: "Finance",
-        impact: "10+ Downloads",
-        color: "from-emerald-900/40 to-teal-900/40",
-        links: {
-            playStore: "https://play.google.com/store/apps/details?id=com.niloythings.ledgify",
-        },
-    },
-    {
-        title: "Billi Weather",
-        description: "A personal weather assistant featuring delightful cat animations and hyper-local atmospheric forecasts.",
-        longDescription: "A whimsical yet accurate personal weather app providing real-time forecasts, air quality indices, interactive weather metrics, and hourly predictions paired with adaptive feline mood animations.",
-        image: "/apps/billiweather.webp",
-        tech: ["Flutter", "OpenWeather API"],
-        category: "Weather",
-        impact: "100+ Downloads",
-        color: "from-sky-900/40 to-indigo-900/40",
-        links: {
-            playStore: "https://play.google.com/store/apps/details?id=com.braineer.weatherbilli",
-        },
-    },
-    {
-        title: "LAN Streamer",
-        description: "Discovers local FTP and media servers on Bangladesh's BDIX network so users can stream without touching mobile data.",
-        longDescription: "Scans a connected Wi-Fi/ISP network for accessible local media, movie, and FTP servers, then surfaces only the working links in a built-in browser — solving a very Bangladesh-specific problem of navigating BDIX network directories.",
-        image: "/projects/lanstreamer.png",
-        tech: ["Android"],
-        category: "Utility",
-        impact: "10K+ Downloads",
-        color: "from-cyan-900/40 to-teal-900/40",
-        links: {
-            playStore: "https://play.google.com/store/apps/details?id=com.niloythings.lanstreamer",
-        },
-    },
-    {
         title: "LSTV Prime",
-        description: "Multi-platform IPTV player — native apps for Android, Android TV/Fire TV, and Windows, plus a 90+ channel web portfolio.",
-        longDescription: "A cross-platform IPTV suite: Kotlin-native Android and Android TV/Fire TV apps, a Flutter-built Windows desktop app, and a companion web app showcasing 90+ live channels and live sports events directly in the browser. Hardware-accelerated playback, D-Pad remote support, and auto-server failover throughout.",
+        role: "Independent Developer",
+        scope: "Independent",
+        description: "Cross-platform IPTV engine running natively on Android, Android TV/Fire TV, Windows desktop, and the web with auto-server failover.",
+        longDescription: "A high-performance cross-platform IPTV suite: Kotlin-native Android and Android TV/Fire TV apps (with D-Pad remote navigation), a Flutter-built Windows desktop app, and a companion Next.js web application. Includes hardware-accelerated playback and automated server health probing.",
+        architectureHighlights: [
+            "Designed unified streaming playback supporting ExoPlayer (Android), LibVLC (Windows), and HLS.js (Web).",
+            "Implemented dynamic proxy server failover to ensure 99.9% playback availability during live sports events.",
+            "Built seamless 10-foot UI optimized for Android TV remote D-Pad navigation.",
+        ],
         image: "/projects/lstvprime.png",
-        tech: ["Kotlin", "Flutter", "Next.js", "Tailwind", "Cloudflare"],
-        category: "Multi-Platform",
-        impact: "90+ Channels",
+        tech: ["Kotlin", "ExoPlayer", "Flutter", "Next.js", "HLS"],
+        category: "Streaming Media",
+        impact: "Multi-Platform Suite",
         color: "from-red-900/40 to-neutral-900/40",
         links: {
             website: "https://lstvprime.pages.dev/",
@@ -203,16 +189,42 @@ export const PROJECTS: Project[] = [
         },
     },
     {
-        title: "Shromik Seba",
-        description: "Community app for Bangladeshi labor rights advocacy — wage negotiation support, legal aid, and job-training resources for workers.",
-        longDescription: "Built for শ্রমিক সেবা (Shromik Seba), an organization advocating for workers' wages, benefits, and working conditions. Connects members to legal representation, medical assistance, and job-training resources.",
-        image: "/projects/shromikseba.png",
-        tech: ["Android"],
-        category: "Social Impact",
-        impact: "1K+ Downloads",
-        color: "from-emerald-900/40 to-green-900/40",
+        title: "LAN Streamer",
+        role: "Independent Developer",
+        scope: "Independent",
+        description: "Network discovery tool that automatically scans local ISP/BDIX subnets for zero-data media and FTP streaming servers.",
+        longDescription: "Engineered an Android network utility that scans Wi-Fi and ISP subnets to identify active BDIX FTP servers in Bangladesh, allowing users to discover and stream high-bitrate media without consuming mobile data.",
+        architectureHighlights: [
+            "Implemented multi-threaded local IP subnet probing algorithm with automatic protocol detection.",
+            "Engineered integrated browser with hardware video playback directly connected to internal network links.",
+            "Solved a localized infrastructure problem in Bangladesh, achieving 10K+ organic downloads.",
+        ],
+        image: "/projects/lanstreamer.png",
+        tech: ["Android", "Kotlin", "Network Sockets"],
+        category: "Networking",
+        impact: "10K+ Downloads",
+        color: "from-cyan-900/40 to-teal-900/40",
         links: {
-            playStore: "https://play.google.com/store/apps/details?id=com.braineer.shromikseba",
+            playStore: "https://play.google.com/store/apps/details?id=com.niloythings.lanstreamer",
+        },
+    },
+    {
+        title: "Project Scan",
+        role: "Independent Developer",
+        scope: "Independent",
+        description: "Extract image to text, scan barcodes, and generate dynamic QR codes with offline-first OCR powered by Google ML Kit.",
+        longDescription: "An all-in-one scanning tool powered by Google ML Kit and ZXing for optical character recognition (OCR), document digitization, and barcode/QR code generation with instant export.",
+        architectureHighlights: [
+            "Zero-latency on-device OCR pipeline utilizing Google ML Kit with zero cloud API dependency.",
+            "Integrated high-speed 1D/2D barcode generation and vector image export.",
+        ],
+        image: "/apps/projectscan.webp",
+        tech: ["Android", "Kotlin", "Google ML Kit", "ZXing"],
+        category: "Productivity & ML",
+        impact: "On-Device ML Tool",
+        color: "from-emerald-900/40 to-teal-900/40",
+        links: {
+            playStore: "https://play.google.com/store/apps/details?id=com.braineer.projectscan",
         },
     },
 ];

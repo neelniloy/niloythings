@@ -25,42 +25,43 @@ export default function WorkPage() {
 
     return (
         <div className="min-h-screen">
-            <div className="container-wide pt-8 pb-16 md:pt-10">
+            <div className="container-wide pt-8 pb-16 md:pt-12">
                 {/* Header */}
                 <motion.div
-                    className="max-w-3xl mb-12"
+                    className="max-w-3xl mb-10"
                     initial="hidden"
                     animate="visible"
                     variants={staggerContainer}
                 >
-                    <motion.p variants={staggerItem} className="eyebrow mb-6 text-primary">
+                    <motion.p variants={staggerItem} className="eyebrow mb-4 text-primary">
                         Selected Work
                     </motion.p>
                     <motion.h1
                         variants={staggerItem}
-                        className="font-display text-4xl md:text-5xl lg:text-6xl tracking-tight mb-4"
+                        className="font-display text-4xl sm:text-5xl md:text-6xl tracking-tight mb-4"
                     >
-                        Products &amp; Companies
+                        Products &amp; Architecture
                     </motion.h1>
                     <motion.p
                         variants={staggerItem}
-                        className="text-lg md:text-xl text-muted-foreground"
+                        className="text-base sm:text-lg text-muted-foreground max-w-xl leading-relaxed"
                     >
-                        Products I&apos;ve built and companies I&apos;ve helped scale.
+                        Zero-to-one systems, enterprise mobile engineering, and scaled independent products.
                     </motion.p>
                 </motion.div>
 
-                {/* Tab Switcher & Play Console Link */}
+                {/* Clean Control Bar */}
                 <motion.div
-                    className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-10"
+                    className="flex flex-wrap items-center justify-between gap-4 mb-10 pb-4 border-b border-border/60"
                     initial="hidden"
                     animate="visible"
                     variants={staggerItem}
                 >
-                    <div className="inline-flex self-start p-1 rounded-lg bg-muted/50 border border-border/80">
+                    {/* Segmented View Mode Toggle */}
+                    <div className="inline-flex p-1 rounded-lg bg-muted/60 border border-border">
                         <button
                             onClick={() => setViewMode("projects")}
-                            className={`relative px-5 py-2 text-xs font-mono tracking-wider uppercase rounded-md transition-all duration-200 ${
+                            className={`px-5 py-2 text-xs font-mono tracking-wider uppercase rounded-md transition-all duration-200 ${
                                 viewMode === "projects"
                                     ? "bg-background text-foreground shadow-sm font-semibold"
                                     : "text-muted-foreground hover:text-foreground"
@@ -70,7 +71,7 @@ export default function WorkPage() {
                         </button>
                         <button
                             onClick={() => setViewMode("experience")}
-                            className={`relative px-5 py-2 text-xs font-mono tracking-wider uppercase rounded-md transition-all duration-200 ${
+                            className={`px-5 py-2 text-xs font-mono tracking-wider uppercase rounded-md transition-all duration-200 ${
                                 viewMode === "experience"
                                     ? "bg-background text-foreground shadow-sm font-semibold"
                                     : "text-muted-foreground hover:text-foreground"
@@ -80,29 +81,23 @@ export default function WorkPage() {
                         </button>
                     </div>
 
-                    <div className="flex flex-wrap items-center gap-2.5">
+                    {/* Developer Profiles */}
+                    <div className="flex items-center gap-2.5 text-xs font-mono">
                         <a
                             href="https://play.google.com/store/apps/dev?id=6986460577323497498"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 eyebrow px-3.5 py-2 rounded-md border border-border bg-card hover:border-primary hover:text-primary transition-colors text-xs font-mono group"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-md border border-border bg-card/60 hover:border-primary hover:text-primary transition-colors text-muted-foreground group"
                         >
-                            <svg className="w-3.5 h-3.5 fill-current text-primary" viewBox="0 0 24 24">
-                                <path d="M3.609 1.814L13.792 12 3.61 22.186a2.372 2.372 0 0 1-.61-1.638V3.452c0-.624.225-1.2.609-1.638zm11.237 11.24l2.583-2.583-11.58-6.68 8.997 9.263zm2.583-2.583l3.655 2.11c1.298.75 1.298 1.97 0 2.72l-3.655 2.11-2.228-2.228 2.228-2.712zm-2.583 2.583l-8.997 9.263 11.58-6.68-2.583-2.583z"/>
-                            </svg>
                             <span>Play Console</span>
                             <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
                         </a>
-
                         <a
                             href="https://apps.apple.com/us/developer/futuredesh-limited/id1811118227"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="inline-flex items-center gap-2 eyebrow px-3.5 py-2 rounded-md border border-border bg-card hover:border-primary hover:text-primary transition-colors text-xs font-mono group"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-md border border-border bg-card/60 hover:border-primary hover:text-primary transition-colors text-muted-foreground group"
                         >
-                            <svg className="w-3.5 h-3.5 fill-current text-primary" viewBox="0 0 24 24">
-                                <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 1.01-2.87-.9.04-1.99.6-2.64 1.35-.57.65-1.07 1.71-.93 2.74 1.01.08 2.04-.57 2.56-1.22z"/>
-                            </svg>
                             <span>App Store</span>
                             <ArrowUpRight className="w-3.5 h-3.5 text-muted-foreground group-hover:text-primary transition-colors" />
                         </a>
@@ -114,14 +109,14 @@ export default function WorkPage() {
                     {viewMode === "projects" ? (
                         <motion.div
                             key="projects"
-                            initial="hidden"
-                            animate="visible"
-                            exit={{ opacity: 0, y: 20, transition: { duration: 0.2 } }}
-                            variants={staggerContainer}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0, y: 15, transition: { duration: 0.15 } }}
+                            transition={{ duration: 0.2 }}
                         >
-                            <div className="border-t border-border">
+                            <div className="space-y-6 sm:space-y-8">
                                 {PROJECTS.map((project, index) => (
-                                    <ProjectRow
+                                    <ProjectBentoCard
                                         key={project.title}
                                         project={project}
                                         index={index}
@@ -137,10 +132,10 @@ export default function WorkPage() {
                     ) : (
                         <motion.div
                             key="experience"
-                            initial={{ opacity: 0, y: 20 }}
+                            initial={{ opacity: 0, y: 15 }}
                             animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: 20, transition: { duration: 0.2 } }}
-                            transition={{ duration: 0.5 }}
+                            exit={{ opacity: 0, y: 15, transition: { duration: 0.15 } }}
+                            transition={{ duration: 0.4 }}
                         >
                             <ExperienceTimeline />
                         </motion.div>
@@ -158,46 +153,91 @@ export default function WorkPage() {
     );
 }
 
-function ProjectRow({ project, onClick, index }: { project: Project; onClick: () => void; index: number }) {
+function ProjectBentoCard({ project, onClick, index }: { project: Project; onClick: () => void; index: number }) {
     return (
         <motion.div
             onClick={onClick}
             role="button"
             tabIndex={0}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: Math.min(index * 0.06, 0.3) }}
             onKeyDown={(e) => {
                 if (e.key === "Enter" || e.key === " ") {
                     e.preventDefault();
                     onClick();
                 }
             }}
-            className="group w-full text-left border-b border-border py-10 grid md:grid-cols-12 gap-6 md:gap-8 items-center cursor-pointer"
-            variants={staggerItem}
+            className="group relative w-full text-left p-6 sm:p-8 lg:p-10 rounded-2xl sm:rounded-3xl border border-border/80 bg-card hover:border-primary/40 hover:shadow-xl transition-all duration-500 cursor-pointer overflow-hidden"
         >
-            <span className="num text-sm text-muted-foreground md:col-span-1">
-                {String(index + 1).padStart(2, "0")}
-            </span>
+            {/* Ambient Background Accent Glow on Hover */}
+            <div className="absolute -right-24 -top-24 w-96 h-96 rounded-full bg-primary/[0.03] blur-3xl group-hover:bg-primary/[0.08] transition-all duration-700 pointer-events-none" />
 
-            <div className="md:col-span-6 space-y-3">
-                <p className="eyebrow text-primary">{project.category}</p>
-                <h3 className="font-display text-2xl md:text-3xl tracking-tight group-hover:text-primary transition-colors">
-                    {project.title}
-                </h3>
-                <p className="text-muted-foreground max-w-lg leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-x-4 gap-y-1 pt-1">
-                    {project.tech.map((t) => (
-                        <span key={t} className="text-xs text-muted-foreground font-mono">
-                            {t}
+            <div className="relative z-10 grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+                {/* Left Content Column */}
+                <div className="lg:col-span-7 space-y-4">
+                    {/* Unified Meta Header */}
+                    <div className="flex flex-wrap items-center gap-3">
+                        <span className="inline-flex items-center px-2.5 py-0.5 rounded-full text-[10px] font-mono uppercase tracking-wider font-semibold bg-primary/10 text-primary border border-primary/25 shrink-0">
+                            {project.scope}
                         </span>
-                    ))}
+                        <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
+                            <span className="text-muted-foreground/50 font-medium">
+                                {String(index + 1).padStart(2, "0")}
+                            </span>
+                            <span className="text-muted-foreground/30">/</span>
+                            <span className="eyebrow text-muted-foreground font-medium">
+                                {project.category}
+                            </span>
+                            {project.impact && (
+                                <>
+                                    <span className="text-muted-foreground/30">/</span>
+                                    <span className="text-foreground/80 font-medium text-[11px]">
+                                        {project.impact}
+                                    </span>
+                                </>
+                            )}
+                        </div>
+                    </div>
+
+                    {/* Title with integrated hover indicator */}
+                    <div>
+                        <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl tracking-tight text-foreground group-hover:text-primary transition-colors inline-flex items-center gap-2.5">
+                            <span>{project.title}</span>
+                            <ArrowUpRight className="w-5 h-5 text-muted-foreground/40 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all shrink-0" />
+                        </h3>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-muted-foreground leading-relaxed text-sm sm:text-base max-w-xl">
+                        {project.description}
+                    </p>
+
+                    {/* Tech Chips */}
+                    <div className="flex flex-wrap gap-1.5 pt-1">
+                        {project.tech.map((t) => (
+                            <span
+                                key={t}
+                                className="px-2.5 py-1 rounded-md text-xs font-mono bg-muted/60 text-muted-foreground border border-border/60"
+                            >
+                                {t}
+                            </span>
+                        ))}
+                    </div>
+
+                    {/* Interactive Prompt Hint */}
+                    <div className="pt-2 flex items-center gap-1.5 text-xs font-mono text-muted-foreground/80 group-hover:text-primary transition-colors">
+                        <span>Explore Architecture &amp; Case Study</span>
+                        <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </div>
                 </div>
-            </div>
 
-            <div className="md:col-span-4">
-                <ProjectCardMedia project={project} />
-            </div>
-
-            <div className="md:col-span-1 flex md:justify-end">
-                <ArrowUpRight className="w-6 h-6 text-muted-foreground -translate-x-1 translate-y-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-0 group-hover:translate-y-0 group-hover:text-primary transition-all" />
+                {/* Right Media Preview Column */}
+                <div className="lg:col-span-5">
+                    <div className="rounded-xl overflow-hidden shadow-sm group-hover:shadow-md transition-shadow">
+                        <ProjectCardMedia project={project} />
+                    </div>
+                </div>
             </div>
         </motion.div>
     );
@@ -223,7 +263,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
     return (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6">
             <motion.div
-                className="fixed inset-0 bg-background/90 backdrop-blur-md"
+                className="fixed inset-0 bg-background/80 backdrop-blur-md"
                 onClick={onClose}
                 variants={backdropVariants}
                 initial="hidden"
@@ -232,7 +272,7 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
             />
 
             <motion.div
-                className="relative w-full max-w-2xl max-h-[88vh] bg-card border border-border rounded-xl shadow-2xl z-10 flex flex-col overflow-hidden"
+                className="relative w-full max-w-2xl max-h-[90vh] bg-card border border-border rounded-xl shadow-2xl z-10 flex flex-col overflow-hidden"
                 variants={modalVariants}
                 initial="hidden"
                 animate="visible"
@@ -240,14 +280,14 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                 onClick={(e) => e.stopPropagation()}
             >
                 {/* Fixed Header */}
-                <div className="flex items-start justify-between p-5 sm:p-6 pb-4 border-b border-border/60 shrink-0 bg-card">
+                <div className="flex items-start justify-between p-5 sm:p-6 pb-4 border-b border-border/80 shrink-0 bg-card">
                     <div>
                         <p className="eyebrow text-primary mb-1">{project.category}</p>
                         <h2 className="font-display text-2xl md:text-3xl tracking-tight">{project.title}</h2>
                     </div>
                     <button
                         onClick={onClose}
-                        className="w-9 h-9 rounded-md border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors shrink-0 ml-4"
+                        className="w-8 h-8 rounded-md border border-border flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground transition-colors shrink-0 ml-4"
                         aria-label="Close modal"
                     >
                         <X className="w-4 h-4" />
@@ -256,15 +296,33 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
 
                 {/* Scrollable Content Body */}
                 <div className="overflow-y-auto overscroll-contain p-5 sm:p-6 space-y-6 flex-1 [touch-action:pan-y] [-webkit-overflow-scrolling:touch]">
-                    {/* Hero preview or Screenshots carousel */}
+                    {/* 3-Column Context Strip */}
+                    <div className="grid grid-cols-3 divide-x divide-border border border-border rounded-lg bg-muted/20 text-center py-3 px-1">
+                        <div className="px-2">
+                            <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground block mb-0.5">Scope</span>
+                            <span className="text-xs sm:text-sm font-semibold block truncate text-primary">
+                                {project.scope}
+                            </span>
+                        </div>
+                        <div className="px-2">
+                            <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground block mb-0.5">Category</span>
+                            <span className="text-xs sm:text-sm font-medium text-foreground block truncate">{project.category}</span>
+                        </div>
+                        <div className="px-2">
+                            <span className="text-[10px] font-mono uppercase tracking-wider text-muted-foreground block mb-0.5">Scale</span>
+                            <span className="text-xs sm:text-sm font-medium text-foreground block truncate">{project.impact}</span>
+                        </div>
+                    </div>
+
+                    {/* Hero Preview or Screenshots Carousel */}
                     {screenshots.length > 0 ? (
                         <div className="space-y-3">
                             <p className="eyebrow">Screenshots ({screenshots.length})</p>
-                            <div className="flex gap-4 overflow-x-auto pb-3 scrollbar-thin snap-x pt-1 [touch-action:pan-x]">
+                            <div className="flex gap-3 overflow-x-auto pb-3 scrollbar-thin snap-x pt-1 [touch-action:pan-x]">
                                 {screenshots.map((s, idx) => (
                                     <div
                                         key={idx}
-                                        className="relative w-36 sm:w-44 aspect-[9/19.5] shrink-0 rounded-[14px] overflow-hidden snap-start bg-transparent drop-shadow-lg"
+                                        className="relative w-36 sm:w-44 aspect-[9/19.5] shrink-0 rounded-xl overflow-hidden snap-start bg-transparent drop-shadow-md border border-border/40"
                                     >
                                         <Image
                                             src={s}
@@ -283,42 +341,53 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                         </div>
                     )}
 
-                    <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{project.longDescription}</p>
+                    {/* Overview */}
+                    <div className="space-y-2">
+                        <p className="eyebrow">Overview</p>
+                        <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">{project.longDescription}</p>
+                    </div>
 
-                    <div className="space-y-4 pt-4 border-t border-border">
-                        <div>
-                            <p className="eyebrow mb-3">Tech Stack</p>
-                            <div className="flex flex-wrap gap-2">
-                                {project.tech.map((t: string) => (
-                                    <span
-                                        key={t}
-                                        className="px-3 py-1.5 text-xs font-mono border border-border rounded-sm text-muted-foreground"
-                                    >
-                                        {t}
-                                    </span>
+                    {/* Key Architecture & Technical Highlights */}
+                    {project.architectureHighlights && project.architectureHighlights.length > 0 && (
+                        <div className="space-y-3 pt-3 border-t border-border">
+                            <p className="eyebrow text-foreground">Key Architecture &amp; Technical Highlights</p>
+                            <ul className="space-y-2">
+                                {project.architectureHighlights.map((highlight, idx) => (
+                                    <li key={idx} className="text-xs sm:text-sm text-muted-foreground flex items-start gap-2.5 leading-relaxed bg-muted/20 p-2.5 rounded-md border border-border/40">
+                                        <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
+                                        <span>{highlight}</span>
+                                    </li>
                                 ))}
-                            </div>
+                            </ul>
                         </div>
+                    )}
 
-                        {project.impact && (
-                            <div>
-                                <p className="eyebrow mb-2">Impact</p>
-                                <p className="font-display text-xl tracking-tight">{project.impact}</p>
-                            </div>
-                        )}
+                    {/* Tech Stack Chips */}
+                    <div className="space-y-3 pt-2 border-t border-border">
+                        <p className="eyebrow">Tech Stack</p>
+                        <div className="flex flex-wrap gap-1.5">
+                            {project.tech.map((t: string) => (
+                                <span
+                                    key={t}
+                                    className="px-2.5 py-1 text-xs font-mono bg-muted/50 border border-border rounded text-muted-foreground"
+                                >
+                                    {t}
+                                </span>
+                            ))}
+                        </div>
                     </div>
                 </div>
 
-                {/* Fixed Footer with Links */}
-                <div className="p-4 sm:p-6 pt-3 border-t border-border/60 bg-card/95 backdrop-blur-sm shrink-0 flex flex-wrap gap-3">
+                {/* Fixed Footer with Clean Links */}
+                <div className="p-4 sm:p-5 border-t border-border/80 bg-card/95 backdrop-blur-sm shrink-0 flex flex-wrap gap-3">
                     {project.links.playStore && (
                         <a
                             href={project.links.playStore}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-primary text-xs py-2.5 px-4 sm:py-3 sm:px-5"
+                            className="btn-primary text-xs py-2 px-4 inline-flex items-center gap-1.5"
                         >
-                            <ExternalLink className="w-4 h-4" /> {project.links.appStore ? "Google Play" : "View App"}
+                            <ExternalLink className="w-3.5 h-3.5" /> {project.links.appStore ? "Google Play" : "View App"}
                         </a>
                     )}
                     {project.links.appStore && (
@@ -326,9 +395,9 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                             href={project.links.appStore}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-outline text-xs py-2.5 px-4 sm:py-3 sm:px-5"
+                            className="btn-outline text-xs py-2 px-4 inline-flex items-center gap-1.5"
                         >
-                            <ExternalLink className="w-4 h-4" /> App Store
+                            <ExternalLink className="w-3.5 h-3.5" /> App Store
                         </a>
                     )}
                     {project.links.website && (
@@ -336,9 +405,9 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                             href={project.links.website}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-primary text-xs py-2.5 px-4 sm:py-3 sm:px-5"
+                            className="btn-primary text-xs py-2 px-4 inline-flex items-center gap-1.5"
                         >
-                            <ExternalLink className="w-4 h-4" /> Visit Site
+                            <ExternalLink className="w-3.5 h-3.5" /> Visit Site
                         </a>
                     )}
                     {project.links.github && (
@@ -346,9 +415,9 @@ function ProjectModal({ project, onClose }: { project: Project; onClose: () => v
                             href={project.links.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="btn-outline text-xs py-2.5 px-4 sm:py-3 sm:px-5"
+                            className="btn-outline text-xs py-2 px-4 inline-flex items-center gap-1.5"
                         >
-                            <Github className="w-4 h-4" /> Source
+                            <Github className="w-3.5 h-3.5" /> Source
                         </a>
                     )}
                 </div>

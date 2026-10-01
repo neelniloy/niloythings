@@ -48,7 +48,9 @@ export default function EarlyWork() {
                         </div>
                         {app.installs && (
                             <span className="eyebrow text-primary">
-                                {app.installs.includes("+") ? `${app.installs} Installs` : app.installs}
+                                {app.installs.toLowerCase().includes("install")
+                                    ? app.installs
+                                    : `${app.installs} Installs`}
                             </span>
                         )}
                     </motion.a>
